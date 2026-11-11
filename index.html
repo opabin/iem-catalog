@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY METAL ARSENAL | IEM Collection Catalog</title>
+<meta name="description" content="メタルばかり聴く人間による、所持IEMのカタログ。メタル適性ランク・担当ジャンル・ケーブル運用まで。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://opabin.github.io/iem-catalog/">
+<meta property="og:title" content="MY METAL ARSENAL | IEM Collection Catalog">
+<meta property="og:description" content="メタルばかり聴く人間による、所持IEMのカタログ。メタル適性ランク・担当ジャンル・ケーブル運用まで。">
+<meta property="og:image" content="https://opabin.github.io/iem-catalog/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080c;--bg-card:#111116;--bg-hover:#16161d;
+  --border:#1e1e28;--border-hover:#2a2a38;
+  --text:#ede9e3;--text-sub:#9a9a9a;--text-dim:#6e6e6e;--text-dark:#585858;
+  --dd:#f4a261;--ba:#48bfe3;--planar:#9b5de5;--piezo:#e879a0;
+  /* Typography scale: base is mobile, bumped via media queries below */
+  --fs-2xs:11px;--fs-xs:12px;--fs-sm:13px;--fs-base:14px;--fs-md:15px;--fs-lg:17px;--fs-xl:22px;--fs-2xl:24px;
+}
+@media(min-width:480px){
+  :root{ --fs-2xs:13px;--fs-xs:14px;--fs-sm:15px;--fs-base:16px;--fs-md:17px;--fs-lg:19px;--fs-xl:24px;--fs-2xl:26px; }
+}
+@media(min-width:768px){
+  :root{ --fs-2xs:15px;--fs-xs:16px;--fs-sm:17px;--fs-base:18px;--fs-md:19px;--fs-lg:21px;--fs-xl:26px;--fs-2xl:28px; }
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;min-height:100vh;overflow-x:hidden}
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:9999}
+.hero{text-align:center;padding:56px 24px 32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:600px;height:600px;
+  background:radial-gradient(circle,#4361ee08 0%,transparent 70%);pointer-events:none}
+.hero-sub{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--text-dark);font-weight:600;margin-bottom:14px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,7vw,52px);font-weight:700;
+  background:linear-gradient(135deg,var(--text) 30%,#777);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
+.stats{display:flex;justify-content:center;gap:40px;margin-top:24px}
+.stat-num{font-family:'JetBrains Mono',monospace;font-size:var(--fs-2xl);font-weight:700;color:var(--text)}
+.stat-label{font-size:var(--fs-xs);color:var(--text-dim);margin-top:2px}
+.stats .divider{width:1px;background:var(--border);align-self:stretch}
+/* Main tabs (所持 / 検討中) */
+.main-tabs{display:flex;justify-content:center;gap:8px;margin-top:28px}
+.main-tab{padding:10px 28px;border-radius:24px;border:1px solid var(--border);background:var(--bg-card);
+  color:var(--text-dim);font-size:var(--fs-base);font-weight:600;font-family:'Noto Sans JP',sans-serif;cursor:pointer;
+  transition:.25s;letter-spacing:.02em}
+.main-tab:hover{color:var(--text-sub);border-color:var(--border-hover)}
+.main-tab.active{color:var(--text);border-color:#4361ee60;background:#4361ee14;box-shadow:0 0 0 1px #4361ee20 inset}
+.main-tab.active.wishlist{border-color:#ff8c4260;background:#ff8c4214;box-shadow:0 0 0 1px #ff8c4220 inset}
+.wishlist-badge{display:inline-block;padding:2px 9px;border-radius:10px;font-size:var(--fs-2xs);font-weight:700;
+  margin-top:3px;margin-left:10px;letter-spacing:.04em;color:#ff8c42;background:#ff8c4218;border:1px solid #ff8c4230}
+.wishlist-price-note{font-size:var(--fs-2xs);color:var(--text-dark);font-weight:500;margin-top:2px;padding-left:10px}
+.legend{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;padding:12px 0 28px;font-size:var(--fs-xs);color:var(--text-dim)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;padding:0 20px 28px}
+.filter-btn{padding:6px 15px;border-radius:20px;border:1px solid transparent;background:transparent;
+  color:var(--text-dim);font-size:var(--fs-sm);font-family:'Noto Sans JP',sans-serif;cursor:pointer;transition:.2s}
+.filter-btn:hover{color:var(--text-sub);border-color:var(--border)}
+.filter-btn.active{background:var(--bg-card);color:var(--text);border-color:var(--border-hover)}
+.container{max-width:800px;margin:0 auto;padding:0 16px 60px}
+@media(min-width:1200px){
+  .container{max-width:1400px;column-count:2;column-gap:32px}
+  .brand-section{break-inside:avoid-column}
+}
+.brand-section{margin-bottom:32px;animation:fadeUp .5s ease both}
+.brand-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:0 4px}
+.brand-bar{width:3px;height:20px;border-radius:2px}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:var(--fs-xl);font-weight:700}
+.brand-count{font-size:var(--fs-xs);color:var(--text-dim);font-family:'JetBrains Mono',monospace}
+.model-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;
+  padding:16px 18px;margin-bottom:8px;cursor:pointer;transition:all .25s cubic-bezier(.23,1,.32,1);position:relative;overflow:hidden}
+.model-card:hover{background:var(--bg-hover);border-color:var(--border-hover);transform:translateY(-1px);
+  box-shadow:0 4px 20px #0004}
+.model-card::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:1px;
+  background:var(--accent);opacity:.6;transition:.2s}
+.model-card:hover::before{opacity:1;width:3px}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card-name{font-size:var(--fs-md);font-weight:700;line-height:1.35;padding-left:10px}
+.card-collab{font-size:var(--fs-2xs);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:3px;padding-left:10px}
+.card-right{text-align:right;flex-shrink:0}
+.card-price{font-size:var(--fs-base);font-weight:700;font-family:'JetBrains Mono',monospace}
+.card-type{display:inline-block;padding:3px 9px;border-radius:12px;font-size:var(--fs-2xs);font-weight:600;
+  margin-top:4px;letter-spacing:.03em}
+.card-mid{display:flex;justify-content:space-between;align-items:center;padding:8px 0 0 10px}
+.card-drivers{font-family:'JetBrains Mono',monospace;font-size:var(--fs-sm);color:var(--text-sub);font-weight:500}
+.driver-dots{display:flex;gap:4px;align-items:center}
+.driver-dot{width:7px;height:7px;border-radius:50%}
+.card-sound{font-size:var(--fs-sm);color:var(--text-dim);padding:7px 0 0 10px;line-height:1.6}
+.card-cable{display:flex;align-items:center;gap:5px;padding:5px 0 0 10px}
+.cable-icon{font-size:var(--fs-2xs);opacity:.5}
+.cable-name{font-size:var(--fs-xs);font-family:'JetBrains Mono',monospace;font-weight:500;opacity:.85}
+.card-status{display:inline-block;padding:2px 8px;border-radius:12px;font-size:var(--fs-2xs);font-weight:600;
+  margin-top:4px;margin-left:10px;letter-spacing:.03em;color:#fbbf24;background:#fbbf2418;border:1px solid #fbbf2430}
+/* Metal compatibility badge */
+.metal-badge{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:10px;
+  font-size:var(--fs-2xs);font-weight:700;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;flex-shrink:0}
+.metal-badge .horns{font-size:var(--fs-xs)}
+.metal-S{color:#ff3b5c;background:#ff3b5c1a;border:1px solid #ff3b5c40}
+.metal-A{color:#ff8c42;background:#ff8c421a;border:1px solid #ff8c4240}
+.metal-B{color:#48bfe3;background:#48bfe31a;border:1px solid #48bfe340}
+.metal-C{color:#7a7a8a;background:#7a7a8a1a;border:1px solid #7a7a8a40}
+.metal-D{color:#4a4a55;background:#4a4a5518;border:1px solid #4a4a5538}
+.metal-detail{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+/* 評価の指針パネル */
+.policy{max-width:1200px;margin:0 auto;padding:0 20px 4px}
+.policy summary{cursor:pointer;font-size:var(--fs-xs);color:var(--text-sub);padding:8px 0;
+  letter-spacing:.03em;user-select:none}
+.policy summary:hover{color:var(--text)}
+.policy-body{font-size:var(--fs-xs);color:var(--text-sub);line-height:1.75;
+  border-left:2px solid var(--border);padding:4px 0 10px 14px;margin:2px 0 8px}
+.policy-h{font-weight:700;color:var(--text);margin:10px 0 4px;font-size:var(--fs-xs)}
+.policy-list{margin:0;padding-left:20px}
+.policy-list li{margin:3px 0}
+.policy-list b{color:var(--text)}
+.policy-note{margin:8px 0 0;padding:8px 10px;background:#ffffff08;border-radius:8px;
+  font-size:var(--fs-2xs);color:var(--text-dim)}
+/* 振動板素材 */
+.dd-row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px;padding-top:8px;
+  border-top:1px dashed var(--border)}
+.dd-row-label{font-size:var(--fs-2xs);color:var(--text-dark);text-transform:uppercase;
+  letter-spacing:.1em;font-weight:700;margin-right:2px}
+.dd-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:10px;
+  font-size:var(--fs-2xs);font-weight:600;letter-spacing:.02em;
+  color:#f4a261;background:#f4a26114;border:1px solid #f4a26133}
+.dd-badge.unknown{color:var(--text-dark);background:#ffffff08;border:1px solid var(--border);font-style:italic}
+/* コスパ良バッジ */
+.value-badge{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:10px;
+  font-size:var(--fs-2xs);font-weight:700;letter-spacing:.03em;flex-shrink:0;margin-left:6px;
+  color:#e9c46a;background:#e9c46a14;border:1px solid #e9c46a38}
+/* 適性軸 */
+.axis-badge{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:10px;
+  font-size:var(--fs-2xs);font-weight:700;letter-spacing:.03em;flex-shrink:0}
+.axis-power{color:#ff3b5c;background:#ff3b5c14;border:1px solid #ff3b5c33}
+.axis-atmosphere{color:#9d7fea;background:#9d7fea14;border:1px solid #9d7fea33}
+.axis-edge{color:#48bfe3;background:#48bfe314;border:1px solid #48bfe333}
+.axis-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+/* 聴取環境 */
+.env-detail{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+.env-row{display:flex;gap:8px;align-items:flex-start;margin-top:5px;font-size:var(--fs-xs);line-height:1.65}
+.env-row-label{flex-shrink:0;font-weight:700;font-size:var(--fs-2xs);padding:2px 8px;border-radius:9px;letter-spacing:.03em}
+.env-indoor{color:#48bfe3;background:#48bfe314;border:1px solid #48bfe330}
+.env-outdoor{color:#06d6a0;background:#06d6a014;border:1px solid #06d6a030}
+.env-empty{color:var(--text-dark);font-style:italic}
+/* Genre fit tags */
+.genre-detail{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+.genre-detail-label{font-size:var(--fs-2xs);color:var(--text-dark);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.genre-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:5px}
+.genre-row:last-child{margin-bottom:0}
+.genre-row-label{font-size:var(--fs-2xs);color:var(--text-dim);font-weight:600;margin-right:2px;align-self:center}
+.genre-tag{display:inline-flex;align-items:center;padding:3px 9px;border-radius:10px;font-size:var(--fs-2xs);font-weight:600;letter-spacing:.02em}
+.genre-tag.metal{color:#ff8c42;background:#ff8c4214;border:1px solid #ff8c4230}
+.genre-tag.other{color:#48bfe3;background:#48bfe314;border:1px solid #48bfe330}
+.metal-detail-label{font-size:var(--fs-2xs);color:var(--text-dark);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.metal-detail-text{font-size:var(--fs-sm);color:var(--text-sub);line-height:1.7}
+.card-detail{display:grid;grid-template-rows:0fr;opacity:0;
+  transition:grid-template-rows .35s cubic-bezier(.23,1,.32,1),opacity .3s ease,
+             margin-top .35s cubic-bezier(.23,1,.32,1),padding-top .35s cubic-bezier(.23,1,.32,1)}
+.card-detail>.card-detail-inner{min-height:0;overflow:hidden}
+.model-card.expanded .card-detail{grid-template-rows:1fr;opacity:1;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.type-hybrid{color:#4361ee;background:#4361ee18;border:1px solid #4361ee30}
+.type-tribrid{color:#e63946;background:#e6394618;border:1px solid #e6394630}
+.type-multiba{color:#48bfe3;background:#48bfe318;border:1px solid #48bfe330}
+.type-singledd{color:#d4a373;background:#d4a37318;border:1px solid #d4a37330}
+.type-planar,.type-dualplanar{color:#9b5de5;background:#9b5de518;border:1px solid #9b5de530}
+.type-dualdd{color:#f4a261;background:#f4a26118;border:1px solid #f4a26130}
+.type-tripledd{color:#f4a261;background:#f4a26118;border:1px solid #f4a26130}
+.type-multidd{color:#f4a261;background:#f4a26118;border:1px solid #f4a26130}
+.footer{text-align:center;padding:24px;border-top:1px solid var(--border);font-size:var(--fs-2xs);color:var(--text-dark);font-weight:500;
+  font-family:'JetBrains Mono',monospace}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(max-width:480px){
+  .card-top{flex-direction:column;gap:4px}
+  .card-right{text-align:left;padding-left:10px;display:flex;align-items:center;gap:10px}
+  .stats{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-sub">My IEM Collection</div>
+  <h1 class="hero-title">有線イヤホンカタログ</h1>
+  <div class="stats">
+    <div><div class="stat-num" id="modelCount">46</div><div class="stat-label">Models</div></div>
+    <div class="divider"></div>
+    <div><div class="stat-num" id="brandCount">19</div><div class="stat-label">Brands</div></div>
+  </div>
+  <div class="main-tabs">
+    <button class="main-tab active" id="tabOwned" onclick="setMainTab('owned')">🎧 所持</button>
+    <button class="main-tab wishlist" id="tabWishlist" onclick="setMainTab('wishlist')">🛒 検討中</button>
+  </div>
+</div>
+
+<div class="legend">
+  <span><span class="legend-dot" style="background:var(--dd)"></span>DD</span>
+  <span><span class="legend-dot" style="background:var(--ba)"></span>BA</span>
+  <span><span class="legend-dot" style="background:var(--planar)"></span>Planar</span>
+  <span><span class="legend-dot" style="background:var(--piezo)"></span>BC/Piezo</span>
+</div>
+<div class="legend" style="padding-top:0">
+  <span>🤘 Metal:</span>
+  <span style="color:#ff3b5c">S 最高</span>
+  <span style="color:#ff8c42">A 役割の1番手</span>
+  <span style="color:#48bfe3">B 良好</span>
+  <span style="color:#7a7a8a">C 凡庸</span>
+  <span style="color:#4a4a55">D 不得手</span>
+  <span style="color:#e9c46a">💰 コスパ良（実聴確定機のみ・低価格帯でランクB以上）</span>
+</div>
+
+<details class="policy">
+  <summary>📋 室内評価用リファレンス曲・運用ルール</summary>
+  <div class="policy-body">
+    <div class="policy-h">リファレンス曲（6曲固定）</div>
+    <ol class="policy-list">
+      <li><b>Meshuggah "Bleed"</b> — 低域の質・ミッドベースの挙動・リフとキックの分離</li>
+      <li><b>Slayer "Angel of Death"</b> — 疾走時の追従性・高域が混んだ時の挙動</li>
+      <li><b>Alcest "Komorebi"</b> — 湿度・残響・音場・静動の落差</li>
+      <li><b>Opeth "Deliverance"</b> — 幽玄さと攻撃性の同居。<b>検証ポイント 1:30〜</b>（音数の少ないクリーンパート）</li>
+      <li><b>Nasum "Scoop"</b> — ブラストビート単体の解像度</li>
+      <li><b>Extermination Dismemberment "Annihilation Order"</b> — 起承転結で検証点が分かれる複合診断曲。
+        <b>起</b>（Devourment由来のオールドスクールスラミングデス）＝ローミッドギターの厚み／
+        <b>承</b>（808ドロップ→ハーモニクスリフ）＝低域の瞬発力とリフの分離・解像度／
+        <b>転</b>（ブレイクダウン）＝デスコア的な重さと締まり／
+        <b>結</b>（シンフォ要素）＝おまけ程度。ロウガテラルボーカルで他5曲と声質が被らない。詳細な頭出しタイムは今後確認。</li>
+    </ol>
+    <div class="policy-note">2026年9月、Within Destruction "No Way Out" から差し替え。保留：マスコア系（Car Bomb・Vein等）の焦燥感枠、ドゥーム／デプレッシブ系の陰鬱さ枠。Thy Art Is Murder "Slave Beyond Death" は副読的な位置づけ。屋外用プレイリストは目的が異なるため別管理（混ぜない）。</div>
+    <div class="policy-h">機種別の補助曲（二層構造）</div>
+    <div class="policy-note">上の6曲は<b>機種間の横並び比較</b>のための共通基準。一方で、共通6曲でカバーされない領域を得意とする機種は、それだけでは真価を測れない。そこで機種ごとに<b>補助曲を1曲だけ</b>設定し、その機種の得意分野での実力を測る（一機種一曲の制約が肝。曲名を見れば性格が伝わる形にする）。共通6曲は全機種同条件で維持し、補助曲は個別評価にのみ用いる。<br>
+    設定待ち：<b>Cincotres</b>（サイバー調の電子音デスコア／焦燥感を煽るマスコアで真価を発揮するが、共通6曲にその領域がない。候補はDarko US・Brand of Sacrifice・Car Bomb・Veinあたり。実聴時に確定）</div>
+    <div class="policy-h">Sランク3機種・リファレンス曲別の好み度（2026年9月時点）</div>
+    <ul class="policy-list">
+      <li><b>Bleed</b> — Martilo ≧ Cano &gt; Lucifer</li>
+      <li><b>Komorebi</b> — Martilo &gt; Cano ≧ Lucifer</li>
+      <li><b>Deliverance</b> — Martilo &gt; Cano ≧ Lucifer</li>
+      <li><b>Angel of Death</b> — Lucifer &gt; Cano &gt; Martilo</li>
+      <li><b>Scoop</b> — Cano &gt; Lucifer ≧ Martilo</li>
+      <li><b>Annihilation Order</b> — Cano &gt; Martilo &gt; Lucifer</li>
+    </ul>
+    <div class="policy-note">Luciferは疾走曲でこそ映えるタイプのため、このリファレンス構成では不利に出る。あくまで好み度であり、機種の優劣ではない。Martiloも2026年9月にリファレンス6曲通しを完了。</div>
+    <div class="policy-h">運用ルール</div>
+    <ul class="policy-list">
+      <li>ある現象が機種固有か判断する時は、同じ曲の同じ箇所を複数機種で照合する</li>
+      <li>検証箇所は時間まで記録する（例：Deliverance 1:30〜）</li>
+      <li>相対評価を書く時は<b>比較対象を必ず明記する</b>（Odysseyの「ローが痩せる」＝Arcadia比だった件の反省）</li>
+      <li>単独でじっくり聴く場面と、A/B比較する場面を分ける</li>
+      <li>派手な機種の直後に地味な機種を聴かない（順序効果）</li>
+      <li>イヤーピースは実運用のまま。Ziigaat系はVelvet Widevoreで統一</li>
+    </ul>
+  </div>
+</details>
+
+<div class="filters" id="filters"></div>
+<div class="filters" id="metalFilters" style="padding-top:0"></div>
+<div class="filters" id="axisFilters" style="padding-top:0"></div>
+<div class="container" id="content"></div>
+<div class="footer">tap card to expand · IEM Collection Catalog</div>
+
+<script>
+const DATA = [
+  { name:'RoseSelsa', accent:'#ff6b9d', models:[
+    {name:'Aurora Ultra',drivers:'1DD+1Pla',type:'Hybrid',price:'',sound:'ソリッドなV字（スペック上）/ 実使用では装着感由来のロー抜けあり / 線的で好印象なボーカル / eスポーツ向けにも訴求',detail:'10mm ダイナミックドライバー+6mm デュアルマグネットプラナー / 第3世代トポロジーダイアフラム / 0.78mm 2pin / 専用ALC5686ドングル付属（32bit/384kHz対応）',imp:'30Ω',sns:'115dB',metalRank:'C',metalNote:'海外レビューでは「しっかりしたV字」「パンチのあるミッドバス」と評価されていたが、実際にショージさんが使用したところ装着感が厳しく、密閉が甘いことで低域がかなり抜けてしまうとのフィードバックあり。レビューで指摘されていた「サブベースの量感控えめ・盛り上がりに欠ける」という弱点が、フィット起因でさらに悪化する形。メタルの土台となる低域が実質失われるため、イヤーチップ交換等でシール性を改善しない限りメタル用途には厳しい。ランクはスペック上の評価から実使用感ベースでB→Cに引き下げ。',genreMetal:["メタルコア・ニューコア","グルーヴメタル","正統派メタル"],genreOther:["EDM","ヒップホップ","ポップス"]},
+  ]},
+  { name:'Artpical', accent:'#c1121f', models:[
+    {name:'Lucifer',drivers:'1DD',type:'Single DD',price:'',sound:'全域を色濃く高い熱量で攻め立てる / 曲の持つ情熱をブーストする / ギターの厚さとエッジ感が白眉 / 1DDながら分離・解像度も高い / 仄暗さ・幽玄さは後退',ddMaterial:'チタン振動板 (10mm)',detail:'10mm チタン振動板ムービングコイルDD（アルミ合金製メタルサウンドキャビティ）/ 20Hz-20kHz / 【重要・バリエーション間で振動板が異なる】Luciferには3系統あり、所持機は①オリジナル（赤黒・五芒星）＝"Titanium diaphragm moving coil"（コーティングの記載なし）。②Lightbringer（金黒）＝"Titanium-Coated Diaphragm Dynamic Driver"でチタン蒸着コーティング。③Silverwing（紫銀）＝10mmデュアルキャビティ複合セラミック・デュアルマグネティックDD（PUエッジ＋セラミックボールトップ振動板、N52マグネット×2、アルミ製フロントチャンバー＋真鍮製リアチャンバーのダブルチャンバー設計）で完全な別物。性格の差（伝聞・未聴）は赤黒が最も荒々しく、金黒はそれを整えた方向、紫銀は他社コラボでアニソン・女性ボーカル向けとされる。振動板の仕様差とも整合し、所持機の赤黒は3系統中で最もメタル向き。→ 他バリエーションのレビューやスペックを所持機の参考にしないこと / 0.78mm 2pin / 4.4mmバランス標準 / グリモワール型ボックスパッケージ / 悪魔テーマフェイスプレート / 付属は6N単結晶銅のオリジナル赤黒ケーブルだが到着時からTRKAPLST Ink（7N OCC+希土類合金銅・赤緑マーブルだが暗く濃くほぼ赤黒に見える）で運用',imp:'64Ω',sns:'106.6dB',cable:'TRKAPLST Ink',cableColor:'#6e1420',envIndoor:'2026年9月・室内静穏環境／M5 Ultra／TRKAPLST Ink。vol70で十分。曲の情熱をブーストするタイプでデスラッシュ・メタルコアが映える。冷たさ・虚無を核とする音楽は肉感が勝ち攻撃性に置き換わるが、明日の叙景のような熱のある雰囲気系はむしろ得意。音場は広め。'+'【追記・No Way Out／Cano Cristales比較】ギターの厚さとエッジはLuciferが上、低域の重さはCanoが上。'+'【Annihilation Order／Cano比較】ギター優位でエッジも立つ。ハーモニクスはCanoより肉厚。808ドロップの減衰が早い。キック・ベースの量感とガテラルの深さはCanoに譲る。シンセは同等。',envOutdoor:'2026年9月・雨上がりの夜道（人気がなく低騒音のため実質は静穏環境に近い、歩行のみ屋外条件）。デスラッシュ・メタルコアが本当に映える。日中の交通量がある環境での検証は未実施。',axis:['power','edge'],metalRank:'S',metalNote:'国内の独自レビューでARTPICAL LuciferとMichael以外に予備まで確保したモデルがないと明言されるほどの別格1DD。「1DDとは思えないほど派手で濃く量感のある音」「音楽全体に少し赤い照明を当てるような鳴らし方」「コントラストと強度で魅了する」と評され、シングルDD構成の中でも上位に入る音作りと評価。海外レビューでも「デスメタルの混沌とした轟音が非常に良く鳴る」と明言されており、低域の物量と中域の濃さを両立。ヘッドホン祭2026mini会場試聴でも「荒く派手で分厚い」と高評価。8月のAliExpress大型セールでオリジナル版（赤黒・五芒星）を購入・所持機入り。【実聴・2026年9月／室内・M5 Ultra／TRKAPLST Ink】■本質：全域を色濃く高い熱量で攻め立てるタイプ。Estrellaが「音源を選ばず自分の色に染める」のに対し、Luciferは曲が本来持っている情熱をブーストする方向。Thousand Eyes「One Thousand Eyes」のように疾走しながら慟哭を撒き散らす曲では鳥肌が立つレベル。■強み：ローはもちろんギターの厚さとエッジ感が素晴らしく、1DDながら分離・解像度も申し分ない。厚みと鋭さの両立にはTRKAPLST Inkの締まりも寄与している可能性。定価8万円クラスの実力。デスラッシュ・メタルコアが特に映える。■苦手：熱量をブーストするため、Harakiri for the Sky・Spiritboxのような曲は前のめりで肉感が強くなりすぎる。Nightwish「Ghost Love Score(Live)」もオーケストラの荘厳さよりメタルバンドとしての強靭さが前に出る。■性格として：どんな音楽も「メタルとして」鳴らす。ジャンルの周縁にある要素より、メタルの核にある要素を前に出す傾向。Shining「Prolog för de Redan Döda」（デプレッシブブラック）やKokeshi「胎海」では絶望・陰鬱さよりハードコア/メタルバンドとしての攻撃性が前面に出る。仄暗さ・幽玄さ・耽美さは後退。これを欠点と取るかは好みの範疇——メタルとはそもそもマッシブなもの、という立場ならむしろ正解。■熱量の代償：全体的に暑苦しい。「熱量が高い＝常に温度が高い」ため、曲が熱を求めていないと過剰になる。Extermination Dismembermentのようなブルータルスラムは本来もっと即物的・無機質な暴力性の音楽なので、そこに熱が乗ると過剰に感じられる。長時間リスニングでの疲労にも繋がる可能性あり（屋外での長時間運用時は要注意）。■苦手なのは「雰囲気系全般」ではなく「冷たさ・仄暗さ・虚無を核とする音楽」に限られる：明日の叙景「歌姫」「そこにあれ」は非常に良い。熱量が夏の情景を連想させ、曲の情感とブースト方向が一致する。音場も広めでプラスに働く。同じポストブラックでも、Harakiri for the Skyの悲嘆・虚無は苦手、明日の叙景の光と熱は得意という分かれ方をする。■ランクS確定：鳥肌が立つレベルの体験はそう多くない、という実感に基づく。末永く付き合える機種という評価。■Alcest「Komorebi」での挙動（境界の確認）：序盤のスローパートは温かみがありムーディで、イントロのヴァイオリンは艶のある音色、Neigeのボーカルも有機的と好印象。ところがドラムが走り始めた瞬間にマッシブに転じる。つまり静的な場面では雰囲気を作れるが、疾走が始まると熱とギターの厚みが前に出て雰囲気を塗り替える。Arete・Odysseyが動と静の両方で雰囲気を維持できるのに対し、Luciferは静では良いが動で変わる。■1DDゆえの一体感：音の一体感は所持機中で最も高い。振動板が一枚で全帯域を鳴らすため帯域の繋ぎ目がなく、音が一つの塊として届く。滲まずに厚みが弦の厚さへ繋がるのもこれが理由。代償としてレイヤー感はEstrella・Cincotres（マルチBA勢）に劣る。リフとリズムが一体で押す音楽では強み、複雑に絡むパートを解きほぐしたい音楽ではレイヤー型が有利。■低域の性格（Meshuggah "Bleed" / Extermination Dismemberment "Annihilation Order"）：ローは出るがDoscinco/Arcadiaほどではなく、キックの重さは2DD勢に劣る。ただし滲みがなく、その厚みが完全に弦楽器の厚さへ繋がるため、圧の作り方が異なる——2DD勢がサブベースの量で下から押すのに対し、Luciferはギター・ベースの厚みで横から挟む。ギターが前面に出てボーカルも埋もれずはっきり。音場は横は広いが縦がやや潰れ気味。■Slayer「Angel of Death」：低域が削がれたミックスのためキックの重さの弱点が問題にならず、弦の厚みで押す性格が有利に働く。ハイの刺さりは気にならず、キックもベースも見える。ギターが厚くエッジもあるためリフが非常に映え、半音階の邪悪さも出る（熱量が禍々しさとして正しく機能）。キックの追従性も問題なし。得意領域は「ギターリフが主役の音楽」——デスラッシュ・メタルコア・クラシックスラッシュ。Estrellaがソロとシンセに強いのに対し、Luciferはリフという棲み分け。■808ドロップの扱いが対照的：サブベースが比較的少ないためブレイクダウンの808ドロップで他の楽器をマスクせず、曲の構造を追いながらドロップも感じられる。逆にDoscinco/Martiloはドロップ自体が凄まじい代わりにその瞬間は他が飲み込まれる。体験として808を味わうなら2DD勢、構造を追うならLucifer。■Extermination Dismemberment \"Annihilation Order\"（Cano Cristales直接比較・2026年9月）：ギター優位でエッジも明確に立つ。ハーモニクスはCanoより肉厚に聴こえる（基音側の厚みが乗るため実体感のある鳴り方になる）。808ドロップの減衰がCanoより早い——サブベースが控えめで低域エネルギーが弦の厚みに転化される構成のため、残響が尾を引かない。一方でキック・ベースの量感は明らかに少なく、ガテラルの深さもCanoに譲る（1DDで全帯域を1つの振動板が担うため、ボーカルの分離では構造的に不利）。シンセは同等。ドロップの歪んだ音は両機で聴こえたため音源側の演出。→ この曲ではスラム・デスコア基準（圧力優先）でCanoに軍配。Luciferは疾走曲でこそ映えるタイプ。■Within Destruction \"No Way Out\"（Cano Cristales直接比較・2026年9月）：ギターはLuciferの方が厚くエッジも立つ。一方で低域の重さはCanoが明らかに上。1DDで低域のエネルギーが弦の厚みへ転化されるLuciferと、低域に集中投資してローミッドを削るCanoという設計差がそのまま出た形。同じSランクでも守備範囲が分かれる。なおベースラインが遠く感じるのは両機共通だったため、この曲のミックス起因で確定。■駆動：64Ωだが実際は鳴らしやすく、M5 UltraでZiigaat勢vol65に対しvol70で足りる。',genreMetal:["デスメタル","スラッシュメタル","メタルコア・ニューコア","グルーヴメタル"],genreOther:["ロック","ヒップホップ","ポップス"]},
+    {name:'Gabriel',drivers:'3MPD+2BA',type:'Hybrid',price:'',sound:'明るく広い / 音場が非常に広く立体的 / キックは輪郭がはっきりした量感型（BAとDDの中間） / ピアノの描写が上手い / すごく元気にしたLuna',detail:'マイクロプラナー×3+BA×2（低域は2基のマイクロプラナーが担当）/ 0.78mm 2pin / カラーはオーカー（黄土色）のみ、パッケージは青・緑の羽根のデザイン、箱側面に"THE ART OF HEARING AND VISION" / 【初期ロット】所持機はミドルフレーム右側にデジ文字（デジモン文字）で「デジタルモンスタ」の刻印があり、箱側面にもデジ文字で「デジタルモンスター」と記載。後続ロットはルーン文字の「ARTPICAL」に変更されたことを確認（フォロワーの個体）/ ケーブルはパッケージの青・緑と金色を拾ってSoundsGood Bitで対比',cable:'SoundsGood Bit',cableColor:'#4895ef',envIndoor:'2026年11月・室内。付属ケーブル→SoundsGood Bitに交換。Bitでは左右の広がりが狭まり音が近くなるが、高さは維持されるため結果的により立体的に。ローとハイの量感が増えてドンシャリ傾向が強まる。鳴らし込み数時間でローの量感が増え、やや柔らかい音に変化（エージング・耳の慣れ・イヤーピースのなじみが重なっている可能性）。',envOutdoor:'',axis:['edge'],metalRank:'A',metalNote:'【実聴・2026年11月／SoundsGood Bit／鳴らし込み途中のため暫定】■低域：DDの圧には敵わないが、輪郭のはっきりした比較的量感のあるキック。BAとDDの中間くらい。マイクロプラナーらしく立ち上がり・収束が速い。'+'■音場：非常に広く、かなり立体的。Bit装着で左右は少し狭まるが高さは残り、縦横のバランスが取れて立体感が増す。'+'■得意：速くて細かく高い音が詰まった音楽。Born of Osiris『Soul Sphere』、Earthists、凛として時雨、ボカロ（千本桜・裏表ラバーズ）で好相性を確認。フォロワーからもデスコアと合うとの評。'+'■ピアノ：描写が上手い。ODDS & ENDS（ライブ版）はmeltより良好で、ピアノが前に出る曲ほど真価が出る。ピアノが聴こえない曲ではもったいない。'+'■苦手：全体的に明るめなので、ポストブラック・ドゥーム・ゴシックは他機（Luna・Martilo・Lucifer）に回すべき。'+'■キャラクター：すごく元気にしたLuna。Lunaが温かく落ち着いた陰なら、Gabrielは明るく元気な陽。'+'■ランク：A（テクニカル系・デスコアの明るく広い担当として）。鳴らし込みでローが増えてきているため、落ち着いた時点で再確認する。',genreMetal:["デスコア","ジェント・プログレ","メタルコア・ニューコア"],genreOther:["ポップス","ロック","アコースティック・ゲーム系"]},
+  ]},
+  { name:'Ziigaat', accent:'#4361ee', models:[
+    {name:'Doscinco',drivers:'2DD+3BA',type:'Hybrid',price:'',sound:'L字型 / 有機的・情熱的・湿 / 没入型 / 重心が低くベースが前に出る / 空間に広がりがある / isobaric DD',ddMaterial:'ポリマー (10mm×2 isobaric)',detail:'2×10mm DD(isobaric)+Sonion 26A05×2+Knowles 33518×1 / Cincotresと同一ドライバー・同一シェルのチューニング違い姉妹機',imp:'11Ω',sns:'104dB',cable:'SoundsGood Livyatan',cableColor:'#4895ef',envIndoor:'2026年9月・室内静穏環境／M5 Ultra。Meshuggah \"Bleed\" / Opeth \"Deliverance\"。軽度のミッドベース・ブリードは実在するが厚みとして機能、アタック情報は保持。'+'【第2回・Arete/Odysseyとの3機種比較】音場は空間に広がりがあり、密集するAreteとは対照的。Deliverance 1:30〜のアコギ聞き取りやすさは3機種中最下位。',envOutdoor:'',axis:['power'],metalRank:'A',metalNote:'【実聴・Meshuggah \"Bleed\"で検証】軽度のミッドベース・ブリードは実在する。キックはビーター側も聴こえるが胴鳴りの方が強く、8弦リフとキックはわずかに被る。ボーカルは一歩引き子音がやや薄れる。ただしアタック情報自体は失われておらず、濁りではなく「厚み」として機能している水準。'+'海外レビューでブリードの有無が真っ二つに割れていたのは、同じ現象を欠点と取るか厚みと取るかの違いと判断。高域のエアー感・超高域の伸びは控えめでシンバルの切れや空間はやや物足りず。■キャラクター：有機的／情熱的／湿／没入型。音が肉体を持ち、奏者の身体性が見える鳴り方で、音の中に体を置く感覚。'+'■【2026年9月第2回・音場の追記】Arete・Odysseyとの3機種比較で、Doscincoは空間に広がりがあることを確認（音が密集するAreteとは対照的）。2DD構成の影響と思われる。ただしDeliverance 1:30〜のクリーンパートではアコギの聞き取りやすさが3機種中最下位で、'+'音場の広さと弱音の聞き取りやすさは別指標であることが分かる。輪郭より一体感を取る性格が効いている可能性。■Cincotresとの使い分け：同一ドライバーの姉妹機で、Doscincoは重心が低くベースが前に出る代わりに抜け感がやや落ちる。どちらも既定値でエッジ感と重さがあり、気分で使い分けできるレベルで両方好み。雰囲気・没入を求めるならDoscinco。',genreMetal:["デスコア","スラミングデス","デスメタル","グルーヴメタル"],genreOther:["ヒップホップ","EDM","ロック"]},
+    {name:'Estrella',drivers:'2DD+4BA',type:'Hybrid',price:'',sound:'V字型 / とにかく派手 / 所持機中で最もハイが出る・金物が常に目立つ / ベースラインは十分だがギターのリフが薄い / ソロの高音は逆に前に出る',collab:"× Jay's Audio",ddMaterial:'PET (10mm×2 同軸)',detail:'2×10mm PET DD(coaxial)+Knowles 29689+Sonion 2345+Sonion E50 / 3wayクロスオーバー・3独立音道管',imp:'7Ω',sns:'108dB',cable:'SoundsGood Blhwt',cableColor:'#4895ef',envIndoor:'2026年9月・室内静穏環境／M5 Ultra。単体で再評価し記述を訂正。ベースラインは十分でギターのボトム（ローミッド）が薄い。ハイは所持機中最も出て金物が常に目立つが刺さりは気にならず。シンセ主体の曲・プリミティブブラックではその薄さが長所として機能。',envOutdoor:'',axis:['edge'],metalRank:'B',metalNote:'【2026年11月・ランク基準見直しでA→B】明るく派手な切れ系の役割はGabrielの加入で1番手を譲ったためBへ。シンセ主体の曲で派手に鳴らす用途は引き続き有効。'+'【実聴・2026年9月／単体でじっくり再評価】■低域：ベースラインの量感はCincotres相当で不足していない。薄いのはギターのボトム（100〜250Hz付近のローミッド）で、当初「ミッドベース不足・足腰が弱い」と表現したのは実際にはこの帯域を指していた。ダウンチューンのリフが主役の曲では他2機（Doscinco/Cincotres）より明確に痩せる。■ギターは役割で逆転：リフはボトムが薄く痩せるが、ソロの高音域は曲によっては所持機中で最も前に出る。リフで押す音楽は不利、ソロ・リードメロディが主役なら有利。■高域：所持機中で明らかに最も出ており、どの曲でも金物がかなり目立つ。刺さりとしては気にならないレベルだが、金物の存在感は常に前面。海外レビューでも「ミッドベースの強調がもう少し欲しい」という指摘があり実聴印象と一致。また複数レビューが素の状態はサブベース過多でミッドレンジの明瞭さを埋めると指摘し、ベントを微多孔テープで塞ぐmodでバランスが改善するとしているため、足腰の弱さが気になる場合はmodを試す価値あり。技術面（解像度・セパレーション・ステージ）は価格を超える水準で一致した高評価。低域の土台という点でDoscinco/Cano Cristales系には譲るため、実聴ベースでS→Aに修正。■本質：音源を選ばず自分の色に染めるタイプで、どんな曲も派手にブライトに鳴らす。この「染める能力」が合う音楽と合わない音楽をはっきり分ける（Cincotresの「整理する能力」が長所にも短所にもなるのと同じ構造）。解像度・分離感はCincotresと同等かそれ以上あり、Polyphia・Animals as Leadersのようなテクニカル系も十分こなせる。ブライトさが現代的なプロダクションと噛み合い、高いポジションのフレーズが主役の音楽では有利に働く。■苦手：(1) 雰囲気系全般。Opeth・Alcestは仄暗さや湿度がブライトさと正面衝突するため一考の余地あり（Areteが得意な領域とちょうど逆）。(2) Harm\'s Wayのような極悪ハードコア。明るく派手に鳴らすと威圧感が抜け、ギターのボトムの薄さも重さで押す音楽では致命的に効く。■用途次第で長所に反転する点：(1) Electric Callboy・Darko US・Brand of Sacrificeをシンセ中心で聴く用途。派手なV字がシンセそのものを前に出して華やかに鳴らす。低域が打ち込みで整理されている音楽ではミッドベースの薄さが問題にならない。同じバンドでもCincotresは「乾いた減衰で電子音を分離して立たせる」方向なので、聴きたい要素で使い分け。(2) プリミティブブラック。寒々としたリフを重視する用途で、ミッドベースの薄さがそのまま冷たさの表現として機能する（Ziigaat内ではCincotresと並ぶ選択肢）。■コレクション上の位置づけ：Ziigaatを集めるきっかけになった機種。Doscinco/Cincotresとは別ドライバー構成（PET DD同軸2発+4BA）で姉妹機ではないが、ラインの流れは汲んでいる。本人のイメージでは「技の1号=Cincotres、力の2号=Doscinco、そしてV3=Estrella」——両者の能力をそのまま継いだのではなく、別系統の改造で派手さという独自の武器を持つ第三の方向。'+'■【2026年9月・実聴】Earthists \"HYPERHELL\"（3.5thアルバム『THIS IS HYPERMETAL』収録曲。EP『HYPERMETAL』『GRANDRAY』の再構築+新曲\"WUNDER\"で構成された作品）と好相性を確認。Earthistsは音圧よりボカロ楽曲的な展開の多さ・派手さ・キャッチーさで魅せるバンドで、Estrellaの\"パリピ系V字サウンド\"（本人談）と噛み合う。条件を整理すると【電子音優位・展開多め・音数多め】の3要素が揃う曲で活きる。ただし音数の多さ自体が条件ではなく、その音数が「展開の派手さ」に使われているか「音の重なりで作る厚み・雰囲気」に使われているかで分かれる——前者はEstrellaと好相性、後者（Opeth等）はリフが痩せる弱点がそのまま出る。Polyphia・Animals as Leadersとの相性の良さもこの条件に沿う。',genreMetal:["ジェント・プログレ","メタルコア・ニューコア","デスコア"],genreOther:["EDM","ロック","トラップ"]},
+    {name:'Arete',drivers:'1DD+4BA',type:'Hybrid',price:'',sound:'音場は狭く音が密集 / ベースラインが近い / ややウォーム（湿） / ミックスの音量差を素直に反映',collab:'× Fresh Reviews',ddMaterial:'バイオセルロース (10mm)',detail:'10mm Biocellulose DD+Knowles 29689×2+Knowles 31736 / 3wayクロスオーバー・300Hz〜1kHzでほぼフラットなミッドレンジ設計。Fresh Reviewsとのコラボで、FPSゲーミング用途も想定したチューニング',imp:'9Ω',sns:'108dB',cable:'Angelears Phoenix',cableColor:'#a07850',envIndoor:'2026年9月・室内静穏環境／M5 Ultra・Velvet Widevore。Opeth \"Deliverance\" / Alcest \"Komorebi\"。'+'【第2回・Velvet Widevore統一】音場は明らかに狭く音が密集。ベースラインが3機種中最も近い。ディストーションは問題なし。Deliverance 1:30〜のクリーンパートではアコギが引っ込むが、Odyssey・Doscincoでも同様に発生したため原曲ミックス由来と判断。※第1回はDeep Mount Zone着用。Velvetの方がミッドベースが多い。',envOutdoor:'',axis:['atmosphere'],metalRank:'B',metalNote:'【2026年11月・ランク基準見直しでA→B】雰囲気系の1番手はLunaに移ったためBへ（Luna加入時に懸念していた通りの形）。単体でじっくり聴いて真価が出る性格は変わらない。'+'【2026年9月・第2回実聴で再改訂／Velvet Widevore統一】■最重要の訂正：旧評価の「遠景型」は撤回。実際には音場は狭く音が密集しており、ベースラインは所持機中でも近い部類（Odyssey・Doscincoとの3機種比較で最も近い）。旧「前後配置による相対的な暗さ」「金物が遠くから光る」という説明も、実態は前後配置ではなく'+'ミックスの音量差を素直に反映する性質（小さい音を小さいまま出す）だった可能性が高く、それを遠景と錯覚していたと考えられる。ゲーミング向けチューニングという背景とも整合する。■もう一つの訂正：旧弱点「クリーンアルペジオが時折遠くに引っ込む」はArete固有の欠点ではない。Opeth \"Deliverance\" 1:30〜の音数が少ないクリーンパート（ベース+アコギ）で確認したところ、'+'Odyssey・Doscincoでも同じ現象が発生し、聞き取りやすさは Odyssey > Arete > Doscinco と機種の分離性能に応じた程度差になった。したがって原曲ミックス由来が主因で、各機種の解像度差がその上に乗る構図。Arete固有の弱点としての記述は撤回する。なおアウトロ手前のアコギ+クリーンエレキが共存する場面では引っ込まない。■維持する評価：ややウォーム寄りで「湿」の傾向は今回も確認。ディストーションは問題なく出る。'+'ローに重みがあり分離も良好。■キャラクター（改訂）：狭く密集した音場／湿／音量差に忠実。距離を演出するのではなく、原曲が持つ音量・遠近の情報を誇張せず出すタイプ。Doscinco（没入・広がりあり・湿）、Cincotres（観察・乾）に対して独自のポジションであることは変わらない。■運用注意：Estrella・Doscincoと購入時期が近く、V字の派手さ・重厚な分厚さと並べたため地味に見えて一度御蔵入りした経緯あり。'+'単体でじっくり聴いて真価が出るタイプで、短時間A/Bでは良さが出ない。派手な機種の直後に聴かないこと。',genreMetal:["ポストブラック・ポストコア","ゴシック","ブラックメタル","ジェント・プログレ"],genreOther:["ジャズ","アコースティック・ゲーム系","クラシック"]},
+    {name:'Odyssey',drivers:'1DD+3BA',type:'Hybrid',price:'',sound:'ウォームニュートラル / 分離・解像度・音場が所持機中トップクラス / Arete比ではロー・音場・ハイすべて上回る',ddMaterial:'Topology (10mm)',detail:'10mm Topology DD+Knowles RAF 32873×2+Knowles RAD 33518',imp:'18Ω',sns:'104dB',cable:'Yongse Sakurple',cableColor:'#f4a3c1',envIndoor:'2026年9月・室内静穏環境／M5 Ultra。Bleed / Angel of Death / Komorebi / Deliverance。分離・解像度・音場はArcadiaを圧倒。'+'【第2回・Arete/Doscincoとの3機種比較】Deliverance 1:30〜のアコギ聞き取りやすさは3機種中トップ。音場はArete・Doscincoより広く、ハイもArete比で目立つ。ローの量もArete比では上回る。',envOutdoor:'',axis:['atmosphere','edge'],metalRank:'B',metalNote:'【2026年11月・ランク基準見直しでA→B】「何でもできるが何かの一番ではない」という評価の通り、どの役割でも1番手ではないためBへ。万能機としての価値は変わらない。'+'海外レビューによる200ドル以下IEMトーナメントで優勝（GOAT評価）。ミッドベースの質感・臨場感・音の厚みのバランスが優秀と評され、決勝でもLetshuoer Astralis（メタルランクS）と僅差の戦いを演じた。【実聴・2026年9月／Bleed / Angel of Death / Komorebi】所持機中で最も万能性が高い。'+'Bleedでは分離・解像度・音場が姉妹機Arcadiaを圧倒。Angel of Deathではギターのエッジが明確に立ち抜け感も良好、締まって疾走感がある。ベースラインは量感ではなく分離で見えるタイプ（Arcadiaは量感で押し出して見せる、同じ結果に別ルートで到達）。Komorebiではバイオリン・コーラス・クリーンギターの伸びが良く、音場の広さが雰囲気作りに貢献、静から動へ転じる際の広がり方が特に良い。'+'金物は帯域が混んでも馴染み続け、刺さりは実用上問題なし。■【重要な訂正・2026年9月第2回】旧弱点「ローの量感が痩せる」は比較対象の問題だった可能性が高い。この評価はミッドベースの量感が所持機中トップのArcadiaとの姉妹機比較で書かれたもので、Arete比で聴くとローの量はOdysseyの方が出ている。'+'相対評価であることを明示せずに一般化していたため誤読を招く記述だった。→ 正しくは「Arcadia比では相対的に少ない／Arete比では上回る」。EQでサブベースを補うと化けるという体験自体は有効だが、EQの要否は比較対象と用途によるという条件付きに格下げする。■第2回の追加観察：Deliverance 1:30〜のクリーンパートでアコギの聞き取りやすさが3機種中トップ（Odyssey > Arete > Doscinco）。'+'音場の広さ、ローが過剰でないこと、ハイが出ていることが揃って弱い音が埋もれにくい。■位置づけ：疾走系・雰囲気系ともにこなす万能機だが、メインで聴くデスコア・スラミングデスの核心（ブレイクダウンの物理的な重さ）では量感型のDoscinco・Arcadiaに譲る。何でもできるが何かの一番ではないタイプ。'+'■2026年9月の実用順位：Doscinco > Cincotres > Arcadia > Odyssey（デスコア・スラミングデス基準）。',genreMetal:["メロデス","ブラックメタル","ポストブラック・ポストコア","正統派メタル"],genreOther:["ロック","ポップス","アコースティック・ゲーム系"]},
+    {name:'Cincotres',drivers:'2DD+3BA',type:'Hybrid',price:'',sound:'スタジオモニター / 無機的・冷静・乾 / 観察型 / 見通しとキレ / 電子音が映える',ddMaterial:'ポリマー (10mm×2 isobaric)',detail:'2×10mm DD(isobaric)+Sonion 26A05デュアル×1+Knowles 33518×1 / サブベース集中・ミッドバスのブルームなし / Doscincoと同一ドライバー・同一シェルのチューニング違い姉妹機',imp:'11Ω',sns:'104dB',cable:'SoundsGood Livyatan',cableColor:'#4895ef',envIndoor:'2026年9月・室内静穏環境／M5 Ultra。Meshuggah "Bleed" / Alcest "Komorebi"。キレと見通しは良好だが雰囲気系は薄味に。ただし電子音デスコア・マスコアではドライさが明確にプラス。',envOutdoor:'',axis:['edge'],metalRank:'A',metalNote:'【実聴】キレが良く見通しが非常に良い。電子音が映えるためインダストリアル系との相性が特に良い。一方で音がドライ偏重で、ポストブラック（Alcest・Harakiri for the Sky系）やゴシック・ドゥームのような雰囲気・湿度を重視する曲には合わない場面がある。■実例：Alcest「Komorebi」をAreteと比較再生したところ、全体の見通しは確かに上がるが薄味になる。残響を引き伸ばさず速く減衰させて次の音を出す設計のため、個々の要素はよく見えるが、残響の重なりそのものが実体である音楽では骨組みだけが残る形。「包み込まれる」感覚は分離しすぎないことで生まれている面があり、整理能力の高さが裏目に出るケース。同種の現象はHalcyonでも記録あり（情報整理は得意だが音圧が要の曲では物足りない）。スタジオモニター設計通りサブベース集中でミッドバスのブルームがなく減衰も速いため、リフや各楽器の分離は得意だが、音の余韻や空気の湿り気で聴かせるタイプの曲では硬質さが前に出る。海外レビューでも「テクスチャ豊かな低域」「ロック・メタルで楽曲に背骨を与える」と高評価。駆動力を要求するという海外レビュー報告が1件あるが、Doscincoと同一ドライバー構成・同一シェルでチューニングのみ異なる姉妹機であり、スペックも両機とも11Ω/104dBで一致するため、レビュアー個別の環境要因と判断。ポータブル（M5 Ultra / BTR17）で問題なく駆動できる。■適性の核心：Darko US・Brand of Sacrificeのような電子音が乗るデスコア、Car Bomb・Veinのような焦燥感のあるマスコアで乾いた減衰の速さが強く効く。電子音が同帯域のギターに溶けず電子音として立ち、マスコアの意図された断絶・不協和を滑らかに繋げずそのまま切り出す。「整理能力の高さ」がKomorebiでは薄味という短所になったのと同じ特性が、ここでは長所として反転する。■キャラクター：無機的／冷静／乾／観察型。音が信号として整列しており、音を外から見る感覚。■Doscincoとの使い分け：同一ドライバーの姉妹機で、Cincotresは抜け感・音場・粒立ちで勝るが重心は高くベースは引く。どちらも既定値でエッジ感と重さがあり、気分で使い分けできるレベルで両方好み。テクニカル系・インダストリアル系に振って運用するのが最適解。',genreMetal:["デスコア","マスコア","ジェント・プログレ","メタルコア・ニューコア"],genreOther:["EDM","ジャズ","クラシック"]},
+    {name:'Arcadia',drivers:'1DD+2BA',type:'Hybrid',price:'',sound:'低音の暴力 / 立体的で解像度高い低音 / 寝ホンにも◎',collab:'× HBB',ddMaterial:'Topology (10mm)',detail:'10mm Topology DD+Knowles ED 29689+Knowles RAD 33518',imp:'12Ω',sns:'106dB',cable:'SoundsGood Samael',cableColor:'#4895ef',envIndoor:'2026年9月・室内静穏環境／M5 Ultra。Bleed / Angel of Death / Komorebi。ミッドベースの量感は所持機中トップ、キックの粒も保持。ギター/ベースが団子になる箇所あり、Komorebiではローがギターをマスク。金物の浮きは帯域の混み具合次第で変動。全体的に音が近く音場は狭め。',envOutdoor:'',axis:['power'],metalRank:'A',metalNote:'【2026年11月・ランク再見直しでA】最近の使用頻度が高い。ドゥームやデプレッシブブラックと非常に相性が良く、より重く陰鬱に鳴らしたい曲の1番手（代表：Shining、Electric Wizard、Sunn O)))）（ミックス次第でツーバスやブラストが潰れる恐れがある場合はMartiloを選ぶ）。下記の「雰囲気重視の曲には不向き」は、湿度や残響で聴かせるポストブラック系についての記述で、重さと陰鬱さで聴かせるドゥーム・デプレブラックは別。'+'HBBチューンらしい立体的で量感のある低域がメタルのグルーヴを強く押し出す。低域の解像度も高くベースラインが埋もれない。3ドライバー構成のシンプルさゆえ高域の超解像感は上位機に譲るが、ノリと迫力でメタルを楽しむには十分。ダウンチューン主体のモダンメタル・デスコアと好相性。【実聴・2026年9月／Meshuggah "Bleed" / Slayer "Angel of Death" / Alcest "Komorebi"】ミッドベースの量感は所持機中トップでキックの粒も潰れない。ただし低域の影響が想定より上まで及び、Bleedではギター/ベースが団子になる箇所、Komorebiではローがギターをマスクする場面が頻発。音は全体的に近く、音場は狭め。金物はやや浮くが、これは帯域の混み具合に依存する現象で、Angel of Deathのギターソロのように高域が混むと浮きは薄れ馴染む。エッジは丸めのため刺さりやすい音源では美点。疾走部よりミッドテンポが映え、ふくよかでグルーヴィー。■弱点：残響が伸びず、量感はあっても湿度に繋がらないため雰囲気重視の曲（ポストブラック等）には不向き。同じ量感型ならDoscincoの方が完成度が高い。■位置づけ：デスコアのブレイクダウンやグルーヴメタルのミッドテンポで本領。HBBチューンらしいバスヘビー志向がそのまま出た性格。',genreMetal:["デスコア","スラミングデス","グルーヴメタル","デスメタル","ドゥーム・ストーナー","ブラックメタル"],genreOther:["ヒップホップ","EDM","ロック"]},
+    {name:'Nuo',drivers:'1DD',type:'Single DD',price:'',sound:'ハイ寄りで元気めな弱ドンシャリ / ローは量感より整い型 / ハイが開けて情報量多め / 光属性の明るい鳴り',ddMaterial:'LCP (10mm)',detail:'10mm LCP Dynamic Driver / 既に終売、当時の実売は4〜5,000円程度',imp:'32Ω',sns:'107dB',value:true,valueNote:'当時実売4〜5,000円クラスでランクB',axis:['edge'],envIndoor:'2026年9月・室内静穏環境／M5 Ultra。Meshuggah \"Bleed\" / Slayer \"Angel of Death\" / Alcest \"Komorebi\" / Opeth \"Deliverance\"。ローの量感不足は感じず、疾走時も破綻しない。Komorebiは光属性寄りで良好だがOpethの仄暗さは出ない。',envOutdoor:'',metalRank:'B',metalNote:'【実聴で全面改訂・C→B】旧評価「ウォームバランス／ハーマン寄り／疾走感やアグレッションの表現は弱め」はレビュー準拠のものだったが、実聴の印象とは異なるため差し替え。■基本性格：ハイ寄りで元気めな弱ドンシャリ。ローは量感で押すタイプではなく整い型で、ハイは開けており情報量も多め。全体に明るく見通しで聴かせる小型1DD。■低域：Bleed / Angel of Death で確認したところ量感不足は感じない。ミッドベースが破綻せず疾走時にも埋もれないため、必要量は確保したうえで締まりで処理しているタイプと判断。■弱点：分離・解像感は上位機に劣る（Lucifer比では明確）。ただし同じ1DDでも価格帯が一桁違うため、比較対象はZiigaat内の上位機よりも低価格帯として見るのが妥当。■雰囲気系適性：Komorebi は光属性寄りの鳴り方で良好。ローが多くないぶんギターをマスクせず、人によってはこちらの方が自然に聴こえる可能性もある（ローが上までかぶるArcadiaとは逆のパターン）。ただしこの遠景感は解像感の甘さに由来する可能性があり、音数が多い雰囲気系では別の結果になり得る。実際 Opeth \"Deliverance\" では仄暗さが大きく減退し、比較的冷静に鳴らす。→ 湿度・仄暗さを核とする音楽では出ないため 🌫雰囲気系は非該当とし、❄️切れ系のみ付与。■総括：メインジャンルの核心（デスコア・スラム）で量感型を押しのける材料はないが、Bleed / Angel of Death で破綻しないためCではない。B相当。',genreMetal:["スラッシュメタル","正統派メタル","ジェント・プログレ","メタルコア・ニューコア"],genreOther:["ロック","ポップス","アコースティック・ゲーム系"]},
+    {name:'RUMBA',drivers:'1DD',type:'Single DD',price:'',sound:'低重心・ミッドベースにピーク / 量感豊かで丸め / ハイが弱く暗め / 分離は価格帯として良好',collab:'× Vivir Digital',ddMaterial:'グラフェン (10mm)',detail:'10mm Graphene Diaphragm DD（デュアルキャビティ設計）/ 0.78mm 2pin / 2.8kHzピンナ補正',imp:'32Ω',sns:'109dB',value:true,valueNote:'$35クラスでランクB',axis:['power','atmosphere'],envIndoor:'2026年9月・室内静穏環境／M5 Ultra。Meshuggah \"Bleed\" / Slayer \"Angel of Death\" / Nasum \"Scoop\" / Alcest \"Komorebi\"。'+'Nuo比で重心が確実に低くミッドベースにピーク、量感豊かで丸め。キックの量感はあるがエッジ・アタック感は弱め。分離は存外良好。ハイが弱く音は暗め。スラッシュはエッジが丸く不向き、Scoopのブラストは完全に団子。Komorebiでは温かみが良方向に働く。',envOutdoor:'',metalRank:'B',metalNote:'【2026年9月・実聴確定】■基本性格：Nuoと比べて音の重心が確実に低い。ミッドベース帯にピークがあり、量感豊かで丸めの音。ハイが弱く全体に暗め。同じZiigaat低価格帯1DDでもNuo（整い型・ハイ寄り・光属性）とは完全に対照的で、Doscinco・Arcadia寄りの量感型の系譜に入る。'+'■Bleed：キックの量感はあるがエッジ・アタック感はそこまで出ない。一方で分離は存外できており、価格帯としては優秀。Doscincoが「ブリードを厚みに変えつつアタック情報を保持」していたのに対し、RUMBAは量感は出るがキックの頭の鋭さで譲る。ここが価格差の出た部分。'+'■Angel of Death：スラッシュはエッジが丸く不向き。この用途はEstrella・Luciferなど他に明確な選択肢があるため、RUMBAを選ぶ理由はない。■Scoop（ブラストビート単体の解像度）：完全に団子。Bleedで分離が良好だったのはパターンとして追いやすい構造だったためで、'+'1発ずつの粒立ちが問われるブラストではアタックの弱さがそのまま破綻に直結する。■Komorebi：ミッドベースの量感とハイの弱さから来る温かみが良い方向に働く。Arete（湿・ベースが近い）、Odyssey（音場の広さと伸び）とはまた別のアプローチで雰囲気を成立させるタイプ。'+'■三軸：💥パワー系＋🌫雰囲気系。切れ系はエッジが丸い時点で非該当。■ランク：ブラスト団子・スラッシュ不向きという明確な弱点がある一方、量感とKomorebiでの好結果があるためBで暫定。当日はArete・Odyssey・Doscincoという上位機の直後に聴いたため順序効果の影響が考えられ、単独でじっくり聴く機会を別途取ってから確定させる。'+'■レビュー情報（未検証・参考）：10dBのサブベースとウォームな中域、伸びのあるクリーンな高域というバランス型1DDとされ、音楽性・ノリ重視のチューニングと評される。ただし実聴ではハイは弱めに感じられ、レビューの「伸びのあるクリーンな高域」とは一致しない。',genreMetal:["デスコア","スラミングデス","ドゥーム・ストーナー","グルーヴメタル"],genreOther:["ロック","ハードロック","ヒップホップ"]},
+    {name:'Luna',drivers:'6BA',type:'Multi BA',price:'',sound:'温かみと開放感 / 想定より低域が出る / キックの沈み込みは弱め / 見通しが良くクリア / 昔やんちゃだったが丸くなった男性のような落ち着き',detail:'Sonion 39AY008×2(低域)+Knowles 32873×2(中域)+Knowles 33518×2(高域) / 8dBサブベースシェルフ・250Hzカットオフ / 青緑のオーロラ調シェルにピンクのラメ / 0.78mm 2pin / イヤーピースはEletech BAROQUE STAGE / ケーブルはシェルのピンクのラメに合わせてHimalayaから5ASakuraを移設',imp:'26Ω',sns:'103dB',cable:'NiceHCK 5ASakura',cableColor:'#e2b96f',envIndoor:'2026年9〜10月・室内／5ASakura・BAROQUE STAGE。リファレンス6曲＋補助曲。Bravery RB Ed.（同じフルBA）とBleed・Komorebi・Deliveranceで比較。',envOutdoor:'',axis:['atmosphere'],metalRank:'A',metalNote:'【実聴・2026年9〜10月／5ASakura】■基本性格：温かみと開放感。想定よりローは出ており、見通しもクリア。キックの沈み込みは弱く、圧で押すタイプではない。昔やんちゃだったが丸くなった男性のような、熱を内に収めた落ち着いた鳴り方。RUMBAほどの熱はない。ハイは曲によってやや強く出る場面がある。'+'■強み：ブラストの粒もクリアに追え、タムとキックの分離も良好。どのジャンルもそつなくこなす堅実なオールラウンダー。特にメランコリックな曲・雰囲気系との相性が良く、Harakiri for the Sky・Deafheaven・Les Discretsのようなポストブラック、Within Temptation・Lacuna Coilのようなゴシック、Yesや初期Pain of Salvation（Remedy Laneのインスト曲など）のプログレ、そもそも音圧の低い曲で真価を発揮。'+'■苦手：サブベースで押すモダンな曲では量感不足が決定的になる。ToolはMartilo、Periphery・Animals as LeadersはCincotresの方が合う。'+'■ランクの考え方：使い分け前提ならA（雰囲気系の担当として）。1本で全ジャンルを聴くならB相当。カタログのランクは使い分け前提で付けているためAとした。'+'■Gabrielとの関係：同じく広く見通しの良い万能型だが、Lunaは温かく落ち着いた陰、Gabrielは明るく元気な陽。雰囲気ものはLuna、テクニカル系や勢いで聴きたいものはGabrielと使い分ける。',genreMetal:["ポストブラック・ポストコア","ゴシック","ジェント・プログレ"],genreOther:["ロック","ジャズ","クラシック"]},
+  ]},
+  { name:'Kiwi Ears', accent:'#06d6a0', models:[
+    {name:'Halcyon',drivers:'1DD+3BA+1MEMS',type:'Tribrid',price:'',sound:'情報を美しく整理する高解像度機 / 見通し良く小綺麗でスピーディー / 「爽やか細マッチョ」 / 世界初MEMS+DD+BAトライブリッド',detail:'10mm composite DD(サブベース)+DEK-series BA×2(中域)+WBFK-series BA×1(高域)+MEMS(超高域) / 0.78mm 2pin / 3.5mm/4.4mmモジュラー / Kickstarter購入・到着済み',imp:'—',sns:'—',metalRank:'B',metalNote:'【2026年11月・本人の記憶による評価でBを確認】Tier表作成時に再評価。'+'実機での曲別試聴により評価確定。「音楽を力強く鳴らすイヤホンではなく、録音情報を美しく整理し高解像度で聴かせるイヤホン」という結論。高域は伸びが良くスピーディーで金属の質感も自然に残り、MEMSらしさを過度に主張しない自然なチューニング。コーラス・シンセのレイヤー分離が非常に優秀で、情報量の多い曲でも音が潰れない。ボーカルの前方感・分離も良好。弱点は中低域の薄さで、ギターの厚みやキックのパンチ・音圧は物足りない場面がある。音場は左右に広いが前後の奥行きは浅く、曲によっては金物とバスドラが横一直線に並ぶ印象。凛として時雨・Polyphia系テクニカルロック・Level Nine等の情報量が多くテクニカルな曲との相性は非常に良く、Megadethのようなクラシックスラッシュでもライドワーク・空間表現は好印象。Lamb of Godのようなギターの重さ・音圧が要となる曲ではやや物足りない。所持のCano Cristales（パンチ・迫力担当）、Martilo（重量級・低音担当）とは競合せず「分離・見通し・空間表現担当」として綺麗に役割分担できる。',genreMetal:["ジェント・プログレ","メロデス","メタルコア・ニューコア"],genreOther:["ポップス","アコースティック・ゲーム系","ジャズ"]},
+  ]},
+  { name:'Punch Audio', accent:'#e63946', models:[
+    {name:'Martilo',drivers:'2DD+2BA+1Pla',type:'Tribrid',price:'',sound:'サブベース特化・圧力型 / ミッド以上は素直でウェルバランス / 音量を要求する（vol80〜85）',ddMaterial:'非公表',detail:'8mm DD×2+Knowles RDE BA×2+Planar Tweeter / 200Hzクロスオーバーで14±1dBのサブベースシェルフ',imp:'9Ω',sns:'100dB',cable:'SoundsGood Tylfing',cableColor:'#4895ef',axis:['power','atmosphere'],envIndoor:'2026年9月・実聴確定／リファレンス6曲通し済み。M5 Ultra・vol80〜85。'+'Bleed＝リフとキックの分離良好、キックは重さ担当、金物が派手にならず曲の不穏さが潰れない。Angel of Death＝3機種中最も大人しいがもたつきは一切なし。Komorebi＝残響・温かみ・バイオリンの伸びがトップ、ベースは下支えに徹する。Deliverance＝1:30〜のアコギはArete同等、スネアのシンコペーションなど細やかさが3機種中トップ。Scoop＝キックはボヤけるがスネア・金物は良好、ギターのエッジがなく全体にボヤッと。Annihilation Order＝重さと圧は随一、808ドロップはキックが空間をこじ開けてくる。'+'【最重要】音量を明確に要求する機種。他機種がvol65〜70で足りるところ、Martiloはvol80〜85必要。プラナー・BAともに低ボリュームでは仕事をせず、段階的に立ち上がるタイプ。低ボリュームで聴くと本領を大きく下回った状態で評価してしまうリスクがあるため、必ずボリュームを上げてから判断すること。'+'■低域：Cano Cristales・Doscincoと3機種比較。喉まで響くレベルの沈み込みで、S評価3機種中キックが最も重い。ただし「タイトで制動」というより「圧力」の質感で、沈み込みそのものが強烈。ミッドベースがやや薄いことで、逆にサブベースの重さが際立つ構造と推測（"ウェルバランス機にサブベースだけ異様に盛った"）。'+'それでいてもたつく感じはなく、200Hzクロスオーバーによる帯域分離が効いていると思われる（Cano Cristalesの「アタックの速さ」による制動、Doscincoの「厚みとして飲み込ませる」制動とは異なる、物理的な帯域分離による制動）。'+'■ミッド以上：素直でウェルバランス。低域がここまで主張する設計にもかかわらず、響きや温度感——楽器の質感や曲の情感——をきちんと描き分ける。低域に飲まれて単色にならない点が美点。'+'■相性：Spiritboxのようにメタルの轟音・ダウンチューニングの重さ・クリーン/スクリームのスイッチボーカル・エモさを同時に要求する曲に強い（圧力型の低域と素直な中高域の両立による）。Korn "Blind" のような重く陰鬱なナンメタルとの相性も良好（ながら聴きでの所感）。'+'■3機種の低域の質の違い：Lucifer＝低域を弦の厚みに転化する挟む圧、Cano Cristales＝ミッドベース優位で速く鋭い衝撃、Martilo＝サブベース特化で面で押す圧力。'+'■注意：Bleedでの8弦リフとの分離など、リファレンス曲を通した詳細評価は未実施（次回持ち越し）。',envOutdoor:'',metalRank:'S',metalNote:'【代表バンド・2026年11月】Bloodywood、Spiritbox、Opeth。'+'【2026年9月・実聴確定で全面改訂】旧評価はレビュー・スペック情報ベースの短いメモだったため、実聴内容に差し替え。■音量特性：プラナー+BA+DDのトライブリッド構成だが、他機種と同じ感覚のボリュームでは全帯域が「寝ている」状態になる。'+'vol80〜85まで段階的に上げて初めて本領を発揮するため、評価・比較の際は必ずこの点を踏まえること（この特性に気づかないまま低ボリュームで判断すると、実力を大きく下回った状態で評価してしまう）。■低域：サブベース特化型で、S評価3機種（Lucifer・Cano Cristales・Martilo）の中でキックが最も重い。'+'喉まで響くレベルの物理的な沈み込みで、既存メモの「ドロップ自体が凄いがその瞬間他が飲み込まれる」（Doscinco/Martilo）はここに由来する。ミッドベードがやや薄いことで沈み込みが際立つ構造と推測され、それでいてもたつかない制動は200Hzクロスオーバーによる帯域分離によるものと考えられる。'+'■中高域：ミッド以上は素直でウェルバランス。低域が主張する設計でも響き・温度感を潰さず、楽器の質感や曲の情感をきちんと描き分ける。■ジャンル相性：Spiritbox（轟音・ダウンチューニング・スイッチボーカル・エモさの同時両立）、Korn "Blind"'+'のような重く陰鬱なナンメタルとも好相性。■三軸：💥パワー系。速さや輪郭の切れ系要素は薄く、圧力型の性格が一貫している。■【リファレンス6曲通し・2026年9月／Cano Cristales・Luciferとの3機種比較】《Bleed》リフとキックの分離は良好——サブベースが強烈でも8弦リフが濁らず、200Hzクロスオーバーによる帯域分離の推測を裏づける。キックの棲み分けは「アタックのCano／重さのMartilo」。金物はちゃんと主張するがCanoほど派手にならないため、曲の持つ不穏さが潰れない。《Angel of Death》3機種中最も大人しい。Luciferほどリフのエッジが立たず、Canoほどバスドラのアタック感もない。低域が薄いミックスの曲では最大の武器であるサブベースが出番を失うため。ただしもたつく感じは一切なく破綻はしない。《Komorebi》残響感・温かみ・バイオリンの伸びが3機種中トップ。「決して暗くはないが派手でもない明暗の塩梅」。ベースが程よくカットされ下支えに徹するため、Arcadiaのようにローがギターをマスクしない。《Deliverance》1:30〜のアコギ聞き取りやすさはArete同等（順位は Odyssey > Arete ≒ Martilo > Doscinco ≒ Cano）。スネアのシンコペーションの細かさが伝わるなど、微細なタイミング・ダイナミクスの解像度が3機種中トップ——プラナーが仕事をしている状態でこそ出る特性と思われる。《Scoop》元々キックがボヤけたミックスのため、アタック型のCanoが輪郭を立てるのに対し重さ型のMartiloはボヤけがそのまま残る。スネア・金物は良好だがギターのエッジがなく全体にボヤッとした印象。暴力的な曲は派手な機種の方が合う。ただし下手なわけではない。《Annihilation Order》曲全体を通して重さ・圧は3機種中随一。ブレイクダウンの重さも随一。808ドロップはマスクはするが「キックが空間をこじ開けてくる」感覚で、Canoの「音域全体が飲み込まれる」マスクとは質が違う（低域が独立しているため、混ざって埋もれるのではなく押し分けて出てくる）。ギターの厚みはCano同等かやや厚いが、エッジが立たないためそう感じている可能性あり。シンフォは可もなく不可もなく。■【総括・得意と不得意】曲側の情感や質感が主役の曲（Bleed・Komorebi・Deliverance）では3機種中トップ、速さ・鋭さ・派手さの絶対値が問われる曲（Angel of Death・Scoop）では譲る。ただしどの曲でも破綻はしない。色をつけない性質ゆえ、曲が自分の武器を要求しない限り前に出てこないタイプ。■【得意な曲の輪郭】「暴力一辺倒でない重い曲」が比較的得意。低域の圧力は要るが、それ以外にも描くべき情感や質感がある曲、という条件。実例としてSpiritbox（轟音・ダウンチューニング・スイッチボーカル・エモさの同時両立）、Korn \"Blind\"（重く陰鬱なナンメタル）、Bloodywood（インド伝統楽器とニューメタルリフの同居——ドールの胴鳴りにサブベースの圧力が噛み合い、バーンスリー等の質感も潰れない）。逆にScoopやAngel of Deathのように速さ・鋭さ一辺倒の曲では持ち味が出ない。■【圧力と“殴られてる感”は別物】Annihilation Orderでは重さ・圧ともにMartiloが随一だったが、好み度ではCanoに次ぐ2位。Canoの方がアタックとエッジが強く「殴られてる感」が強いため。圧力の絶対値と体感としての攻撃性は別の指標として扱うこと。■三軸：💥パワー系＋🌫雰囲気系。KomorebiとDeliveranceの双方で「曲の情感を潰さない」ことによる好結果が出たため雰囲気系を付与。■今後の課題：屋外評価が未実施。音量を要求する機種のため、暗騒音がある環境でどこまで音量を上げられるかが実用上の焦点。',genreMetal:["デスメタル","デスコア","グルーヴメタル","ゴシック"],genreOther:["ヒップホップ","EDM","ロック"]},
+  ]},
+  { name:'SeeAudio', accent:'#48bfe3', models:[
+    {name:'Rinko',drivers:'1DD+1Pla',type:'Hybrid',price:'',sound:'V字型 / 迫力低音+プラナー高域',collab:'× Z Reviews',detail:'10mm DD+6mm Micro Planar',imp:'30Ω',sns:'112dB',metalRank:'B',metalNote:'DD+プラナーのV字で迫力の低域とクリスプな高域を持つ。メタルのノリと高域の抜けを手頃に楽しめるが、中域がやや凹みボーカルやリフの芯が薄く感じられる場合あり。価格なりの解像度で密なミックスはやや混雑。気軽なメタルリスニング向き。',genreMetal:["メタルコア・ニューコア","グルーヴメタル","正統派メタル"],genreOther:["EDM","ヒップホップ","ロック"]},
+    {name:'Bravery RB Ed.',drivers:'4BA',type:'Multi BA',price:'',sound:'切れ・分離重視でスピーディー / ハイが目立つ（相対効果か特性かは未確定） / 量感は明確に不足 / 右クリアレッド×左クリアブルー+雲母FP',collab:'× Angelears (Z Reviews)',detail:'Knowles BA×3（高域×1・低域×2）+ Sonion BA×1（中域）/ 0.78mm 2pin',imp:'18Ω',sns:'110dB',cable:'NiceHCK SweetLife',cableColor:'#e2b96f',envIndoor:'2026年9月・実聴確定。Bleed / Komorebi / Deliverance / Angel of Death / Scoop / Annihilation Order を通しで検証。'+'分離は良好だが量感不足はイヤピを変えても解消せず機種の性格と確定。Komorebiは明るく良好、Deliveranceのデスパートはプリミティブブラック的になり不適合。'+'装着：普段使いのBaroque・Velvet Widevoreでは激痛（特に左）、液体シリコン系イヤピでなんとか収まる——音質評価とは別に装着上の相性問題として注意。'+'マッチした曲：Nightwish \"Amaranth\"、DragonForce \"Through the Fire and Flames\"、Voivod \"Fix My Heart\"、Yes \"Roundabout\"、初期Megadeth。合わなかった曲：初期Exodus（Estrellaの方が向く）。',envOutdoor:'',axis:['edge'],metalRank:'B',metalNote:'【2026年9月・実聴確定でC→B】旧評価は「アグレッシブなメタルより分析的・クリーン志向」というレビュー準拠の一般論だったが、実聴で輪郭がはっきりしたため全面差し替え。'+'■基本性格：切れ・分離・スピード重視。ハイが目立つが、相対効果（低域が薄いことによる錯覚）か実際の特性かは未確定のまま保留。'+'■Bleed：分離は良好だが絶対的な量感は不足。イヤピを液体シリコン系に変えても印象は変わらず、密閉度の問題ではなく機種の性格と確定。ただし聴けないレベルではない。'+'■Komorebi：しっとりというより明るく元気に鳴らす。この曲ではローの量感不足が気にならず、アコギの弦やコーラスが映える——Nuoと同じ「量感の少なさが長所に反転する」パターン。'+'■Deliverance：合わない。ハイが出過ぎて厚みが足りず、デスパートはプリミティブブラックのような質感になる。クリーンパートのアコギは所持機中最も聞き取りやすいが、求めている音楽的方向とは違う（聞き取りやすさと音楽的な正解は別軸）。'+'■Angel of Death：金物が大分前に出る。切れとスピード感は良いが暴力的ではなく、中盤のミッドテンポはグルーヴ感が足りない。量感を持たないため根本的に暴力性・グルーヴの表現に構造的な限界がある。'+'■Scoop：キックは足りないがブラストは聞き取りやすい。ギターの質感は意外と悪くない。'+'■Annihilation Order：明らかに圧が足りない。808ドロップのマスクが少ないのも量感不足ゆえ。全体的に綺麗にまとまりすぎる。'+'■Cincotresとの違い：同じ切れ系でも、CincotresはDoscincoと同じDD構成を共有し物理的な重さを保持したままの切れ（重さを伴う切れ）。BraveryはフルBAで物理的な質量による重さを表現できず、量感を伴わない軽量な切れ。切れの質が異なる。'+'■メタル外での適性：初期Megadeth（速さと技巧の切れが合う）、Nightwish \"Amaranth\"（シンフォ・女性ボーカル）、DragonForce（疾走感とピコピコギター）、Voivod（変則スラッシュ〜変則ロック）、Yes \"Roundabout\"（元々ローが少ないミックスとの相性）で好結果。'+'一方、初期Exodus（パンキッシュな毒気・荒々しさ）は真面目すぎて合わず、Estrellaの方が向くと判断。'+'■B判定の根拠：メインジャンル（デスコア・スラム・グルーヴメタル）との相性は相変わらず良くないが、聴けないレベルではなく、テクニカル・プログレ・シンフォ・変則スラッシュのような周辺ジャンルでは明確な強みがある。'+'"どのジャンルもそれなりには聴けるが自分の畑と合わないだけ"（本人談）——Cの「凡庸」ではなく、実力を持ちながらメインジャンルとの相性で選ばれにくいという位置づけ。',genreMetal:["ジェント・プログレ","スラッシュメタル","正統派メタル","ゴシック"],genreOther:["ジャズ","クラシック","アコースティック・ゲーム系"]},
+  ]},
+  { name:'Tangzu', accent:'#d4a373', models:[
+    {name:"Wan'er S.G 2",drivers:'1DD',type:'Single DD',price:'',sound:'ウォーム / ボーカル重視 / 入門機',detail:'10mm PET Diaphragm DD',metalRank:'C',metalNote:'ウォームでボーカル重視の入門機。メタルでは低域・高域ともに穏やかで疾走感やアグレッションは出にくく、ミッドバスのタイトさにも欠ける。激しいジャンルには不向きで、メロディ重視の曲やBGM向き。',genreMetal:["正統派メタル","メロデス","ゴシック"],genreOther:["ポップス","アコースティック・ゲーム系","ロック"]},
+    {name:"Wan'er S.G 2 Red Lion",drivers:'1DD',type:'Single DD',price:'',sound:'ウォーム寄りドンシャリ / バス強化チューニング / 豊かなボーカル / 付属品が豪華',detail:'10mm Enhanced PET Diaphragm DD（バス強化リチューン）/ 内部配線アップグレード / 0.78mm 2pin / Sancai Wide Bore + HeSonic eartips付属',imp:'20Ω',sns:'113.5dB',metalRank:'B',metalNote:'【2026年11月・本人の記憶による評価でB（C→B）】Tier表作成時に再評価。'+'無印よりバスが強化され低域の量感とパンチが増したが、ミッドバスのタイトさと空気感の細部表現に限界が残る。高速スラッシュメタルのリフ分離やキックの追従はやや苦手で、ウォームトーンゆえ轟音がもたつきがち。気軽に楽しむメタルやメロディ重視曲向き。',genreMetal:["グルーヴメタル","正統派メタル","メロデス"],genreOther:["ポップス","ヒップホップ","ロック"]},
+    {name:'Xue Tao AE-101',drivers:'1DD',type:'Single DD',price:'',sound:'ニュートラル〜マイルドV字 / タイトなバス+クリーン高域 / 精確なイメージング / ゲーミング特化',collab:'× Angelears',detail:'10mm Glass Diaphragm DD（ガラス中心+PETエッジ）/ カーボンファイバー+CNCアルミ筐体 / 着脱式ブームマイク付属 / 0.78mm 2pin / 3.5mm/USB-C対応',imp:'18.5Ω',sns:'—',metalRank:'C',metalNote:'【2026年11月・本人の記憶による評価でC（B→C）】Tier表作成時に再評価。'+'ゲーミング特化のニュートラル〜マイルドV字で、タイトなバスとクリーンな高域・精確なイメージングを持つ。ガラス振動板の低歪みで高速リフの分離やシンバルの定位が得意。バスの量感はバスヘッド向けではないが、メタルの細部を正確に聴き分けたい場面で機能する。1DDとしては優秀なメタル適性。',genreMetal:["スラッシュメタル","メタルコア・ニューコア","ジェント・プログレ"],genreOther:["アコースティック・ゲーム系","ポップス","ロック"]},
+    {name:'武則天 Legend',drivers:'2Planar',type:'Dual Planar',price:'',sound:'ニュートラル〜ウォーム / 高解像高域',detail:'14.2mm Planar+6mm Flat Diaphragm Planar',metalRank:'B',metalNote:'【2026年11月・本人の記憶による評価でBを確認】Tier表作成時に再評価。'+'デュアルプラナーによる高解像・高速トランジェントでメタルのリフやシンバルの分解能が高い。ニュートラル〜ウォーム寄りでサ行が出にくく長時間でも快適。バスはプラナーらしくタイトだが物理的スラムは控えめで、轟音の迫力よりも精密さと速さで聴かせるタイプ。テクニカル系に好適。',genreMetal:["ジェント・プログレ","ゴシック","メロデス"],genreOther:["クラシック","ジャズ","ポップス"]},
+    {name:'魚玄機',drivers:'1DD',type:'Single DD',price:'',sound:'ニュートラル / 開放型 / 抜け感と開放感 / キックもギターも薄い / 金物が最も目立つ',collab:'× Dethonray',detail:'10mm TPLX Topology DD (open-back) / 亜鉛合金シェル',ddMaterial:'Topology (10mm・開放型)',imp:'15.6Ω',sns:'104.5dB',envIndoor:'2026年9月・実聴確定。Meshuggah \"Bleed\" を通しで聴取。キックもギターも薄く、金物が最も目立つ。粒は非常に細かいが評価軸として興味を持てない。抜け感・開放感はBleedでは完全にマイナスに働く。',envOutdoor:'',metalRank:'D',metalNote:'【2026年9月・実聴確定でC→D】■判定の経緯：「明確につまらないと感じた機種」として記憶に残っており、実際にしまい込んでいた。Cの意味を「凡庸」に変えDを「不得手」として新設したため、その第一号として聴き直した。'+'■Bleedでの実聴：キックもギターも薄っぺらい。金物が最も目立ち、粒は非常に細かいが、そもそも金物の解像度は評価軸として重視していないため加点にならない。'+'つまり優先順位1位（キックのパンチ＝物理的な圧力）は構造的に満たせず、2位（解像度・分離）も評価に寄与しない部分でのみ優秀という状態。'+'■最大の理由：抜け感・開放感という開放型の美点そのものが、Bleedでは完全にマイナスに働く。音が詰まった密度と圧力で押してくる曲では、抜け感があると壁が壁にならず、開放感が「音が逃げていく」に転化する。'+'→ 「メタルが下手」なのではなく「メタルと真逆の設計」。アコースティックやクラシックでは美点として機能するはずの特性が、メタルでは全部マイナスに反転する。'+'■D判定の根拠：好みから明確に外れる。Cの「凡庸＝積極的に選ばない」ではなく、設計思想レベルで用途と不一致。'+'■褒める点：Komorebiのシューゲイズ要素は悪くない（抜け感がプラスに働く数少ない場面）。Angel of Deathも速度は出る——ただし軽いだけで、制動力によるものではない。いずれも雰囲気系はArete・Odyssey・RUMBA・Martiloに選択肢があるため出番は回らず、D判定は覆らない。'+'■注記：機種の性能が低いという意味ではない。開放型・ニュートラルという方向性を求める用途では十分に機能するはずで、ネット上の評判は悪くないため、機種の出来ではなく自分の聴き方との相性が絶望的に悪かったという結論。あくまでこのカタログの評価軸（メタル実用）における判定。',genreMetal:[],genreOther:["アコースティック・ゲーム系","クラシック","ジャズ"]},
+  ]},
+  { name:'Yanyin', accent:'#fca311', models:[
+    {name:'Canon',drivers:'1DD+4BA',type:'Hybrid',price:'',sound:'ウォーム / 3スイッチ調整 / 万能型',detail:'DD+4BA 3way crossover / 3 tuning switches',cable:'SoundsGood Anthracite',cableColor:'#4895ef',metalRank:'B',metalNote:'【2026年11月・本人の記憶による評価でBを確認】Tier表作成時に再評価。'+'3スイッチで全帯域を調整でき、バス寄り設定にすればエネルギッシュなV字でメタルのノリを楽しめる。DD+4BAで低域の量感と中高域の分離を両立。初代らしいやや荒削りなエネルギーがスラッシュ・デスメタルと好相性。スイッチで日替わりにキャラを変えられる柔軟さも強み。',genreMetal:["スラッシュメタル","デスメタル","グルーヴメタル"],genreOther:["ロック","ヒップホップ","ハードロック"]},
+    {name:'Canon Pro',drivers:'1DD+6BA',type:'Hybrid',price:'',sound:'バランス / 高解像度 / 2スイッチ調整',detail:'LCP DD+6BA / 4way crossover / 2 tuning switches',imp:'18Ω',sns:'104dB',cable:'NiceHCK AceComet',cableColor:'#e2b96f',metalRank:'B',metalNote:'【2026年11月・本人の記憶による評価でBを確認】Tier表作成時に再評価。'+'初代よりモニター寄りに洗練され、解像度とトランジェントはシリーズ最高。スイッチで低域を足せば締まった低域+高解像のメタル向きサウンドになるが、全体にBA寄りで物理的なバスの迫力は控えめ。轟音のグルーヴよりリフ・シンバルの精密な分解を求める聴き方に向く。',genreMetal:["ジェント・プログレ","スラッシュメタル","メタルコア・ニューコア"],genreOther:["ジャズ","ポップス","ロック"]},
+  ]},
+  { name:'Hisenior', accent:'#9b5de5', models:[
+    {name:'Cano Cristales',drivers:'2DD+8BA',type:'Hybrid',price:'',sound:'60Hz中心のミッドベース優位 / 量感がありながらもたつかない / アタックが速くエッジ・ハイも強い / ややウォームだが明るく派手 / 音圧が支配的',ddMaterial:'液体シリコン複合 (8mm×2)',detail:'2×液体シリコン複合振動板DD（HiSenior初の2DD機）+4×Bellsing 28Uシリーズ（Bellsingとの共同設計・動作帯域800Hz〜3kHz限定）+4×Knowles SWFK / 3way passiveクロスオーバー・トリプルボア・3ダンパー / 帯域配分は2Low+4Mid+4High / 10Hz-40kHz / THD 0.5%±0.1% / 遮音-20dB / WILD NATUREシリーズ第2弾 / 3in1モジュラーケーブル（UP-OCC銀メッキ・4.4/3.5/2.5mm）',imp:'15Ω',sns:'113dB',cable:'SoundsGood Nyx',cableColor:'#4895ef',axis:['power'],envIndoor:'2026年9月・室内静穏環境／M5 Ultra。Bleed / Angel of Death / Scoop / Komorebi / Deliverance / No Way Out を通しで検証。'+'量感がありながらもたつかず、アタックが速い。分離良好。Komorebiではローがギターをマスクせずパリッと明るい。Deliveranceでは幽玄さより派手さ・攻撃性が前に出る。No Way Outは単体では重さより派手さが勝つ印象だが、Lucifer比では明らかに重い。修理から返却済み。'+'【2026年9月・Annihilation Order（Lucifer比較）】起＝ギターは厚さより歪み感が前、ベースとキックが大分前に出る。承＝808ドロップは音域全体をマスクするレベル。ハーモニクスは気持ち悪く映えて良い。ローが強いのにガテラルははっきり聴こえる。結＝シンセもそこそこ主張。',envOutdoor:'',metalRank:'S',metalNote:'【2026年9月・実聴確定／6曲通し】■帯域の見立て：サブベース帯よりミッドベース（60Hz〜）が優位。さらに300Hz付近から上のミッドローを削っていると推測され、これがこの機種の挙動をほぼすべて説明する。'+'■最大の美点：これだけローが出ているのにもたつかない。8mm DD×2という小径構成で振動板が軽く立ち上がりが速いことに加え、減衰の遅いサブベース帯ではなくミッドベース中心に山を作っているため、量感と速さが両立している。キックは唯一無二。'+'■Bleed（Doscinco比）：分離良好。アタック感・エッジ感・ハイの出方はCanoが上、胴鳴りの量感はDoscincoが上。同じ量感型でもDoscincoがサブベース型なのに対しCanoはミッドベース型で、中身がまったく違うことが実測で確認できた。'+'■Angel of Death：ギターは十分にエッジが立ち明瞭だが、少し薄い。ベースの4弦ルートが遠く感じる場面あり（300Hz以降を削っている推測と整合）。疾走感は十分で、ギターソロ後の2バス連打が非常に気持ちいい——ミッドベース優位＋速いアタックが最も活きる場面。'+'■Scoop（ブラストビート単体の解像度）：RUMBAより明確に粒が聞き取れる。同じ量感型でもアタックの速さの有無で結果が真逆になる好例。バスドラのぼやけはミックス起因と推測（他機種での照合は未実施）。'+'■Komorebi：残響感は少なくパリッと気味の描写。Arcadiaで起きた「ローがギターをマスクする」問題は感じられず、300Hz以降を削っている推測を裏づける。ただしキックが常に強く、そこは好みが分かれる。ハイも強く明るめ。→ 🌫雰囲気系は非該当。'+'■Deliverance：全体的に派手な印象で攻撃性に大きく振れる。弦楽器は倍音成分が目立つ（基音側が引かれ倍音が相対的に前に出るため）。1:30〜のクリーンパートではアコギがベースの倍音とキックに完全に持っていかれ、聞き取りやすさはDoscinco同等。'+'ただしDoscincoが一体感による埋没なのに対し、Canoは競合による敗北という違いがある。順位は Odyssey > Arete > Doscinco ≒ Cano Cristales。'+'■No Way Out：単体で聴くと重さより派手さが勝つ印象。ただしLuciferと直接比較すると明らかにCanoの方が重い。→ 単体聴取時の内部バランスの印象と、他機種との比較評価が食い違う典型例として記録する。ベースラインが遠い件はLuciferでも同様だったためミックス起因で確定。'+'■三軸：💥パワー系一本。速さと輪郭は十分に備えるが、音圧が支配的で聴き手を巻き込むため、Cincotresのような「乾／観察型」の切れ系には該当しない。速さ・輪郭は軸ではなく「パワー系の中でも鈍重でないタイプ」という個性として扱う。'+'■Luciferとの補完関係：低域の重さはCano、ギターの厚み・エッジはLuciferが上。Luciferは1DDで低域のエネルギーが弦の厚みへ転化されるのに対し、Canoは低域に集中投資してローミッドを削る設計。同じSランクでも守備範囲が明確に分かれる——ブレイクダウンの重さを取るならCano、ギターの厚みとエッジを取るならLucifer。'+'■Extermination Dismemberment \"Annihilation Order\"（2026年9月・Lucifer直接比較）：【起・スラミングデス】ギターは厚さより歪み感（倍音側）が前に出る。ベースとキックが大分前に出る。300Hz以降を削っている推測の追加証拠。ただしLucifer比で譲るだけで、表現力自体は十分にある（\"下手な機種よりは全然表現できている\"）。【承・808ドロップ→ハーモニクスリフ】808ドロップは音域全体をマスクするレベル。→ 既存記述の修正：Luciferノートの「Doscinco/Martiloはドロップの瞬間に他が飲み込まれる」という分類にCano Cristalesも含まれる。ミッドベース優位でもドロップ時の絶対量が十分あればマスクは起きる。なおドロップの歪んだ音はLuciferでも同様に聴こえたため音源側の演出で確定（機種の歪みではない）。ハーモニクスは気持ち悪く映えて良い（基音が引かれ倍音が前に出る性質が奏功）。Lucifer比では肉厚さで劣るが、不気味さを狙う場面ではCanoの倍音強調が味になる。【ボーカル】ローがこれだけ強くてもガテラルがはっきり聴こえる。Bellsing 28Uを800Hz〜3kHzに集中配置した構成の恩恵で、低域が暴れてもボーカルの明瞭度は別ドライバーが担保する。ガテラルの深さはLucifer比でCanoが上。【結・シンフォ】シンセもそこそこ主張。明るいハイが効く場面。【総括】この曲では起（ギターの厚み）のみLuciferに譲り、承以降は総じて得意。本人評価は\"この曲に限ってはCanoが好み。スラムやデスコアは圧力が絶対正義\"。■【公式スペックからの裏付け】Bellsing 28Uシリーズ4基は\"800Hz〜3kHz\"という限定された動作帯域を担当すると公式に明記されている。つまりミッドはこの狭い帯域に集中的に配置され、その下（300〜800Hzのローミッド）はDD側の受け持ちになる。実聴で導いた「300Hz付近から上を削っている」という推測は、この帯域配分（2Low+4Mid+4High）と整合する。公式が\"ear-closer male and female vocal\"（ボーカルが近い）と謳うのも、BAを800Hz〜3kHzに集中させた結果と考えられ、「ボーカルも前に出る」という実聴の印象と一致する。なお公式は\"Harman IEM Target Curve Tuning Referred\"を掲げるが、実聴の印象はV字寄りでHarman準拠とは言い難い。■公式チューニング思想：HiSenior公式SNS（2026年9月9日投稿）で\"High Contrast creates the beauty\" \"V-shape exciting tuning with punchy bass and sensitive and bright treble\"と明言。実聴で導いた「60Hz中心・300Hz以降を削る」という帯域推測と、公式が標榜するコントラスト重視の設計思想が一致する。■【検証済みの仮説】「S評価は屋外での使用頻度による印象の強さに由来するのではないか」→ 否定。室内でじっくり聴いてもキックの唯一性は揺らがず、環境起因ではなく実力由来と判断。S評価は覆さない。'+'■本人イメージ：三兄弟でいう「混沌」（技のEstrella、力のDoscinco、混沌のCano Cristales）。「全音域パワー全開で力任せに殴っている」という表現の実態は、重い鈍器ではなく明るく速い打撃。原音忠実性はなく空間表現も荒いが、このカタログは実用ランキングなのでそれは問題にならない。'+'■レビュー情報（参考）：V字バスヘッドながら中域の明瞭さを失わない設計と評され、速くクランチーなサブベースとハードヒットするマクロダイナミクスが轟音を支えるとされる。アッパー〜トレブルが強めで高音量ではややシャウト感が出る点は実聴の「ハイが強く明るめ」とも一致。',genreMetal:["デスコア","スラミングデス","デスメタル","グルーヴメタル"],genreOther:["ヒップホップ","EDM","ロック"]},
+  ]},
+  { name:'ivipQ', accent:'#c77dff', models:[
+    {name:'Conch V12',drivers:'2DD+6BA',type:'Hybrid',price:'',sound:'フルBA的な分離+DDのバス / 驚異的なレイヤリング / 外科的な解像度 / 女声ボーカルがやや細め',detail:'2DD+6BA / 0.78mm 2pin / モジュラーケーブル付属',imp:'—',sns:'—',metalRank:'B',metalNote:'【2026年11月・ランク基準見直しでA→暫定B】レビュー由来の仮ランクだったため、実聴するまで暫定Bとする。'+'伸びてコントロールされた低域と外科的な解像度・驚異的なレイヤリングを持ち、メタルの密なミックスでも各楽器が明瞭に分離。FH7s的なバスとフルBA的な分解能の融合で、速いツーバスやトレモロリフの追従が得意。女声ボーカルがやや細く、悪い録音・分析的ソースでは粗が出やすい。テクニカル系メタルに強い。',genreMetal:["ジェント・プログレ","スラッシュメタル","メタルコア・ニューコア"],genreOther:["ジャズ","ポップス","EDM"]},
+  ]},
+  { name:'Letshuoer', accent:'#06d6a0', models:[
+    {name:'S08',drivers:'1Planar',type:'Planar',price:'',sound:'中低音寄りドッシリ系 / 広がる低音+クリアボーカル / ミニS15 / ロック・チル向き',detail:'第4世代13mmカスタム平面磁気ドライバー / ナノスケールマグネトロンスパッタリング / PTR弾性フィルム搭載',imp:'26Ω',sns:'105dB',metalRank:'B',metalNote:'プラナーらしい速いトランジェントと中低音寄りのドッシリした低域を持ち、ロックやメタルのリフを力強く鳴らす。ボーカルのクリアさも良好。プラナーゆえ低域はタイトで物理的スラムは控えめ、高速メタルの分解は得意だがキックの打撃感はDD機に譲る。ロック〜ミドルテンポのメタル向き。',genreMetal:["グルーヴメタル","ドゥーム・ストーナー","正統派メタル"],genreOther:["ロック","ハードロック","ポップス"]},
+  ]},
+  { name:'TFZ', accent:'#ff6b6b', models:[
+    {name:'Athena',drivers:'1DD',type:'Single DD',price:'',sound:'ドンシャリ / ノリ良い元気音 / 高音ピーキー',collab:'× Angelears',detail:'ベリリウムコート Dynamic Driver',metalRank:'B',metalNote:'ノリの良いドンシャリでメタルの元気な鳴りを楽しめる。低域の量感もありキックやベースが前に出る。一方で高音がピーキーで、メタルのシンバル連打やハイハットで刺さり・聴き疲れが出やすい点が弱点。トレブル感度が高い人は注意。ノリ重視のメタル・ハードロック向き。',genreMetal:["グルーヴメタル","正統派メタル","メタルコア・ニューコア"],genreOther:["ハードロック","ロック","EDM"]},
+  ]},
+  { name:'Kinera Celest', accent:'#ee6c4d', models:[
+    {name:'Yaksha',drivers:'2DD+1BA+1MPD',type:'Tribrid',price:'',sound:'バランス / 低域迫力+クリア中高域 / コスパモンスター',detail:'8mm DD(低域)+10mm DD(中域)+Knowles BA(ボーカル)+Micro Planar(高域)',imp:'12Ω',sns:'105dB',metalRank:'B',metalNote:'2DD+BA+マイクロプラナーのトライブリッドで低域の迫力とクリアな中高域を両立。マイクロプラナーがシンバルの高域を伸ばし、メタルの抜けに貢献。価格帯としては解像度も良くノリと分解のバランスが取れている。最上位機ほどの轟音の重量感はないが、コスパ良くメタルを楽しめる。',genreMetal:["メタルコア・ニューコア","デスコア","グルーヴメタル"],genreOther:["EDM","ヒップホップ","ポップス"]},
+    {name:'Plutus Beast',drivers:'1BC+1BA+1SPD',type:'Tribrid',price:'',sound:'低音寄り微ドンシャリ / 骨伝導+平面+BA / 豊かな低音余韻',detail:'骨伝導ドライバ+BA+スクエア平面ドライバ(SPD)',imp:'8Ω',sns:'108dB',metalRank:'C',metalNote:'【2026年11月・本人の記憶による評価でC（B→C）】Tier表作成時に再評価。'+'骨伝導+平面+BAのトライブリッドで、骨伝導による触感的で深い低域がメタルのキックに体感的な迫力を与える。一方でアッパーミッドが強くロック・メタルでシャウト感が出やすく、低域のテクスチャーにややリバーブ・ブルームが乗る。8Ωでソースを選ぶ。迫力はあるが定位はそこそこ、ジャンル依存。',genreMetal:["ドゥーム・ストーナー","デスコア","グルーヴメタル"],genreOther:["ヒップホップ","EDM","ポップス"]},
+  ]},
+  { name:'CVJ', accent:'#7ec8e3', models:[
+    {name:'Vivian',drivers:'1DD',type:'Single DD',price:'',sound:'低音量感多め / 柔らかい高域 / EDM向き',detail:'10mm 複合樹脂振動板',imp:'22Ω',sns:'95dB',metalRank:'C',metalNote:'【2026年11月・本人の記憶による評価でC（B→C）】Tier表作成時に再評価。'+'ファンでエネルギッシュなV字でパンチのある低域とエアリーな高域を持ち、$18とは思えない楽しさ。メタルのノリは出るが、密なトラックでは解像度が不足し各楽器が混雑しがち。テクニカルさより勢いで楽しむタイプ。ミドルテンポのメタル・ハードロック向き。',genreMetal:["デスコア","グルーヴメタル","メタルコア・ニューコア"],genreOther:["EDM","ヒップホップ","ポップス"]},
+    {name:'Night Elf',drivers:'3DD',type:'Triple DD',price:'',sound:'暖色系ドンシャリ / 低音+迫力ボーカル / 萌えFP',detail:'6mm+10mm+8mm Triple DD / QDC 2PIN',metalRank:'B',metalNote:'3DD構成で低域が独立し、ベースラインが速い曲でも層を保って分離する点がメタルで効く。マクロダイナミクスが活き活きしており没入感が高い。ただしウォームチューンで上トレブルが暗く、サステイン強めの低域がやや混じる。スピード感のあるアタックは苦手で、スローバシーなメタル・ヘヴィロック向き。',genreMetal:["ドゥーム・ストーナー","グルーヴメタル","正統派メタル"],genreOther:["ヒップホップ","ポップス","アコースティック・ゲーム系"]},
+    {name:'Neko',drivers:'1DD',type:'Single DD',price:'',sound:'クール系ドンシャリ / 音場広い / 痛イヤホン',detail:'ブラックゴールド複合振動板 / ダブルマグネット・ダブルチャンバー',imp:'26Ω',sns:'114dB',metalRank:'B',metalNote:'ソフトV字でパンチのある低域と平均以上の音場を持ち、ロック・エレクトロニカと好相性。高域に詳細感がありメタルの抜けも悪くない。一方で中域がやや軟らかく、密なミックスではクラリティが落ちる。DAC/AMP併用で本領を発揮。ノリ重視のメタル向き。',genreMetal:["メタルコア・ニューコア","正統派メタル","グルーヴメタル"],genreOther:["ロック","EDM","ポップス"]},
+  ]},
+  { name:'TRN', accent:'#b5838d', models:[
+    {name:'Orca',drivers:'1DD',type:'Single DD',price:'',sound:'バランス / LCP振動板 / スイッチ調整付き',detail:'10mm LCP Dynamic Driver / QDC接続 / 音質調整スイッチ付き',metalRank:'C',metalNote:'【2026年11月・本人の記憶による評価でCを確認】Tier表作成時に再評価。'+'LCP振動板のバランス型1DDで、スイッチで多少キャラを変えられる。価格なりに無難に鳴らすが低域の迫力・高域の切れともに控えめで、メタルの疾走感やアグレッションは出にくい。エントリー向けで激しいジャンルには非力。',genreMetal:["正統派メタル","メロデス","グルーヴメタル"],genreOther:["ポップス","アコースティック・ゲーム系","ロック"]},
+    {name:'Shell',drivers:'3DD+1Pla',type:'Tribrid',price:'',sound:'強ドンシャリ / 寒色ソリッド / 低音MAX',detail:'10.5mm ベリリウムDD+8mm PET DD+6mm チタンDD+6mm平面駆動 / 金属筐体',metalRank:'B',metalNote:'【2026年11月・本人の記憶による評価でBを確認】Tier表作成時に再評価。'+'3DD+プラナーの強ドンシャリで低音MAX、寒色ソリッドな鳴り。複数DDによる低域の迫力とプラナーの高域の切れがメタルのアグレッションを強く押し出す。ベリリウム・チタンDDのスピード感が高速リフにも追従。解像度は価格相応だが、ノリと迫力でメタルを鳴らすコスパ機。',genreMetal:["デスメタル","デスコア","グルーヴメタル"],genreOther:["EDM","ヒップホップ","ロック"]},
+  ]},
+  { name:'KZ', accent:'#f77f00', models:[
+    {name:'Castor Bass',drivers:'2DD',type:'Dual DD',price:'',sound:'ドンシャリ / 立体感+量感ある低音 / やや音場狭め / ごちゃつき感あり / スイッチ調整付き',detail:'10mm DD×2（同軸配置）/ 低音・高音 独立調整スイッチ / 3Dプリンター筐体 / 0.78mm 2pin',metalRank:'B',metalNote:'【2026年11月・本人の記憶による評価でBを確認】Tier表作成時に再評価。'+'パワフルでパンチのある低域が魅力でスイッチでバス量を調整可能。メタルのキックやベースに迫力が出るが、音場がやや狭くごちゃつきがあり密なミックスでは混雑。トレブルはスムーズで刺さらない反面、シンバルの切れは控えめ。ノリ重視・低音重視のメタル向き。',genreMetal:["デスコア","グルーヴメタル","メタルコア・ニューコア"],genreOther:["ヒップホップ","EDM","ポップス"]},
+    {name:'Castor Pro Bass',drivers:'2DD',type:'Dual DD',price:'',sound:'ドンシャリ / 無印より開放感・空間広め / 中音薄め / 聴き疲れあり / スイッチ調整付き',detail:'10mm DD×2（同径・ずらし配置）/ 低音・高音 独立調整スイッチ / 筐体大型化 / 0.78mm 2pin',metalRank:'B',metalNote:'無印より開放感と空間が広がり、4スイッチ16通りの調整でバス〜ニュートラルまで対応。低域はタイトで中域に滲まず、バスの効いた設定でメタルのノリを楽しめる。中音がやや薄く、設定次第で聴き疲れも。柔軟性が高くメタル用にも追い込めるコスパ機。',genreMetal:["メタルコア・ニューコア","デスコア","グルーヴメタル"],genreOther:["EDM","ヒップホップ","ポップス"]},
+    {name:'Vader Balance',drivers:'3DD',type:'Triple DD',price:'',sound:'クリーンな低音+クリスプ高域 / 4スイッチ調整 / 速さと制御',detail:'3DD / 金属+樹脂ハイブリッド筐体 / 4 tuning switches',metalRank:'B',metalNote:'クリーンでスピーディ・コントロールされた低域と、ディテール豊かでスパークリングな高域を持つ。ミッドバス寄りでサブベースは控えめ、ボーカルがやや薄いがメタルの楽器分離・速さは良好。4スイッチで調整可。バスヘッド向けではないがクリーンに速いメタルを鳴らせるコスパ機。',genreMetal:["スラッシュメタル","ジェント・プログレ","メタルコア・ニューコア"],genreOther:["ロック","ポップス","アコースティック・ゲーム系"]},
+    {name:'Vader Pro Balance',drivers:'3DD',type:'Triple DD',price:'',sound:'3DD 3ゾーン設計 / 低音強化 / KZ傑作 / 5Hz-45kHz',detail:'低音用+中音用+高音用 3DD / スイッチ付き / 金属FP',metalRank:'B',metalNote:'【2026年11月・ランク基準見直しでA→暫定B】レビュー由来の仮ランクだったため、実聴するまで暫定Bとする。'+'低音・中音・高音を独立3DDで担う3ゾーン設計で、バランス良く低域強化された立体的なサウンド。各帯域が分離してメタルの密なミックスでも混濁しにくく、広い帯域再現で迫力と解像を両立。スイッチ調整も可。コスパ帯では屈指のメタル適性を持つKZ傑作機。',genreMetal:["デスメタル","スラッシュメタル","グルーヴメタル"],genreOther:["ロック","EDM","ヒップホップ"]},
+    {name:'Decet',drivers:'5DD',type:'Multi DD',price:'',sound:'ボールド+フィジカルな鳴り / 広い音場 / 高解像度 / スイッチ調整付き',detail:'8mm×2+6mm×3 Dynamic Drivers / 調音スイッチ付き',metalRank:'B',metalNote:'【2026年11月・ランク基準見直しでA→暫定B】レビュー由来の仮ランクだったため、実聴するまで暫定Bとする。'+'片側5DDのボールドで物理的な鳴りが特徴で、低域と打楽器のレイヤリングが特に強くメタルのリズム隊の分離が得意。音場が広く深く、多DDながら混濁しない。バーンインで低域が締まり高域が滑らかに。迫力と没入感を両立し、コスパ帯でメタルを楽しく鳴らせる。',genreMetal:["デスコア","ジェント・プログレ","メタルコア・ニューコア"],genreOther:["EDM","ヒップホップ","アコースティック・ゲーム系"]},
+    {name:'AM16 Bass',drivers:'8BA',type:'Multi BA',price:'',sound:'低音強化版フルBA / 片側8BA / コスパ',detail:'片側8 Balanced Armature Drivers',metalRank:'C',metalNote:'低音強化を謳う片側8BAだが、BAゆえメタルのキックの物理的なスラム・体感は出にくい。多BAによる分離はあるものの中高域のティンバーにBAらしい癖が残りやすい。轟音の迫力よりBA構成を試す実験的な一本で、アグレッシブなメタルには不向き。',genreMetal:["ジェント・プログレ","スラッシュメタル","メロデス"],genreOther:["ジャズ","クラシック","ポップス"]},
+    {name:'EDX Pro',drivers:'1DD',type:'Single DD',price:'',sound:'中低音寄りピラミッド / 暖かみあるボーカル / 量感ある低音 / 刺さらない自然な高音',detail:'10mm 二重磁気ダイナミックドライバー / 樹脂シェル+FP一部金属 / KZ-C 2pin（KZ極性）',metalRank:'C',metalNote:'中低音寄りピラミッド型で量感ある低音と刺さらない自然な高音。$10とは思えない完成度だが、高域がロールオフ気味でメタルのシンバルの切れや疾走感は出にくい。ウォームで聴きやすい反面アグレッションは弱く、メロディ重視の曲やBGM向き。',genreMetal:["正統派メタル","メロデス","ゴシック"],genreOther:["ポップス","アコースティック・ゲーム系","ロック"]},
+    {name:'ZSTx',drivers:'1DD+1BA',type:'Hybrid',price:'',sound:'典型的ドンシャリ / ふくよかな重低音+カリカリ高音 / 爽快感',detail:'10mm DD+BA / 0.75mm 2pin（Bタイプ）/ クリアシェル',metalRank:'B',metalNote:'ふくよかな重低音とカリカリした高音という典型的ドンシャリで、メタルの爽快感とノリを安価に楽しめる。BAによる高域の刺激でシンバルが目立つが、解像度・分離は価格相応で密なミックスは混雑。高音が刺さりやすい点は注意。ノリ重視の入門メタル機。',genreMetal:["グルーヴメタル","正統派メタル","メタルコア・ニューコア"],genreOther:["ロック","ハードロック","EDM"]},
+    {name:'PRX',drivers:'1Planar',type:'Planar',price:'',sound:'ドンシャリ / 深い低音+ウォーム中高域 / 第4世代プラナー',detail:'13.2mm Silver-plated Planar Driver / 14×N52 magnets / 半開放型',imp:'15Ω',sns:'94dB',metalRank:'B',metalNote:'プラナーらしい速いトランジェントと深い低域・ウォームな中高域を持ち、$50でメタルのリフの分解能を体験できる。半開放型で音場は広め。低域はプラナーゆえタイトで物理的スラムは控えめ、高速メタルの追従は得意。コスパの良いプラナー入門機としてメタルにも使える。',genreMetal:["ドゥーム・ストーナー","デスコア","グルーヴメタル"],genreOther:["EDM","ヒップホップ","ポップス"]},
+    {name:'Duonic (Bass Improved)',drivers:'1DD+1Planar',type:'Hybrid',price:'',sound:'エネルギッシュV字 / 速くパンチのある低音+クリアな中高域 / スイッチ4段調整 / Flux3トライマグネットプラナー',detail:'8mm Super-Linear DD（低域）+8mm Flux3 Tri-Magnet Planar（中高域）/ 0.78mm 2pin / 4段階チューニングスイッチ',imp:'22-28Ω',sns:'103dB',metalRank:'C',metalNote:'【2026年11月・本人の記憶による評価でC（B→C）】Tier表作成時に再評価。'+'DD+プラナーのハイブリッドで速くパンチのある低域とクリアな中高域を両立、$20とは思えないイメージングと解像感。Bass Improvedはさらに低域の量感を強化したバージョンで、メタルのキックとリフの分離が両立しやすい。一方で上trebleがプラナーらしく主張しやすく、高音量やハイハット連打でやや刺さる・シビランスが出る場合あり。EQで上を少し抑えると化けるタイプ。コスパ帯では屈指のメタル適性。',genreMetal:["デスメタル","スラッシュメタル","メタルコア・ニューコア"],genreOther:["EDM","ヒップホップ","ロック"]},
+    {name:'Vibe X',drivers:'1DD+1Vib',type:'Hybrid',price:'',sound:'タクタイル超低音 / 13mm専用振動ドライバーで5Hzまで物理的に「感じる」低域 / 中高域はクリーン分離',detail:'10mm Zenith同等フラグシップDD（中高域）+13mm超低周波振動ドライバー（専用低域、150Hz以下集中）/ 0.78mm 2pin',imp:'20Ω',sns:'107dB',metalRank:'B',metalNote:'【2026年11月・本人の記憶による評価でBを確認】Tier表作成時に再評価。'+'専用の13mm振動ドライバーが150Hz以下のみを物理的にタクタイルに再生し、Zenith同等DDが中高域を別系統でクリーンに保つという独自の2ウェイ構成。キックドラムやダウンチューンのリフを「体で感じる」低域として再現でき、メタルの物理的な重さの再現に強い。一方で中高域がやや明るく、ハイハット連打でブライトさ・わずかな不自然なティンバーが出る場合がある。低域の量感と中高域のクリーンさを両立させたい人向けのユニークなコスパ機。',genreMetal:["デスコア","グルーヴメタル","デスメタル"],genreOther:["ヒップホップ","EDM","ポップス"]},
+  ]},
+  { name:'CCA', accent:'#457b9d', models:[
+    {name:'Hydro',drivers:'2DD+8BA',type:'Hybrid',price:'',sound:'低音厚め / 2DD+8BA / 迫力 / CCA最高峰 / 4スイッチ調整（運用設定 1011）',ddMaterial:'XUN-7 第3世代デュアルマグネティック (7mm) + フルレンジDD (8mm)',detail:'7mm XUN-7第3世代デュアルマグネティック・デュアルキャビティDD（N52ネオジム・日本製CCAWボイスコイル・磁束3T超）+8mm フルレンジDD+Knowles 31736 BA×8（ニコイチ×4）/ 4wayクロスオーバー / 第4世代DLP 3Dプリント音響キャビティ / 亜鉛合金シェル / QDC 2pin / 3.5mm固定 / 4段階チューニングスイッチ（特許取得済み）',metalRank:'A',metalNote:'【2026年11月・ランク再見直しでA】比較的オーソドックスなメタル（Judas Priest、陰陽座など）や、スウェディッシュ系のオールドスクール・デスメタル（Dismember、Entombedなど）の1番手。オールドスクールなメタル全般の担当。'+'2DD+8BAの10ドライバーで厚みのある迫力低域と多BAによる中高域の分離を両立。亜鉛合金筐体で質感も良い。コスパ帯では迫力系メタル機として優秀。'+'■【スイッチ設定・運用は 1011】スイッチ1・2＝低域、3・4＝中高域を担当（調整幅は低域1〜2dB／中高域1〜2dB程度）。'+'当初は全ONの1111で使っていたが、ミッドベースがボワついたためスイッチ2をOFFにして1011へ。低域の担当が1・2で重複しているためブースト量が重なって飽和していたと思われる。'+'1011にすると量感は減るがタイトになり、こちらで運用中。量よりも締まりを取る判断で、既存の評価軸（もたつく量感は評価しない）とも整合する。3・4はともにONで中高域の抜けを確保。'+'■スイッチを動かすピンが付属（SIMピンと同型）。設定を忘れると再現できないため記録必須。',genreMetal:["正統派メタル","デスメタル","スラッシュメタル"],genreOther:["ヒップホップ","EDM","ロック"]},
+  ]},
+  { name:'GK', accent:'#8d99ae', models:[
+    {name:'Kunten',drivers:'1DD',type:'Single DD',price:'',sound:'バランス / Zenith同等DD搭載 / 超コスパ',detail:'10mm DD(大型7mmボイスコイル / Driver X / KZ Zenithと同一) / 0.78mm 2pin',metalRank:'C',metalNote:'KZ Zenith同等DDを積んだ超コスパのバランス型1DD。素直な鳴りで価格以上の質感だが、低域の迫力・高域の切れともに穏やかでメタルの疾走感やアグレッションは控えめ。ミッドバスのタイトさはこのクラスでは良好。激しいジャンルより万能的な使い方向き。',genreMetal:["正統派メタル","メロデス","ゴシック"],genreOther:["ポップス","アコースティック・ゲーム系","ロック"]},
+  ]},
+  { name:'NiceHCK', accent:'#e2b96f', models:[
+    {name:'Himalaya',drivers:'1DD',type:'Single DD',price:'',sound:'テクスチャーのある物理的バスランブル / 広大なステージ / 3交換式ノズル / チタン合金シェル / 【運用】ステンレスノズル＋Ehecatlでパリッとした音・広い音場の万能寄り',detail:'10mm デュアル磁気・デュアルレイヤーCNT振動板DD / 航空宇宙グレードチタン合金シェル / 交換式チューニングノズル3種（ゴールド・ブラック・ブルー）/ 別売のNICEHCK公式交換ノズル（チタン・ステンレス）も所持し、ステンレスで運用（チタンは音がボヤけ、高さは出るが左右が狭くなるため不採用）/ 0.78mm 2pin / 3.5mm/4.4mmモジュラー',imp:'22Ω',sns:'110dB',cable:'SoundsGood Ehecatl',cableColor:'#4895ef',envIndoor:'2026年11月・室内／ステンレスノズル＋SoundsGood Ehecatl。広い音場でパリッとした音、低域も十分。チタンノズルは音がボヤけ、高さは出るが左右が狭くなった。',envOutdoor:'',metalRank:'A',metalNote:'【実聴メモ・2026年11月】ステンレスノズル＋Ehecatlで運用。広い音場・パリッとした音で万能寄り、低域も十分出る。1DD枠は熱量型のLuciferが担うため、Himalayaは見通しと広さで差別化する役割。5ASakuraはLunaへ移設。'+'■以下はレビュー由来の情報：CNT振動板の高速トランジェントと豊かなバスランブルで、ブルーノズルでフィジカルバスをさらに強化可能。ゴールドはW字バランス、ブラックはトレブル強調と3つの顔を持つ柔軟性がメタル用途での強み。広大なステージとイメージングが密なミックスでも各楽器を分離。サブベースのロールオフと高音量でのエッジ感は注意。Simgot EA500ノズルの流用でさらに追い込み可。',genreMetal:["デスメタル","グルーヴメタル","スラッシュメタル"],genreOther:["ロック","ポップス","EDM"]},
+  ]},
+];
+
+const WISHLIST = [
+  { name:'Ziigaat', accent:'#4361ee', models:[
+    {name:'Horizon',drivers:'1DD+2BA+2Planar',type:'Tribrid',price:'',sound:'W字・解像度重視 / プラナー高域の伸び / コレクション内唯一のプラナー',detail:'10mm Biocellulose DD+Knowles 30262-163×2(中域)+カスタムDual Planar×2(高域)',imp:'24Ω',sns:'102dB',metalRank:'A',metalNote:'プラナーツイーターによる圧倒的な高域の伸びとエアー感、ホログラフィックなステージが武器。シンバル・ハイハットの精度はコレクション随一。サブベースは深いがミッドバスはライトでキックの物理的打撃感はやや控えめ。テクニカル系メタルの解像最優先サブ機として最有力。',genreMetal:["ジェント・プログレ","メタルコア・ニューコア","ブラックメタル"],genreOther:["ジャズ","アコースティック・ゲーム系","クラシック"]},
+    {name:'Crescent',drivers:'2DD+2BA',type:'Hybrid',price:'',sound:'アナログ的ウォームV字 / 圧倒的に広大なステージ / ブランド公式トップ3評価',detail:'10mm PET DD+10mm LCP DD(isobaric)+Knowles 33518×2',imp:'12Ω',sns:'102dB',metalRank:'A',metalNote:'ZiiGaat全14機種を比較するレビューでトップ3・「This is brilliant」評価。約$400級の他社上位機（Hype4等）に迫る音の厚みとボーカル表現力を持ち、280ドルとしては破格のバリューと評される。高音の処理こそ上位機に一歩譲るが、圧倒的に広大でアナログ的なステージとミッドバスパンチが個性で、メタルでも十分なエアー感とハイエンドバイトを出せる。ただし高音量ではトレブルがホットになりやすい。Doscinco/Estrellaと低域方向性が近く、コレクション内ではHorizonより被りが大きい。',genreMetal:["ドゥーム・ストーナー","グルーヴメタル","正統派メタル"],genreOther:["ロック","アコースティック・ゲーム系","ポップス"]},
+    {name:'Arete II',drivers:'1DD+4BA',type:'Hybrid',price:'',sound:'ウォームW字 / 背面スイッチで低音強化可 / ブランド公式トップ3・最高評価',detail:'10mm Liquid Silicone DD+Knowles ED 29689×2+Knowles SWFK 31736×2 / フルメタル筐体 / 背面バス強化スイッチ',metalRank:'A',metalNote:'ZiiGaat全14機種を比較するレビューでトップ3・「You should buy this」の最高評価を獲得。前作Areteの刺さりやすい高音をマイルドに調整しつつクリアさを維持し、スイッチONでDoscinco級のパワフルな低音に変化する点が高評価の理由。「1台でCrescent級のクリアさとDoscinco級の楽しさを両立する大傑作」と評される。バス・中域・高域のバランスに優れたオールラウンダーで、スイッチによりメタル用途にも寄せられる柔軟性を持つ。無印Areteを既に所持しているが、スイッチ機構とチューニングの深化により方向性の重複は限定的。',genreMetal:["メタルコア・ニューコア","グルーヴメタル","メロデス"],genreOther:["ポップス","EDM","ロック"]},
+  ]},
+  { name:'Yanyin', accent:'#fca311', models:[
+    {name:'Carmen',drivers:'10BA',type:'Multi BA',price:'',sound:'緩やかなV字 / フルBAとしては破格のバス量 / ボーカル中心フラグシップ',detail:'全10BA / オペラ「カルメン」モチーフ',imp:'10Ω',sns:'109dB',metalRank:'B',metalNote:'フルBAとしては異例の低域量を持つが、高域は抑制気味でウォーム・レイドバックな方向性。メタルのアグレッシブな高域表現とは方向性が異なり、ロック〜ジャズ向き。予算大幅オーバー。',genreMetal:["ゴシック","メロデス","正統派メタル"],genreOther:["ジャズ","クラシック","ポップス"]},
+    {name:'Baker',drivers:'6BA+2Planar',type:'Hybrid',price:'',sound:'ブライト〜時に硬質な高域 / DDなしBA+プラナー / ダマスカス鋼FP',detail:'6BA+2 Planar Magnetic / ダマスカス鋼フェイスプレート',imp:'8Ω',sns:'104dB',metalRank:'B',metalNote:'解像度・ステージは高水準だがDDがなく物理的バスインパクトは控えめ。高域がメタリックでハーシュになるリスクあり。デザインは刺さるが低域の迫力ではCanon IIに譲る。',genreMetal:["ジェント・プログレ","ブラックメタル","メタルコア・ニューコア"],genreOther:["ジャズ","アコースティック・ゲーム系","ポップス"]},
+  ]},
+  { name:'DUNU', accent:'#06b6d4', models:[
+    {name:'× Koto ITO',drivers:'2DD+2BA',type:'Hybrid',price:'',sound:'U/V字 / 巨大なサブベースパンチ / バスヘッド向け',detail:'カジカジ(Koto)共同チューニング',metalRank:'A',metalNote:'バスヘッド向けに明確に振ったU/V字で、巨大なサブベースパンチとアッパーミッドの活発さがメタルのグルーヴに合う。トレブルはやや暗めで超高域のエアー感は控えめ。コスパ最強クラス。',genreMetal:["デスコア","グルーヴメタル","デスメタル"],genreOther:["ヒップホップ","EDM","ロック"]},
+    {name:'PRS6',drivers:'非公開',type:'Hybrid',price:'',sound:'綺麗だが当たり障りのない印象（短時間試聴）',detail:'フェイスプレートの意匠が美しい上位機',metalRank:'',metalNote:'【2026年9月・試聴（短時間）】フェイスプレートは綺麗だが、音は当たり障りのない印象でスルー。'+'キックの物理的な圧力・頭を振れるかという基準のどちらも刺さらず、魚玄機のように明確にマイナスな特性があるわけではなく単に無難という評価。'+'ウォッチ項目から一度試聴・確認済みとして扱い、優先度なし。',genreMetal:[],genreOther:["ジャズ","クラシック","アコースティック・ゲーム系"]},
+    {name:'DN142',drivers:'1DD+4BA+2Planar',type:'Tribrid',price:'',sound:'U/W字 / サブベース重視 / ITOより解像度UP',detail:'1DD（サブベース）+Knowles BA×4（中高域）+マイクロプラナー×2（超高域）/ 0.78mm 2pinモジュラー / Qロック対応',metalRank:'A',metalNote:'ITOよりさらにサブベース寄りで解像度も向上。サ行への感受性が高めで高音量では注意。バスヘッド志向のメタルリスナーに good。',genreMetal:["デスコア","デスメタル","グルーヴメタル"],genreOther:["ヒップホップ","EDM","ロック"]},
+    {name:'DN242',drivers:'2DD+4BA+2Planar',type:'Tribrid',price:'',sound:'バランス寄りV字 / ステージが広い / Martiloと比較されがち',detail:'2DD（低域）+Knowles BA×4（中高域）+マイクロプラナー×2（超高域）/ 0.78mm 2pinモジュラー / Qロック対応',metalRank:'A',metalNote:'DN142よりバランスが取れ透明感とコントロールが向上。ステージはクラス最大級。Martiloと近い立ち位置でメタルにも好相性。',genreMetal:["メタルコア・ニューコア","スラッシュメタル","メロデス"],genreOther:["ロック","EDM","ポップス"]},
+    {name:'× Gizaudio DaVinci',drivers:'2DD+4BA',type:'Hybrid',price:'',sound:'ウォーム厚いミッドバススラム / メープルウッドFP',detail:'10mm+8mmバイオセルロースDD（別チャンバー）+Knowles BA×4（中高域）/ メープルウッドフェイスプレート / 0.78mm 2pinモジュラー / Qロックミニ対応',metalRank:'B',metalNote:'ミッドバスのスラムは候補中トップクラスだがウォームすぎてリフの輪郭が滲む可能性。密なメタルミックスでバスがボーカル・ギターを覆う場合あり。',genreMetal:["ドゥーム・ストーナー","グルーヴメタル","正統派メタル"],genreOther:["ロック","ヒップホップ","ポップス"]},
+  ]},
+  { name:'RoseSelsa', accent:'#ff6b9d', models:[
+    {name:'× AAV CJ20',drivers:'1 Planar',type:'Planar',price:'',sound:'ミルドV/W字 / メタル・ロック特化チューニング / オールメタルシェル / 高音明るめで聴き疲れの指摘あり',detail:'14.2mm Planar Magnetic / Andy Audio Vault共同チューニング',imp:'24Ω',sns:'102dB',metalRank:'A',metalNote:'明確に「ロック・メタル向け」を謳う特化チューニングで速いトランジェントとギターの存在感が際立つ。バスの物理的スラムより速さ・明瞭さ優先。ただし2本の独立レビューでLetshuoer Astralisとの直接比較が行われ、いずれも「CJ20は高音が明るすぎ聴き疲れしやすい、低音強調のドンシャリ傾向」「予算を少し足してAstralisを買った方が結果的に満足度が高い」と評され、Astralis優位という結論で一致している。$169という価格でメタル特化機を試せる点は依然価値があるが、同価格帯+αのAstralisとの比較では総合力で一歩譲る評価が定着しつつある。',genreMetal:["スラッシュメタル","メタルコア・ニューコア","グルーヴメタル"],genreOther:["ロック","ハードロック","ポップス"]},
+  ]},
+  { name:'Night Oblivion', accent:'#9b5de5', models:[
+    {name:'Longinus',drivers:'12BA',type:'Multi BA',price:'',sound:'バランス・自然 / 全Sonion製12BA / 疲れにくい',detail:'Sonion AcuPass×2+Sonion 33×2+Sonion E50DT×8',metalRank:'B',metalNote:'全BAで低域処理は優秀だが物理的スラムはDD機に及ばない。高域の彫刻的な精度は魅力だが、メタルのアグレッションより上品さが先に出る。予算大幅オーバー。',genreMetal:["ジェント・プログレ","ゴシック","メロデス"],genreOther:["ジャズ","クラシック","アコースティック・ゲーム系"]},
+  ]},
+  { name:'Kiwi Ears', accent:'#06d6a0', models:[
+    {name:'Orchestra II',drivers:'10BA',type:'Multi BA',price:'',sound:'フルBA中最もV字寄り / タイトで規律ある低域',detail:'全自社設計BA×10',metalRank:'B',metalNote:'フルBAの中では最もメタル向きにシフトしているが、キックの物理的質量感は出ない。解像度重視のサブ機としては優秀。',genreMetal:["ジェント・プログレ","スラッシュメタル","メタルコア・ニューコア"],genreOther:["ジャズ","ロック","アコースティック・ゲーム系"]},
+    {name:'Punch',drivers:'1DD+2BA+2EST',type:'Tribrid',price:'',collab:'× HBB',sound:'サブベース15dBブースト / 中域はニュートラルでクリア / ESTによる40kHzまでの高域',detail:'10mm複合振動板DD（サブベース15dBブースト）+Knowles RAB 32257×2（中域）+Sonion EST×2（高域・40kHzまで）/ 3wayパッシブクロスオーバー・ドライバーごとの独立音導管 / 12Ω / 98dB±1dB / 5Hz-40kHz / 遮音約26dB / 0.78mm 2pin / 3.5mm・4.4mm選択式',imp:'12Ω',sns:'98dB',metalRank:'A',metalNote:'HBB（Bad Guy Good Audio Reviews）監修のベースヘッド向けコラボ機。サブベースとミッドレンジの間で明確にカットオフを設け、低域を持ち上げつつ中域はニュートラルに保つ設計。ブーストは急峻ではなく低い方へ向かって漸進的に強まるため深いサブベースに集中し、レビューでも「単なるベースヘッド機ではなく制御されていて クリーンで洗練されている」と評される。メタルのキック・ベースの迫力を求めるなら有力。なおノズルの金属フィルターを外すとより クリーンで解像度が上がるという報告が複数あり。■【所持機Martiloとの関係】「Martiloはジェネリック版Punch」という評を見かけたことがある（出典未確認）。ドライバー構成は異なる（Punch=1DD+2BA+2EST／Martilo=2DD+2BA+1Planar）が、設計思想はかなり近い——Punchはサブベース15dBブーストでサブベースとミッドの間に明確なカットオフを設け中域をニュートラルに保つ、Martiloはサブベースシェルフ14±1dBで200Hzクロスオーバー、ミッド以上は素直でウェルバランス。ブースト量もほぼ同等。高域もESTとプラナーで手段は違うが「BAより自然で伸びる高域」という狙いは共通。価格はPunch $449／Martilo $329。→ 既にMartiloを所持しており音の傾向が重複する可能性が高いため、購入優先度は下がる。ただしMartiloは実聴でS評価3機種中キックが最も重いという結果が出ており、単なる廉価版というより同じ思想でより低域に振り切った機種と考えられる。差分を確認したい場合のみ検討対象。',genreMetal:["デスメタル","デスコア","グルーヴメタル"],genreOther:["ヒップホップ","EDM","ロック"]},
+    {name:'Ember',drivers:'2DD+4BA',type:'Hybrid',price:'',collab:'× ふぐみかん',sound:'未発表（予想：サブベース強め・ドライ・ブライト方向）',detail:'日本向けスペシャルモデル。2026年9月の東京ゲームショウで発表・試聴披露。内部が観察できる高い透明度のシェルがコンセプト（本人談）。同ブランドのPunch（×HBB）は1DD+2BA+2ESTのトライブリッドで構成が異なる。Emberの2DDの詳細（アイソバリック／同軸／独立）およびBAの型番は未発表',metalRank:'',metalNote:'【購入予定・初日に買う想定】■音の予想（未聴・実機情報なし）：監修者がEDM等の電子音楽偏重との情報から、サブベースは強く出てドライ、ハイは派手にブライトという方向を予想。所持機で言えばEstrella系（サブベースは強い／ギターのボトム=100〜250Hzローミッドが薄い／ハイが最も出る）に近い性格ではないかと推測。■その予想が当たった場合のメタル適性：ブレイクダウンや808ドロップの重さは出るが、リフが痩せる可能性。Estrellaが苦手としたOpeth・Alcestのような雰囲気系、Harm\'s Wayのような極悪ハードコアも同様に苦手になると予想。■検証ポイント：低域の配分による3分類（Doscinco=サブベース/ミッドベース均等、Cano Cristales=ミッドベース優位、Martilo=サブベース特化）のどこに入るか。2DDの構成（アイソバリック/同軸/独立）が判明していないため、低域の性格は要確認。■この予想自体が「レビュアーの嗜好から音を推測する」試みなので、実聴時に予想と実測を比較すること。',genreMetal:[],genreOther:["EDM","ヒップホップ","ポップス"]},
+  ]},
+  { name:'Artpical', accent:'#7a8ca3', models:[
+    {name:'Lunar Ring',drivers:'1DD+1BA+2MPD',type:'Tribrid',price:'',sound:'ニュートラル寄りのウォーム / タイト＆スピーディな低域 / 広大でホログラフィックなステージ / アルミナリングでDD背面キャビティ拡張',detail:'ダイナミックドライバー+BA+マイクロプラナー×2 / 背面にアルミナ（酸化アルミニウム）リング構造を直接挿入し、DD背面キャビティの容積を拡大→振動板の振幅が向上し弾力的でルンブルする低域を実現。同時に装着時の鼓膜への圧迫を軽減 / 4.4mmケーブル固定 / MICHAELの下位・Natureシリーズ(Blue Planetと同系統)',imp:'12.20Ω',sns:'108.5dB',metalRank:'A',metalNote:'サブベースは控えめだが、量よりクリスプさ・アタックで力強さを表現するタイプの低域。海外レビュアーの試聴プレイリストにはDragonForceやSabatonといったパワー/シンフォニックメタル勢が含まれ、「スピードと目まぐるしさを容易にこなし、フルサイズヘッドホンでも苦労するような場面でも一切濁らない」と評価されている。国内レビューでも低域はタイトで中域に透明感、高域はブライトだが刺さらないと好バランスに言及。ステージは広大でホログラフィック、楽器の定位も的確。Luciferほどの物量・派手さで殴るタイプではなく、上品にまとめつつ高速リフの追従力と分離を両立するタイプ。テクニカル・パワー系メタルとの相性が良さそうな一台。'+'■【2026年9月・試聴（短時間・混雑店内）】ルックスが良く、他にないデザイン。音はハイ寄りの高解像度で、繊細さもある弱ドンシャリという第一印象。所持機の分類なら❄️切れ系に近い。短時間のため記憶は薄いが、海外レビューの\"crisp treble\"という評とも合う。試聴環境要因（店内が混雑）も踏まえ、本格的な評価は静穏環境での再試聴が必要。',genreMetal:["正統派メタル","メロデス","ジェント・プログレ"],genreOther:["クラシック","ロック","ポップス"]},
+  ]},
+  { name:'FlipEars', accent:'#fbbf24', models:[
+    {name:'Aegis',drivers:'1DD+1BC',type:'Hybrid',price:'',sound:'骨伝導による$500以下最高水準のサブベースランブル / 大聖堂的ステージ',detail:'AEGIS DD+EarQuake骨伝導ドライバー / 真鍮鋳造FP',metalRank:'A',metalNote:'骨伝導による物理的バス体感は候補中最強。キックの「身体で感じる」打撃感は唯一無二。高域はやや暗めでメタルの攻撃的な切れは控えめだが、低域インパクト最優先なら筆頭候補。',genreMetal:["デスコア","グルーヴメタル","デスメタル"],genreOther:["ヒップホップ","EDM","ロック"]},
+  ]},
+  { name:'MYER-AUDIO', accent:'#7a7a8a', models:[
+    {name:'SLIIVO SLT6',drivers:'6BA',type:'Multi BA',price:'',sound:'ニュートラル+バスブースト / ボーカル重視+大胆な高域 / 4段スイッチ',detail:'Sonionコンポジット×3+Knowlesコンポジット×1',imp:'50-65Ω',sns:'113-116dB',metalRank:'C',metalNote:'フルBAで物理インパクト控えめ、レビュー数も少なく情報不足。0.78mm 2pin対応かも公式未記載で要確認。優先度は低い。',genreMetal:["ゴシック","ジェント・プログレ","メロデス"],genreOther:["ジャズ","クラシック","ポップス"]},
+  ]},
+  { name:'Nici HiFi', accent:'#c77dff', models:[
+    {name:'42 Quantum Wanderer',drivers:'1DD+1BC',type:'Hybrid',price:'',sound:'「内部サラウンド」体験 / 骨伝導ガジェット的 / レビュー未成熟',detail:'1DD+骨伝導ドライバー',imp:'15Ω',sns:'104dB',metalRank:'C',metalNote:'発売直後でレビュー情報が乏しい。$36という価格を考えると解像度・バス品質はメイン機の基準には及ばない可能性が高い。ガジェット的な興味で試すなら低リスク。',genreMetal:["ドゥーム・ストーナー","グルーヴメタル","デスコア"],genreOther:["ヒップホップ","EDM","ポップス"]},
+  ]},
+  { name:'Letshuoer', accent:'#06d6a0', models:[
+    {name:'Astralis',drivers:'1Planar',type:'Planar',price:'',sound:'ウォームL〜Uシェイプ・わずかなV字 / 5本のレビューが一致して高評価 / DT01 Pro同梱 / 4.4mmモジュラー対応',detail:'15.5mm 第5世代リングタイプ（円環）プラナーダイアフラムDD（スピーカーと同じ円形磁石・円形トレース）/ CNCアルミシェル7.3g / 0.78mm 2pin / 3.5mm/4.4mmロックリング式モジュラー / USB-C DAC DT01 Pro付属 / インピーダンス20Ω、感度104dB',imp:'20Ω',sns:'104dB',metalRank:'S',metalNote:'国内外5本のレビューが出揃い、いずれも高評価で一致。実曲メタルテスト（Headphoneer）で「メタルを素晴らしく鳴らす」と明言、ヘヴィメタルファンのレビュワーもMetallica・Celtic Frost等で高評価。円形ドライバーによりDDに迫る深く俊敏なサブベースを実現し「平面駆動の常識を覆す世代交代」と評される。4機種横並び比較（Jays Audio）でも「低音のインパクト・アタックの速さ・サブベースの沈み込みで比較対象中最高」「最も盲目的に人に勧められるアベレージの高いイヤホン」と結論。メタル特化を謳うRoseSelsa CJ20との直接比較でも2本のレビューが一致してAstralis優位（CJ20は高音が明るすぎ聴き疲れしやすいとの指摘）。$500のハイエンド機Emberとも「甲乙つけがたい、その日の気分で選ぶレベル」。唯一の弱点はサブベースが前に出るためボーカルがやや後退する場合がある点（複数レビューで言及あるが致命的ではない）。ソース依存性があり、スマホ直挿しでは低域が暴れ気味、DT01 Pro以上のアンプで真価を発揮。4.4mmモジュラー対応で運用面も良好、$189というコスパも突出。',genreMetal:["正統派メタル","グルーヴメタル","ドゥーム・ストーナー"],genreOther:["ロック","ヒップホップ","ポップス"]},
+  ]},
+  { name:'Kinera Celest', accent:'#ee6c4d', models:[
+    {name:'PhoenixCall 2.0',drivers:'2DD+2BA+2Planar',type:'Tribrid',price:'',sound:'バランス寄りV字 / 女声ボーカル・トレブル特化 / マイクロプラナーによる超高域 / 付属品豪華',detail:'2×DD（低域）+2×カスタムBA（中域）+2×マイクロプラナーFPD（超高域）/ 0.78mm 2pin / 3.5mm/4.4mmモジュラーケーブル付属',imp:'32Ω',sns:'103dB',metalRank:'B',metalNote:'マイクロプラナーによる超高域の精度とBAの明瞭な中域でシンバル・ハイハットの細部描写が得意。ただしミッドバスが控えめでキックドラムの物理的スラムは薄め。メタルの「抜け感・空気感・高域の切れ」を重視するリスニング向き。ボーカルメインのメロデス・ゴシックメタルで特に機能する。$169としてはトライブリッド構成と付属品クオリティが突出したコスパ機。',genreMetal:["メロデス","ゴシック","メタルコア・ニューコア"],genreOther:["ポップス","ジャズ","EDM"]},
+  ]},
+  { name:'Punch Audio', accent:'#e63946', models:[
+    {name:'Portazo',drivers:'1DD+2Planar',type:'Hybrid',price:'',sound:'殴るような強烈な低音 / 15dBサブベースブースト / プラナー高域35kHzまで拡張 / 低域に振りながら他帯域を潰さない綺麗さ',detail:'10mm 液体シリコン+LCPコンポジットダイアフラムDD（低域）+デュアルマイクロプラナー（高域）/ 0.78mm 2pinモジュラー / 3.5mm+4.4mm対応 / インピーダンス10Ω、感度102dB',metalRank:'A',metalNote:'国内レビューではPortazoを「殴るような低音を前面に出してくるタイプ」「かなり強烈」と評し、Cano Cristales・7Hz Diablo・FatFreq Scarlet Miniと並ぶ「本格的な低音特化機」として位置づけている。低域に振りながらも他の帯域を潰しすぎない綺麗さがあり、実測でもSubbass・Mass・Pressureが強く出た。兄弟機Martiloが地鳴りのような遅い深いサブベースなのに対し、Portazoはより機敏でスナッピーなアタック。プラナー高域のクリスプさも武器で、スラッシュ・デスメタルの疾走感と好相性。ノズルが短く装着感は耳形に依存する点は要注意。',genreMetal:["スラッシュメタル","デスメタル","グラインドコア"],genreOther:["EDM","ヒップホップ","ロック"]},
+  ]},
+  { name:'7Hz', accent:'#3a86ff', models:[
+    {name:'Legato',drivers:'2DD',type:'Dual DD',price:'',sound:'王道basshead / 太く濃いミッドベース / ヴィンテージアナログ的音楽性重視 / トレブルは控えめ',detail:'12mmウーファーDD（低域）+6mmツイーター/ミッドレンジDD（中高域）/ 日本製タンタルコンデンサ×8基のユニーククロスオーバー / CNCアビエーショングレードアルミシェル / 0.78mm 2pin',imp:'26Ω',sns:'108dB',metalRank:'B',metalNote:'最深サブベースで沈めるタイプではなく、キックとベースラインの「太さ・濃さ・肉付き」で低域の楽しさを聴かせるタイプ（王道basshead/太いミッドベース型に分類される）。ロックのギターが生き生きと鳴り、ボーカルにも重みが乗る。ただしトレブルはかなり控えめでハイハット・シンバルの切れは弱く、鋭いアタックより丸く粘る低域が持ち味。デスメタルの高速リフ・ブラストビートには物足りないが、ドゥーム・ストーナー系のヘヴィなグルーヴには好相性。$109という価格でbasshead入門機として評価が高い。',genreMetal:["ドゥーム・ストーナー","グルーヴメタル","正統派メタル"],genreOther:["ロック","アコースティック・ゲーム系","ポップス"]},
+    {name:'× Crinacle Diablo',drivers:'1Planar',type:'Planar',price:'',sound:'ダーク・chuggy・Vシェイプ / 12dBサブベースブースト / Linsoul公式が「metal」を得意ジャンルと明言 / 姉妹機Divineはニュートラル版',detail:'14.5mm 第3世代プラナードライバー（両面N55マグネット）/ CNC削り出しアルミシェル / 単結晶銅ケーブル / 0.78mm 2pin・3.5mmのみ（4.4mmモジュラー非対応）/ Crinacle共同開発',metalRank:'A',metalNote:'Linsoul公式ユーザーレビューで「スペシャリスト機、得意ジャンルはEDM・metal・ヒップホップ/ラップ」と直接名指しされ、複数のHead-Fiレビューでも同様の評価が一致。低域は「slow、chuggy、波のように押し寄せる」圧倒的な量感型で、Doscinco・Deuce系譜に近い方向性。ただしボーカルが低域に埋もれ「veiled/husky」になりやすいとの指摘が複数あり、密なメタルミックスでのボーカル分離はAstralisに一歩譲る可能性。3.5mmのみでモジュラー非対応のため4.4mm運用には変換アダプタが必須。技術性能は価格なりで解像度は突出しない、Frieveのレビューでは「Truthear Gateの方がコスパ優位」との辛口評価も。',genreMetal:["デスメタル","グルーヴメタル","メタルコア・ニューコア"],genreOther:["EDM","ヒップホップ","ロック"]},
+  ]},
+  { name:'FATfreq', accent:'#e63946', models:[
+    {name:'× HBB Deuce',drivers:'2DD',type:'Dual DD',price:'',sound:'デフォルト状態はArcadia系譜のバランス型 / Moondrop Variations・ThieAudio Monarchのトナリティが源流 / 付属アダプターは低音特化のオプション機能',detail:'デュアルダイナミックドライバー（低域専用サブウーファー+200Hz以上フルレンジの役割分担）/ セミカスタムシェル・リアフィン形状 / ノズル約6.7mm / ナイロン編み込みSilver Bloodケーブル(OCC銀メッキ) / 0.78mm 2pin(recessed) / 15Ω インピーダンスアダプター付属',imp:'—',sns:'—',metalRank:'A',metalNote:'HBB（Hawaii Bad Boy）本人が開発経緯を解説：Moondrop Variations（源流はThieAudio Monarch）のトナリティを目標に7回の試作を重ね、強い低音を鳴らしつつChris Cornell・Layne Staleyら男女ボーカルが埋もれないバランスを追求した設計。実機試聴でも「アダプターなしのデフォルト状態はArcadiaを上品・滑らかにした系統」という印象が得られており、この開発思想と一致する。付属の15Ωインピーダンスアダプターを装着すると同社Scarlet Mini相当の25dB超低音ブーストモードに変貌するが、これはHBB自身のアイデアではなくFATfreq側がbasshead層向けに追加したオプションで、HBB本人も「ボーカルの質がやや犠牲になる」と留保を述べている。実際の試聴でも「アダプターありは飛び道具・ネタ枠の域を出ない」との評価。したがってDeuceの真価はデフォルト状態にあり、ボーカルと低音が共存する設計はテンポを落として重さで聴かせるデスコアのブレイクダウンや、Chris Cornell的な歌ものグルーヴメタルとの相性が良い。疾走感重視の正統派メタルやスラッシュのような高速リフには専用機のPortazo・Martiloに一歩譲る。ビルドクオリティは樹脂製で簡素、初期ロットでrecessed 2pinソケットの破損報告があったが現行Latest Versionで改善済みと公式表示。購入は公式直販よりAmazon/Linsoul経由が推奨されるが在庫は不安定な時期がある。',genreMetal:["グルーヴメタル","デスコア","ドゥーム・ストーナー"],genreOther:["ヒップホップ","EDM","トラップ"]},
+  ]},
+  { name:'Sound Rhyme', accent:'#8338ec', models:[
+    {name:'SR6',drivers:'1DD+2BA+2Planar+1BC',type:'Tribrid',price:'',sound:'密度の高いサウンド / DD+BA+PD+BCの質感の違いを隠さず前面に出す / ボーカルは密なミックスでも埋もれない',detail:'10mm LCP+PUコンポジットダイアフラムDD（低域）+カスタムBA×2（中域ボーカル）+マイクロプラナー×2（高域）+骨伝導/圧電ドライバー×1（低域の振動・空間深み）/ 0.78mm 2pin / 3.5mm+4.4mm交換プラグ',imp:'33Ω',sns:'106dB',metalRank:'A',metalNote:'DD・BA・プラナー・骨伝導という4種の異質なドライバーを「滑らかに混ぜる」のではなく「質感の違いをそのまま前面に出す」設計。低域はDDの深さに骨伝導の振動が重なり、立体的でバウンシーな鳴り方になる。プラナー高域は独特のクセを持ちながらシンバルの広がりと上方向のスパークルを演出。エネルギー総量が高く長時間の穏やかな鑑賞には向かないが、密なメタルのミックスでもボーカル・リフが埋もれない密度の高さはメタル向きの強み。$198（実勢2万円台前半）でハイエンド多ドラ的な帯域ごとの質感変化を体験できる稀有な入口機。',genreMetal:["デスコア","メタルコア・ニューコア","ジェント・プログレ"],genreOther:["ヒップホップ","EDM","ロック"]},
+  ]},
+  { name:'Thieaudio', accent:'#2a9d8f', models:[
+    {name:'Hype 4（初代）',drivers:'2DD+4BA',type:'Hybrid',price:'',sound:'ウォームUシェイプ / バスフォワード / ミッドバスシェルフで温かみと厚みを両立 / レビューで「ヘヴィメタルを鳴らせる」と明言',detail:'2×10mm複合振動板DD（IMPACT²アイソバリック構成、低域）+Sonion 26A系BA×2（中域）+Sonion E50系BA×2（高域）/ 3ウェイクロスオーバー/ 0.78mm 2pin / 高純度銀メッキOCCケーブル付属',imp:'17Ω',sns:'105dB',metalRank:'A',metalNote:'後継のMKIIがミッドバスを意図的に後退させクリーン・分析的な方向に振ったのに対し、初代はミッドバスシェルフをしっかり持たせたウォームでバスフォワードなチューニング。「マッシブでタイト、ハイパーディテール、間違いなくヘヴィメタルを鳴らせる」と直接評されるほどの重量感がある。bassheadレビュワーからは「野生的すぎる」との声も出るほどサブベースの主張が強く、密なミックスでも十分な空間を保ちながら重厚に鳴る。広いステージと優れたイメージングも兼ね備え、Doscinco・Martiloに近い「バスの物量で殴る」方向性の万能ハイブリッド。中古・型落ちでの入手が今後の狙い目。',genreMetal:["デスメタル","グルーヴメタル","メタルコア・ニューコア"],genreOther:["ヒップホップ","EDM","ロック"]},
+    {name:'Origin',drivers:'1DD+1BC+BA',type:'Hybrid',price:'',sound:'サブベース重視のV字寄り / 骨伝導ドライバーが中低域に独特の質感を付与 / 「世界最高のbasshead IEM」と評されるほどの低域',detail:'ダイナミックドライバー+骨伝導（BC）ドライバー+BA構成 / THIEAUDIO EliteNoirケーブル（7x7x0.08mm銀メッキ5N LCOFC+16x7x0.06mm銀メッキ4N LCOFC、161芯20AWG）付属 / 0.78mm 2pin / 3.5mm・4.4mmモジュラー',metalRank:'A',metalNote:'「audiophileだが自分はbassheadでもある、それを満足させたのはOriginだけ」と明言されるほど、Thieaudioラインナップの中で最もバスヘッド方向に振れたモデル。骨伝導ドライバーが中低域〜低域に加える独特の質感は、通常のDD・BAでは出せない層を追加し、ボーカルや低音楽器に「エキストラなレイヤー」を感じさせる。Monarch MKIIの上質な高域も継承しつつ、サブベースの量感と沈み込みを最優先した設計。Cano Cristales・FlipEars Aegis（検討中・骨伝導搭載）との比較が特に興味深い一台。',genreMetal:["デスメタル","デスコア","グルーヴメタル"],genreOther:["ヒップホップ","EDM","トラップ"]},
+  ]},
+];
+
+const typeClass = t => 'type-' + t.toLowerCase().replace(/\s+/g,'');
+
+function parseDriverDots(d){
+  const dots=[];
+  const ddM=d.match(/(\d+)DD/g);if(ddM) ddM.forEach(m=>{for(let i=0;i<parseInt(m);i++) dots.push('var(--dd)')});
+  const baM=d.match(/(\d+)BA/g);if(baM) baM.forEach(m=>{for(let i=0;i<parseInt(m);i++) dots.push('var(--ba)')});
+  if(/\+1Pla|\+1MEMS|1Planar/.test(d)) dots.push('var(--planar)');
+  if(d.includes('2Planar')){dots.push('var(--planar)');dots.push('var(--planar)')}
+  if(d.includes('BC')||d.includes('Piezo')) dots.push('var(--piezo)');
+  const pdM=d.match(/(\d*)(SPD|MPD)/g);if(pdM) pdM.forEach(m=>{const n=parseInt(m)||1;for(let i=0;i<n;i++) dots.push('var(--planar)')});
+  if(d.includes('MEMS')) dots.push('var(--piezo)');
+  return dots;
+}
+
+const filtersEl = document.getElementById('filters');
+const metalFiltersEl = document.getElementById('metalFilters');
+const axisFiltersEl = document.getElementById('axisFilters');
+let activeMainTab = 'owned'; // 'owned' or 'wishlist'
+let activeFilter = 'All';
+let activeMetalFilter = 'All';
+let activeAxisFilter = 'All';
+
+function currentData(){ return activeMainTab==='owned' ? DATA : WISHLIST; }
+function currentBrands(){ return ['All', ...currentData().map(b=>b.name)]; }
+
+function setMainTab(tab){
+  activeMainTab = tab;
+  activeFilter = 'All';
+  activeMetalFilter = 'All';
+  activeAxisFilter = 'All';
+  document.getElementById('tabOwned').classList.toggle('active', tab==='owned');
+  document.getElementById('tabWishlist').classList.toggle('active', tab==='wishlist');
+  renderFilters();
+  renderContent();
+}
+
+const AXES = {
+  power:      {label:'💥 パワー系', cls:'axis-power',      desc:'量感と押し出し'},
+  atmosphere: {label:'🌫 雰囲気系', cls:'axis-atmosphere', desc:'残響・湿度・空間'},
+  edge:       {label:'❄️ 切れ系',   cls:'axis-edge',       desc:'速さ・輪郭・乾き'},
+};
+const axisFilters = [{key:'All', label:'🎯 適性All'}].concat(
+  Object.entries(AXES).map(([k,v])=>({key:k, label:v.label}))
+);
+const metalRanks = [
+  {key:'All', label:'🤘 All', color:'var(--text-sub)'},
+  {key:'S', label:'S', color:'#ff3b5c'},
+  {key:'A', label:'A', color:'#ff8c42'},
+  {key:'B', label:'B', color:'#48bfe3'},
+  {key:'C', label:'C', color:'#7a7a8a'},
+  {key:'D', label:'D', color:'#4a4a55'},
+];
+
+function renderFilters(){
+  filtersEl.innerHTML = currentBrands().map(b=>
+    `<button class="filter-btn ${activeFilter===b?'active':''}" onclick="setFilter('${b}')">${b}</button>`
+  ).join('');
+  metalFiltersEl.innerHTML = metalRanks.map(r=>
+    `<button class="filter-btn ${activeMetalFilter===r.key?'active':''}" style="${activeMetalFilter===r.key?`color:${r.color};border-color:${r.color}40`:''}" onclick="setMetalFilter('${r.key}')">${r.label}</button>`
+  ).join('');
+  axisFiltersEl.innerHTML = axisFilters.map(r=>
+    `<button class="filter-btn ${activeAxisFilter===r.key?'active':''}" onclick="setAxisFilter('${r.key}')">${r.label}</button>`
+  ).join('');
+}
+
+function setFilter(b){activeFilter=b;renderFilters();renderContent();}
+function setMetalFilter(r){activeMetalFilter=r;renderFilters();renderContent();}
+function setAxisFilter(r){activeAxisFilter=r;renderFilters();renderContent();}
+
+function renderContent(){
+  const container = document.getElementById('content');
+  const sourceData = currentData();
+  let filtered = activeFilter==='All' ? sourceData : sourceData.filter(b=>b.name===activeFilter);
+  // メタルランクで絞り込み（ブランドごとにモデルをフィルタし、空のブランドは除外）
+  if(activeMetalFilter!=='All'){
+    filtered = filtered
+      .map(b=>({...b, models:b.models.filter(m=>m.metalRank===activeMetalFilter)}))
+      .filter(b=>b.models.length>0);
+  }
+  if(activeAxisFilter!=='All'){
+    filtered = filtered
+      .map(b=>({...b, models:b.models.filter(m=>(m.axis||[]).includes(activeAxisFilter))}))
+      .filter(b=>b.models.length>0);
+  }
+  let totalModels=0, totalBrands=filtered.length;
+  
+  if(filtered.length===0){
+    container.innerHTML = `<div style="text-align:center;color:var(--text-dim);padding:40px;font-size:var(--fs-base)">該当するモデルがありません</div>`;
+    document.getElementById('modelCount').textContent = 0;
+    document.getElementById('brandCount').textContent = 0;
+    return;
+  }
+  
+  container.innerHTML = filtered.map((brand,bi)=>{
+    totalModels += brand.models.length;
+    const modelsHtml = brand.models.map((m,mi)=>{
+      const dots = parseDriverDots(m.drivers);
+      const dotsHtml = dots.map(c=>`<span class="driver-dot" style="background:${c}"></span>`).join('');
+      const isWaiting = m.collab && m.collab.includes('発送待ち');
+      const collabDisplay = isWaiting ? 'Kickstarter購入済・発送待ち' : m.collab;
+      const wishlistBadge = activeMainTab==='wishlist' ? `<span class="wishlist-badge">🛒 検討中</span>` : '';
+      const metalBadge = m.metalRank ? `<span class="metal-badge metal-${m.metalRank}"><span class="horns">🤘</span>${m.metalRank}</span>` : '';
+      const ddHtml = m.ddMaterial ? `<div class="dd-row"><span class="dd-row-label">Diaphragm</span>${
+        m.ddMaterial === '非公表'
+          ? '<span class="dd-badge unknown">非公表</span>'
+          : m.ddMaterial.split('/').map(x=>`<span class="dd-badge">◎ ${x.trim()}</span>`).join('')
+      }</div>` : '';
+      const valueBadge = (m.value && m.envIndoor) ? `<span class="value-badge" title="${m.valueNote||'低価格帯でランクB以上'}">💰 コスパ良</span>` : '';
+      const metalDetailHtml = m.metalNote ? `
+          <div class="metal-detail">
+            <div class="metal-detail-label"><span>🤘</span>Metal Compatibility ${m.metalRank?`· ${m.metalRank}`:''}</div>
+            <div class="metal-detail-text">${m.metalNote}</div>
+          </div>`:'';
+      const axisHtml = (m.axis && m.axis.length) ? `
+          <div class="axis-row">${m.axis.map(a=>AXES[a]?`<span class="axis-badge ${AXES[a].cls}">${AXES[a].label}</span>`:'').join('')}</div>`:'';
+      const envDetailHtml = (m.envIndoor || m.envOutdoor !== undefined) ? `
+          <div class="env-detail">
+            <div class="metal-detail-label"><span>🎚</span>Listening Environment</div>
+            ${m.envIndoor ? `<div class="env-row"><span class="env-row-label env-indoor">🏠 室内</span><span>${m.envIndoor}</span></div>` : ''}
+            <div class="env-row"><span class="env-row-label env-outdoor">🚶 屋外</span><span class="${m.envOutdoor?'':'env-empty'}">${m.envOutdoor || '未記録 — 散歩時に印象が動いたら追記'}</span></div>
+          </div>`:'';
+      const genreDetailHtml = (m.genreMetal || m.genreOther) ? `
+          <div class="genre-detail">
+            <div class="genre-detail-label"><span>🎧</span>Genre Fit</div>
+            <div class="genre-row">
+              <span class="genre-row-label">Metal:</span>
+              ${(m.genreMetal||[]).map(g=>`<span class="genre-tag metal">${g}</span>`).join('')}
+            </div>
+            <div class="genre-row">
+              <span class="genre-row-label">Other:</span>
+              ${(m.genreOther||[]).map(g=>`<span class="genre-tag other">${g}</span>`).join('')}
+            </div>
+          </div>`:'';
+      const detailHtml = m.detail ? `
+        <div class="card-detail"><div class="card-detail-inner">
+          <div style="font-size:var(--fs-2xs);color:var(--text-dark);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:6px">Driver Detail</div>
+          <div style="font-size:var(--fs-sm);color:var(--text-sub);line-height:1.7;margin-bottom:8px">${m.detail}</div>
+          <div style="display:flex;gap:20px;font-family:'JetBrains Mono',monospace;font-size:var(--fs-2xs)">
+            ${m.imp&&m.imp!=='—'?`<span><span style="color:var(--text-dark);font-weight:500">IMP </span><span style="color:var(--text-sub)">${m.imp}</span></span>`:''}
+            ${m.sns&&m.sns!=='—'?`<span><span style="color:var(--text-dark);font-weight:500">SNS </span><span style="color:var(--text-sub)">${m.sns}</span></span>`:''}
+          </div>
+          ${ddHtml}
+          ${axisHtml}
+          ${metalDetailHtml}
+          ${envDetailHtml}
+          ${genreDetailHtml}
+        </div></div>`:'';
+      return `
+      <div class="model-card" style="--accent:${brand.accent}" onclick="this.classList.toggle('expanded')">
+        <div class="card-top">
+          <div>
+            <div class="card-name">${m.name}${metalBadge}${valueBadge}</div>
+            ${m.collab?`<div class="card-collab" style="color:${isWaiting?'#fbbf24':brand.accent}">${collabDisplay}</div>`:''}
+          </div>
+          <div class="card-right">
+            <div class="card-type ${typeClass(m.type)}">${m.type}</div>
+            ${wishlistBadge}
+          </div>
+        </div>
+        <div class="card-mid">
+          <span class="card-drivers">${m.drivers}</span>
+          <div class="driver-dots">${dotsHtml}</div>
+        </div>
+        <div class="card-sound">${m.sound}</div>
+        ${m.cable?`<div class="card-cable"><span class="cable-icon">⚡</span><span class="cable-name" style="color:${m.cableColor}">${m.cable}</span></div>`:''}
+        ${detailHtml}
+      </div>`;
+    }).join('');
+
+    return `
+    <div class="brand-section" style="animation-delay:${bi*100}ms">
+      <div class="brand-header">
+        <div class="brand-bar" style="background:${brand.accent}"></div>
+        <div class="brand-name">${brand.name}</div>
+        <div class="brand-count">${brand.models.length} model${brand.models.length>1?'s':''}</div>
+      </div>
+      ${modelsHtml}
+    </div>`;
+  }).join('');
+
+  document.getElementById('modelCount').textContent = totalModels;
+  document.getElementById('brandCount').textContent = totalBrands;
+}
+
+renderFilters();
+renderContent();
+</script>
+</body>
+</html>
