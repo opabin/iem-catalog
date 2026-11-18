@@ -435,6 +435,8 @@
 
   // ---------- 写真の拡大表示 ----------
   let zoomReturn = null;
+  // 開くときに履歴を1段積み（URL は変えない）、ブラウザの「戻る」で拡大表示だけ閉じられるようにする
+  const isLbState = () => !!(history.state && history.state.lightbox);
   function openLightbox(m) {
     const p = PHOTOS[m.id]; if (!p) return;
     const w = p.full[p.full.length - 1];
@@ -444,14 +446,22 @@
     zoomReturn = document.activeElement;
     $('#lightbox').hidden = false;
     $('#lightbox').focus();
+    try { history.pushState({ lightbox: true }, '', location.href); } catch (_) {}
   }
-  function closeLightbox() {
+  function hideLightbox() {
+    if ($('#lightbox').hidden) return;
     $('#lightbox').hidden = true;
     $('#lightboxImg').removeAttribute('src');
     const back = zoomReturn && document.contains(zoomReturn) ? zoomReturn : $('.zoom-btn');
     if (back) back.focus();
   }
+  // ×・背景・Esc で閉じるときは、積んだ履歴を戻して取り消す
+  function closeLightbox() {
+    if (isLbState()) history.back();
+    else hideLightbox();
+  }
   function bindLightbox() {
+    window.addEventListener('popstate', () => { if (!isLbState()) hideLightbox(); });
     $('#lightbox').addEventListener('click', e => {
       if (e.target.closest('[data-close-lightbox]') || e.target === e.currentTarget) closeLightbox();
     });
