@@ -344,7 +344,6 @@ button.vs__item:hover b{text-decoration:underline}
   .hero{grid-template-rows:auto auto auto;grid-template-areas:"panels text" "about about" "ledger ledger";row-gap:20px}
   .hero__text{align-self:start}
   .ledger{width:auto;grid-template-columns:repeat(2,minmax(0,1fr))}
-  .tier--BP .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
   .srow__link{grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:24px}
 }
 
