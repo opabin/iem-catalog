@@ -335,9 +335,14 @@ button.vs__item:hover b{text-decoration:underline}
    Tablet
    ========================================================== */
 @media (max-width:1100px){
-  .tier--BP .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .tier--A .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .srow__link{grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:28px}
+  .tier--A .cards{gap:24px}
+  .tier--A .card .name{font-size:22px}
+  .tier--A .card .catch{font-size:17px}
+  .srow__link{grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:32px}
+}
+@media (max-width:900px){
+  .tier--BP .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .srow__link{grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:24px}
 }
 
 /* ==========================================================
