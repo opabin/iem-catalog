@@ -235,9 +235,9 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .modal{position:fixed;inset:0;z-index:50;overflow-y:auto;overscroll-behavior:contain;background:var(--scrim);padding:0 24px}
 .modal__panel{max-width:1080px;margin:48px auto;background:var(--bg);border:var(--line);padding:0 32px 64px;outline:none}
 .dlg__bar{position:sticky;top:0;z-index:5;display:flex;justify-content:flex-start;align-items:center;gap:20px;min-height:60px;margin:0 -32px;padding:0 32px;background:var(--bg);border-bottom:var(--line);font-family:var(--f-mono);font-size:12px;color:var(--sub)}
-.dlg__actions{display:flex;align-items:center;gap:8px}
+.dlg__actions{flex:1 1 auto;display:flex;align-items:center;gap:8px}
 .dlg__share{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;background:var(--bg);border:1.5px solid var(--ink);font-family:var(--f-jp);font-weight:700;font-size:12px;color:var(--ink);cursor:pointer}
-.dlg__close{position:fixed;top:20px;right:20px;z-index:60;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;background:var(--bg);border:var(--line);box-shadow:3px 3px 0 var(--ink);font-family:var(--f-jp);font-weight:700;font-size:13px;color:var(--ink);cursor:pointer}
+.dlg__close{margin-left:auto;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;background:var(--bg);border:var(--line);box-shadow:3px 3px 0 var(--ink);font-family:var(--f-jp);font-weight:700;font-size:13px;color:var(--ink);cursor:pointer}
 
 .dlg__hero{display:flex;flex-wrap:wrap;gap:48px;padding:40px 0 48px}
 .dlg__photo{flex:1 1 480px;min-width:0;max-width:600px}
@@ -445,7 +445,7 @@ button.vs__item:hover b{text-decoration:underline}
   .dlg__actions{gap:0}
   .dlg__share{width:44px;height:44px;min-height:0;padding:0;justify-content:center;border:0;background:none}
   .dlg__share .lbl,.dlg__close .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .dlg__close{position:static;width:44px;height:44px;min-height:0;padding:0;justify-content:center;border:0;box-shadow:none;background:none}
+  .dlg__close{width:44px;height:44px;min-height:0;padding:0;justify-content:center;border:0;box-shadow:none;background:none}
   .dlg__hero{gap:0;padding:18px 0 28px}
   .dlg__photo{flex-basis:100%;max-width:none}
   .dlg__info{flex-basis:100%;padding-top:24px}
