@@ -412,11 +412,18 @@ button.vs__item:hover b{text-decoration:underline}
   .tier--A .card .chips{margin-top:6px;font-size:11px}
   .tier--A .card .chips .genre{display:none}
 
-  .tier--BP .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}
-  .tier--BP .card .meta{margin-top:8px}
+  /* B+：小さめのサムネイル＋文字の行 */
+  .tier--BP .cards{grid-template-columns:minmax(0,1fr);gap:0}
+  .tier--BP .card + .card{border-top:1px solid var(--rule)}
+  .tier--BP .card__link{display:grid;grid-template-columns:88px minmax(0,1fr);grid-template-rows:auto auto 1fr;column-gap:14px;padding:12px 0;align-items:start}
+  .tier--BP .card:first-child .card__link{padding-top:0}
+  .tier--BP .mat{grid-row:1 / span 3;--gap:6px}
+  .tier--BP .mat__inner{padding:6px}
+  .tier--BP .badge{--bp:4px;font-size:10px;padding:0 4px}
+  .tier--BP .card .meta{margin-top:0}
   .tier--BP .card .meta span + span{display:none}
   .tier--BP .card .name{font-size:16px;letter-spacing:.08em}
-  .tier--BP .card .catch{font-size:13px}
+  .tier--BP .card .catch{margin-top:2px;font-size:13px}
   .tier--BP .card .chips{display:none}
 
   .ledger-list{border:0;border-bottom:1px solid var(--rule)}
