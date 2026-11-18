@@ -3,9 +3,15 @@
 <meta name="description" content="メタルばかり聴く人間の、所持イヤホン台帳。メタルを聴くならどう使い分けるか、で並べています。">
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="メタル脳">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://opabin.github.io/iem-catalog/">
 <meta property="og:title" content="メタル脳 — オパビのイヤホン帳">
 <meta property="og:description" content="メタルばかり聴く人間の、所持イヤホン台帳。">
 <meta property="og:image" content="https://opabin.github.io/iem-catalog/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="メタル脳 — オパビのイヤホン帳">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,6 +130,13 @@
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<!-- コピーできない環境（アプリ内ブラウザなど）向け：URLを選択状態で見せる -->
+<div class="copybox" id="copyBox" role="dialog" aria-labelledby="copyBoxTitle" hidden>
+  <p id="copyBoxTitle">このURLを長押し（または選択）してコピーしてください</p>
+  <input type="text" id="copyBoxInput" readonly aria-label="この機種のURL">
+  <button type="button" class="link-btn" id="copyBoxClose">閉じる</button>
+</div>
 
 <!-- 暗い写真の影を持ち上げるガンマ補正（写真の lum で自動適用） -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">

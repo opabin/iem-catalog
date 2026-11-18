@@ -416,6 +416,7 @@
     });
     document.addEventListener('keydown', e => {
       if (e.key !== 'Escape') return;
+      if (!$('#copyBox').hidden) return hideCopyBox();
       if (!$('#lightbox').hidden) return closeLightbox();
       if (!$('#sheet').hidden) return closeSheet();
       if (!$('#modal').hidden) closeModal();
@@ -477,8 +478,21 @@
       catch (e) { if (e && e.name === 'AbortError') return; /* 共有不可の環境はコピーに切り替え */ }
     }
     try { await navigator.clipboard.writeText(url); toast('リンクをコピーしました'); }
-    catch (_) { toast('コピーできませんでした'); }
+    catch (_) { showCopyBox(url); }
   }
+  // コピーに失敗したら、URLを選択した状態で見せて手でコピーしてもらう
+  function showCopyBox(url) {
+    const box = $('#copyBox'), input = $('#copyBoxInput');
+    input.value = url;
+    box.hidden = false;
+    input.focus();
+    input.select();
+    try { input.setSelectionRange(0, url.length); } catch (_) {}
+  }
+  function hideCopyBox() { $('#copyBox').hidden = true; }
+  $('#copyBoxClose').addEventListener('click', hideCopyBox);
+  $('#copyBoxInput').addEventListener('focus', e => e.target.select());
+
   let toastTimer;
   function toast(msg) {
     const t = $('#toast');
