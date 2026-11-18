@@ -326,7 +326,8 @@
       </div>
 
       <section class="dlg__hero">
-        <div class="dlg__photo">${matHtml(m, 'full', { dots: true, eager: true, sizes: '(max-width:720px) 100vw, 600px' })}</div>
+        <div class="dlg__photo" data-zoom>${matHtml(m, 'full', { dots: true, eager: true, sizes: '(max-width:720px) 100vw, 600px' })}
+          ${PHOTOS[m.id] ? `<button type="button" class="zoom-btn" data-zoom aria-label="写真を拡大して表示"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2H14v4.5M14 2l-5 5M6.5 14H2V9.5M2 14l5-5"/></svg><span>拡大</span></button>` : ''}</div>
         <div class="dlg__info">
           <div class="dlg__rankrow">
             <div class="dlg__rank${m.rank === 'S' ? ' is-S' : ''}${r.label.length > 2 ? ' is-sm' : ''}" style="--rk:var(--${main || 'none'})">${r.label}</div>
@@ -411,9 +412,11 @@
       const g = e.target.closest('[data-goto]');
       if (g) { e.preventDefault(); return gotoModel(g.dataset.goto); }
       if (e.target.closest('[data-share]')) return share();
+      if (e.target.closest('[data-zoom]')) { const cur = byId[location.hash.slice(1)]; if (cur) openLightbox(cur); }
     });
     document.addEventListener('keydown', e => {
       if (e.key !== 'Escape') return;
+      if (!$('#lightbox').hidden) return closeLightbox();
       if (!$('#sheet').hidden) return closeSheet();
       if (!$('#modal').hidden) closeModal();
     });
@@ -428,6 +431,30 @@
       const i = openable.indexOf(m);
       gotoModel(openable[(i + (dx < 0 ? 1 : -1) + openable.length) % openable.length].id);
     }, { passive: true });
+  }
+
+  // ---------- 写真の拡大表示 ----------
+  let zoomReturn = null;
+  function openLightbox(m) {
+    const p = PHOTOS[m.id]; if (!p) return;
+    const w = p.full[p.full.length - 1];
+    const img = $('#lightboxImg');
+    img.src = `img/${m.id}-full-${w}.webp`;
+    img.alt = `${m.brand} ${m.name}`;
+    zoomReturn = document.activeElement;
+    $('#lightbox').hidden = false;
+    $('#lightbox').focus();
+  }
+  function closeLightbox() {
+    $('#lightbox').hidden = true;
+    $('#lightboxImg').removeAttribute('src');
+    const back = zoomReturn && document.contains(zoomReturn) ? zoomReturn : $('.zoom-btn');
+    if (back) back.focus();
+  }
+  function bindLightbox() {
+    $('#lightbox').addEventListener('click', e => {
+      if (e.target.closest('[data-close-lightbox]') || e.target === e.currentTarget) closeLightbox();
+    });
   }
 
   async function share() {
@@ -510,6 +537,7 @@
   bindTabs();
   bindFilter();
   bindModal();
+  bindLightbox();
   bindLedger();
   applyFilter();
   route();

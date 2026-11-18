@@ -307,6 +307,14 @@ button.vs__item:hover b{text-decoration:underline}
 .pager b{display:block;margin-top:2px;font-family:var(--f-en);font-weight:600;font-size:17px;letter-spacing:.08em;text-transform:uppercase}
 .swipe-hint{margin-top:12px;font-size:12px;color:var(--sub);text-align:center;display:none}
 
+/* ---------- 写真の拡大表示 ---------- */
+.dlg__photo{position:relative;cursor:zoom-in}
+.zoom-btn{position:absolute;right:calc(var(--gap, 14px) * 2 + 10px);bottom:calc(var(--gap, 14px) * 2 + 10px);z-index:3;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;background:var(--bg);color:var(--ink);border:var(--line);box-shadow:3px 3px 0 var(--ink);font-weight:700;font-size:12px;cursor:pointer}
+.dlg__photo .mat{--gap:14px}
+.lightbox{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:64px 16px 24px;background:rgba(10,10,10,.92);outline:none;cursor:zoom-out}
+.lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;cursor:default}
+.lightbox__close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;background:#fbfaf7;color:#141414;border:2px solid #141414;font-weight:700;font-size:13px;cursor:pointer}
+
 /* ---------- filter sheet ---------- */
 .sheet{position:fixed;inset:0;z-index:55}
 .sheet__scrim{position:absolute;inset:0;background:var(--scrim)}
@@ -459,6 +467,7 @@ button.vs__item:hover b{text-decoration:underline}
   .dlg__hero{gap:0;padding:18px 0 28px}
   .dlg__photo{flex-basis:100%;max-width:none}
   .dlg__photo .mat{--gap:10px}
+  .zoom-btn{right:30px;bottom:30px;min-height:36px;padding:0 10px}
   .dlg__info{flex-basis:100%;padding-top:24px}
   .dlg__rank{font-size:80px;text-shadow:4px 4px 0 var(--rk,var(--power))}
   .dlg__rank.is-S{text-shadow:2px 2px 0 var(--power),4px 4px 0 var(--edge),6px 6px 0 var(--atmosphere),8px 8px 0 var(--none)}
