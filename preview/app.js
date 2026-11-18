@@ -55,7 +55,8 @@
   }
   function photoHtml(m, kind, opts = {}) {
     const p = PHOTOS[m.id];
-    if (!p) return `<div class="ph" style="--ar:${opts.ar || '1'}"><div class="noimg">${esc(m.drivers)}<br>NO PHOTO</div></div>`;
+    const arStyle = opts.ar ? ` style="--ar:${opts.ar}"` : '';
+    if (!p) return `<div class="ph"${arStyle}><div class="noimg">${esc(m.drivers)}<br>NO PHOTO</div></div>`;
     const ws = p[kind];
     const src = `img/${m.id}-${kind}-${ws[0]}.webp`;
     const srcset = ws.map(w => `img/${m.id}-${kind}-${w}.webp ${w}w`).join(', ');
@@ -66,7 +67,7 @@
       style = ` style="object-position:${o};${zoom}"`;
     }
     const load = opts.eager ? ' fetchpriority="high"' : ' loading="lazy"';
-    return `<div class="ph" style="--ar:${opts.ar || '1'}"><img src="${src}" srcset="${srcset}" sizes="${opts.sizes || '(max-width:720px) 50vw, 360px'}" alt="${esc(m.brand + ' ' + m.name)}"${load} decoding="async"${style}></div>`;
+    return `<div class="ph"${arStyle}><img src="${src}" srcset="${srcset}" sizes="${opts.sizes || '(max-width:720px) 50vw, 360px'}" alt="${esc(m.brand + ' ' + m.name)}"${load} decoding="async"${style}></div>`;
   }
   function matHtml(m, kind, opts = {}) {
     const [main, sub] = roleOf(m);
@@ -89,7 +90,7 @@
   // ---------- 一覧の描画 ----------
   function srowHtml(m) {
     const n = numbering[m.id];
-    const inner = `${matHtml(m, 'card', { dots: true, ar: '16/9', sizes: '(max-width:720px) 132px, 400px' })}
+    const inner = `${matHtml(m, 'card', { dots: true, sizes: '(max-width:720px) 132px, 400px' })}
       <div>
         <div class="meta"><span>${n.no} ／ ${esc(m.brand)}</span><span>${esc(m.drivers)}</span></div>
         <h3 class="name">${nameHtml(m)}</h3>
