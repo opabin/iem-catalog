@@ -53,7 +53,8 @@ fieldset{border:0;min-width:0}
 .label small{font-family:var(--f-jp);font-weight:500;letter-spacing:0;color:var(--sub);margin-left:.6em;font-size:13px}
 
 /* ---------- topbar ---------- */
-.topbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 24px;padding-top:8px;padding-bottom:8px;border-bottom:var(--line);font-family:var(--f-mono);font-size:12px;color:var(--sub)}
+.topbar{border-bottom:var(--line)}
+.topbar__inner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 24px;padding-top:8px;padding-bottom:8px;font-family:var(--f-mono);font-size:12px;color:var(--sub)}
 .topbar__right{display:flex;align-items:center;gap:20px}
 .theme-btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;background:var(--bg);border:1.5px solid var(--ink);color:var(--ink);font-family:var(--f-jp);font-weight:700;font-size:12px;cursor:pointer}
 .theme-btn__sw{width:14px;height:14px;border:1.5px solid var(--ink);background:linear-gradient(135deg,var(--ink) 50%,var(--bg) 50%)}
@@ -121,8 +122,6 @@ fieldset{border:0;min-width:0}
 .tier{scroll-margin-top:calc(var(--tabs-h) + 4px)}
 .tier > .wrap{padding-top:52px;padding-bottom:52px}
 .tier + .tier > .wrap{border-top:var(--line)}
-.tier--S{border-bottom:var(--line)}
-.tier--S + .tier > .wrap{border-top:0}
 .tier__head{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 24px;margin-bottom:30px}
 .tier__rank{font-family:var(--f-en);font-weight:500;font-size:120px;line-height:.8;text-shadow:5px 5px 0 var(--rk,var(--power))}
 .tier--S .tier__rank{text-shadow:3px 3px 0 var(--power),6px 6px 0 var(--edge),9px 9px 0 var(--atmosphere),12px 12px 0 var(--none)}
@@ -355,9 +354,9 @@ button.vs__item:hover b{text-decoration:underline}
 @media (max-width:720px){
   body{font-size:14px}
   .wrap{padding:0 16px}
-  .topbar{font-size:11px;padding-top:12px;padding-bottom:12px}
+  .topbar__inner{font-size:11px}
   .topbar__wip{display:none}
-  .topbar{padding-top:6px;padding-bottom:6px}
+  .topbar__inner{padding-top:6px;padding-bottom:6px}
   .filter-btn{padding-left:12px;box-shadow:-1px 0 0 var(--rule)}
   .hero{grid-template-columns:minmax(0,1fr);grid-template-areas:"text" "panels" "about" "ledger";row-gap:14px;padding-top:20px;padding-bottom:20px}
   .hero__title{font-size:54px;transform:translateX(3px)}
