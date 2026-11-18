@@ -387,7 +387,8 @@ button.vs__item:hover b{text-decoration:underline}
   .srow .meta span + span{display:none}
   .srow .name{margin-top:0;font-size:19px;letter-spacing:.08em}
   .srow .catch{margin-top:4px;font-size:15px}
-  .srow__lead,.srow .chips .genre{display:none}
+  .srow .chips .genre{display:none}
+  .srow__lead{margin-top:4px;font-size:12px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .srow .chips{margin-top:6px;font-size:11px}
 
   /* A：サムネイル＋文字の行 */
