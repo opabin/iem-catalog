@@ -390,21 +390,19 @@ button.vs__item:hover b{text-decoration:underline}
   .srow__lead,.srow .chips .genre{display:none}
   .srow .chips{margin-top:6px;font-size:11px}
 
-  /* A：1枚目は大きく、2枚目以降はサムネイル行 */
+  /* A：サムネイル＋文字の行 */
   .tier--A .cards{grid-template-columns:minmax(0,1fr);gap:0}
-  .tier--A .card:first-child{padding-bottom:22px}
-  .tier--A .card:first-child .name{font-size:24px}
-  .tier--A .card:first-child .catch{font-size:18px}
-  .tier--A .card:not(:first-child){border-top:1px solid var(--rule)}
-  .tier--A .card:not(:first-child) .card__link{display:grid;grid-template-columns:116px minmax(0,1fr);grid-template-rows:auto auto auto 1fr;column-gap:14px;padding:16px 0;align-items:start}
-  .tier--A .card:not(:first-child) .mat{grid-row:1 / span 4;--gap:6px}
-  .tier--A .card:not(:first-child) .mat__inner{padding:8px;background-image:none}
-  .tier--A .card:not(:first-child) .meta{margin-top:0;font-size:11px}
-  .tier--A .card:not(:first-child) .meta span + span{display:none}
-  .tier--A .card:not(:first-child) .name{font-size:19px;letter-spacing:.1em}
-  .tier--A .card:not(:first-child) .catch{margin-top:4px;font-size:15px}
-  .tier--A .card:not(:first-child) .chips{margin-top:6px;font-size:11px}
-  .tier--A .card:not(:first-child) .chips .genre{display:none}
+  .tier--A .card + .card{border-top:1px solid var(--rule)}
+  .tier--A .card__link{display:grid;grid-template-columns:116px minmax(0,1fr);grid-template-rows:auto auto auto 1fr;column-gap:14px;padding:16px 0;align-items:start}
+  .tier--A .card:first-child .card__link{padding-top:0}
+  .tier--A .mat{grid-row:1 / span 4;--gap:6px}
+  .tier--A .mat__inner{padding:8px;background-image:none}
+  .tier--A .card .meta{margin-top:0;font-size:11px}
+  .tier--A .card .meta span + span{display:none}
+  .tier--A .card .name{font-size:19px;letter-spacing:.1em}
+  .tier--A .card .catch{margin-top:4px;font-size:15px}
+  .tier--A .card .chips{margin-top:6px;font-size:11px}
+  .tier--A .card .chips .genre{display:none}
 
   .tier--BP .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}
   .tier--BP .card .meta{margin-top:8px}
