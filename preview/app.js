@@ -434,8 +434,8 @@
     const title = m ? `${m.name}｜メタル脳 — オパビのイヤホン帳` : document.title;
     const coarse = matchMedia('(pointer:coarse)').matches;
     if (coarse && navigator.share) {
-      try { await navigator.share({ title, url }); } catch (_) { /* キャンセル */ }
-      return;
+      try { await navigator.share({ title, url }); return; }
+      catch (e) { if (e && e.name === 'AbortError') return; /* 共有不可の環境はコピーに切り替え */ }
     }
     try { await navigator.clipboard.writeText(url); toast('リンクをコピーしました'); }
     catch (_) { toast('コピーできませんでした'); }

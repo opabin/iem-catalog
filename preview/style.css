@@ -21,11 +21,18 @@
   --tabs-h:48px;
 }
 @media (prefers-color-scheme:dark){
-  :root{
+  :root:not([data-theme="light"]){
     --bg:#131313; --ink:#f3f1ec; --sub:#b3afa7; --rule:#3a3a3a;
     --scrim:rgba(0,0,0,.72);
     --power-t:#ff5aa8; --edge-t:#3fd3d8; --atmosphere-t:#a993ee; --none-t:#e0b84e;
+    color-scheme:dark;
   }
+}
+:root[data-theme="dark"]{
+  --bg:#131313; --ink:#f3f1ec; --sub:#b3afa7; --rule:#3a3a3a;
+  --scrim:rgba(0,0,0,.72);
+  --power-t:#ff5aa8; --edge-t:#3fd3d8; --atmosphere-t:#a993ee; --none-t:#e0b84e;
+  color-scheme:dark;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -88,7 +95,7 @@ fieldset{border:0;min-width:0}
 .ledger .num{font-family:var(--f-mono);font-weight:400;font-size:12px}
 
 /* ---------- rank tabs ---------- */
-.ranktabs{position:sticky;top:0;z-index:20;background:var(--bg);border-top:var(--line);border-bottom:var(--line)}
+.ranktabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-top:var(--line);border-bottom:var(--line)}
 .ranktabs__inner{display:flex;align-items:center;gap:12px}
 .ranktabs__list{display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;min-width:0}
 .ranktabs__list::-webkit-scrollbar{display:none}
@@ -193,7 +200,7 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .wish-intro{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 32px;padding-top:24px;padding-bottom:24px;border-top:var(--line)}
 .wish-intro p{font-size:14px;color:var(--sub)}
 .wish-intro .mono{margin-left:1em;font-size:12px}
-.brandnav{position:sticky;top:0;z-index:20;background:var(--bg);border-top:var(--line);border-bottom:var(--line)}
+.brandnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-top:var(--line);border-bottom:var(--line)}
 .brandnav__inner{display:flex;flex-wrap:wrap;gap:2px 22px;padding-top:8px;padding-bottom:10px}
 .brandnav button{min-height:36px;padding:0;background:none;border:0;font-family:var(--f-en);font-weight:600;font-size:15px;cursor:pointer}
 .brandnav button .n{margin-left:4px;font-family:var(--f-mono);font-weight:400;font-size:11px;color:var(--sub)}
