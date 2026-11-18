@@ -67,7 +67,8 @@
       style = ` style="object-position:${o};${zoom}"`;
     }
     const load = opts.eager ? ' fetchpriority="high"' : ' loading="lazy"';
-    return `<div class="ph"${arStyle}><img src="${src}" srcset="${srcset}" sizes="${opts.sizes || '(max-width:720px) 50vw, 360px'}" alt="${esc(m.brand + ' ' + m.name)}"${load} decoding="async"${style}></div>`;
+    const lift = p.lum < 0.15 ? ' class="lift-strong"' : p.lum < 0.3 ? ' class="lift-soft"' : '';
+    return `<div class="ph"${arStyle}><img src="${src}" srcset="${srcset}" sizes="${opts.sizes || '(max-width:720px) 50vw, 360px'}" alt="${esc(m.brand + ' ' + m.name)}"${lift}${load} decoding="async"${style}></div>`;
   }
   function matHtml(m, kind, opts = {}) {
     const [main, sub] = roleOf(m);

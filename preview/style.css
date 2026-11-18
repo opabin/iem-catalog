@@ -141,6 +141,8 @@ fieldset{border:0;min-width:0}
 .mat--dots .mat__inner{background-image:radial-gradient(#ffffff38 1.2px,transparent 1.6px);background-size:7px 7px}
 .ph{position:relative;overflow:hidden;border:var(--line);aspect-ratio:var(--ar,1);background:var(--rule)}
 .ph img{width:100%;height:100%;object-fit:cover}
+.ph img.lift-strong{filter:url(#lift-strong)}
+.ph img.lift-soft{filter:url(#lift-soft)}
 .noimg{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;color:var(--sub);text-align:center;padding:8px}
 .badge{position:absolute;left:var(--bp,12px);top:var(--bp,12px);z-index:2;padding:0 6px;background:var(--bg);border:1.5px solid var(--ink);font-size:11px;font-weight:700;line-height:1.7}
 .mat--sm .badge{--bp:8px}

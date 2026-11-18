@@ -124,6 +124,12 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
+<!-- 暗い写真の影を持ち上げるガンマ補正（写真の lum で自動適用） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="lift-strong" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="gamma" exponent="0.68"/><feFuncG type="gamma" exponent="0.68"/><feFuncB type="gamma" exponent="0.68"/></feComponentTransfer></filter>
+  <filter id="lift-soft" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="gamma" exponent="0.8"/><feFuncG type="gamma" exponent="0.8"/><feFuncB type="gamma" exponent="0.8"/></feComponentTransfer></filter>
+</svg>
+
 <script src="data/models.js"></script>
 <script src="data/wishlist.js"></script>
 <script src="app.js"></script>
