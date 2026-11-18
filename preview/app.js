@@ -479,6 +479,26 @@
     });
   }
 
+  // ---------- 白地／黒地の切り替え ----------
+  // 初期値は端末（またはアプリ）の設定。ボタンで選んだらその端末に保存する。
+  const root = document.documentElement;
+  const darkMQ = matchMedia('(prefers-color-scheme: dark)');
+  const currentTheme = () => root.dataset.theme || (darkMQ.matches ? 'dark' : 'light');
+  function syncThemeBtn() {
+    const dark = currentTheme() === 'dark';
+    $('#themeLabel').textContent = dark ? '白地にする' : '黒地にする';
+    $('#themeBtn').setAttribute('aria-pressed', String(dark));
+  }
+  try { const saved = localStorage.getItem('theme'); if (saved === 'light' || saved === 'dark') root.dataset.theme = saved; } catch (_) {}
+  $('#themeBtn').addEventListener('click', () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (_) {}
+    syncThemeBtn();
+  });
+  darkMQ.addEventListener && darkMQ.addEventListener('change', syncThemeBtn);
+  syncThemeBtn();
+
   // ---------- 起動 ----------
   $('#countOwned').textContent = MODELS.length;
   $('#countWish').textContent = WISHLIST.length;
