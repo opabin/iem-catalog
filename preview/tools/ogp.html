@@ -1,0 +1,36 @@
+<!-- OGP画像（1200×630）の元データ。ブラウザで 1200×630 の表示サイズにして撮影し、preview/ogp.png に保存する。機種数が変わったら .meta の数字を直す -->
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;background:#fbfaf7;color:#141414;font-family:'Zen Kaku Gothic New',sans-serif;overflow:hidden}
+.frame{position:absolute;inset:0;padding:56px 64px;display:grid;grid-template-columns:430px 1fr;gap:56px;align-items:center}
+.panels{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.p{position:relative;isolation:isolate;background:var(--c);aspect-ratio:1}
+.p img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(1.9) contrast(1.15);mix-blend-mode:multiply}
+.p::after{content:'';position:absolute;inset:0;background:var(--d);mix-blend-mode:lighten}
+h1{font-weight:900;font-size:116px;line-height:1;letter-spacing:.02em;white-space:nowrap}
+h1 span{color:#d6337f;font-size:1.22em;text-shadow:7px 7px 0 #2fbfc4}
+.sub{margin-top:26px;font-weight:900;font-size:38px;letter-spacing:.06em}
+.tag{margin-top:14px;font-family:Jost,sans-serif;font-weight:600;font-size:20px;letter-spacing:.5em}
+.foot{position:absolute;left:0;right:0;bottom:0;height:10px;display:grid;grid-template-columns:repeat(4,1fr)}
+.foot i:nth-child(1){background:#e2408f}.foot i:nth-child(2){background:#2fbfc4}.foot i:nth-child(3){background:#8b6fd6}.foot i:nth-child(4){background:#c9a03f}
+.meta{margin-top:34px;padding-top:16px;border-top:3px solid #141414;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#575550;display:flex;gap:28px}
+.meta b{color:#141414;font-weight:500}
+</style></head><body>
+<div class="frame">
+ <div class="panels">
+  <div class="p" style="--c:#e2408f;--d:#6b1d45"><img src="../img/doscinco-card-800.webp" style="object-position:62% 45%"></div>
+  <div class="p" style="--c:#2fbfc4;--d:#11575a"><img src="../img/cincotres-card-800.webp" style="object-position:48% 14%"></div>
+  <div class="p" style="--c:#8b6fd6;--d:#36286e"><img src="../img/luna-card-800.webp" style="object-position:47% 10%"></div>
+  <div class="p" style="--c:#c9a03f;--d:#5a4310"><img src="../img/estrella-card-800.webp" style="object-position:50% 8%"></div>
+ </div>
+ <div>
+  <h1>メタル<span>脳</span></h1>
+  <p class="sub">オパビのイヤホン帳</p>
+  <p class="tag">FOR HEADBANGERS</p>
+  <p class="meta"><span>所持 <b>48</b></span><span>ほしい <b>28</b></span><span>IEM CATALOG</span></p>
+ </div>
+</div>
+<div class="foot"><i></i><i></i><i></i><i></i></div>
+</body></html>
