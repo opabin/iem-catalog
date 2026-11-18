@@ -74,9 +74,9 @@ fieldset{border:0;min-width:0}
 .hero__lead{margin-top:18px;max-width:460px;font-size:14px;color:var(--sub)}
 
 .panel{margin:0}
-.panel__mat{position:relative;isolation:isolate;background:var(--c);border:var(--line);padding:12px}
+.panel__mat{position:relative;isolation:isolate;background:var(--c)}
 .panel__mat img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(1) brightness(1.9) contrast(1.15);mix-blend-mode:multiply}
-.panel__mat::after{content:'';position:absolute;inset:12px;background:var(--d);mix-blend-mode:lighten;pointer-events:none}
+.panel__mat::after{content:'';position:absolute;inset:0;background:var(--d);mix-blend-mode:lighten;pointer-events:none}
 .panel figcaption{margin-top:6px;font-size:12px;line-height:1.4;text-align:center}
 .panel figcaption b{font-size:14px;margin-right:.3em}
 
@@ -369,8 +369,6 @@ button.vs__item:hover b{text-decoration:underline}
   .hero__tag{font-size:11px;letter-spacing:.35em;padding-left:.35em}
   .hero__lead{display:none}
   .hero__panels{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:4px}
-  .panel__mat{padding:5px}
-  .panel__mat::after{inset:5px}
   .panel figcaption{font-size:10px}
   .panel figcaption b{font-size:12px}
   .about summary{font-size:13px;padding:0 12px}
