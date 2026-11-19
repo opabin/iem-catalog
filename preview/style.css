@@ -109,6 +109,16 @@ fieldset{border:0;min-width:0}
 .ranktab[aria-current="true"]{box-shadow:inset 0 -4px 0 var(--ink)}
 .ranktab:disabled{color:var(--sub);opacity:.6;cursor:default}
 .ranktab .n{font-family:var(--f-mono);font-weight:400;font-size:11px;margin-left:3px;color:var(--sub)}
+.search-btn{flex:0 0 auto}
+.ranktabs__inner.is-search .ranktabs__list,.ranktabs__inner.is-search .search-btn,.ranktabs__inner.is-search .filter-btn{display:none}
+.searchrow{flex:1 1 auto;display:flex;align-items:center;gap:10px;min-height:var(--tabs-h)}
+.searchrow input{flex:1 1 auto;min-width:0;min-height:40px;padding:0 4px;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;font-size:16px;outline:none}
+.searchrow input::placeholder{color:var(--sub);font-weight:500}
+.searchrow input::-webkit-search-cancel-button{display:none}
+.searchrow:focus-within{box-shadow:inset 0 -3px 0 var(--emph,var(--power))}
+.searchrow__count{flex:0 0 auto;font-family:var(--f-mono);font-size:12px;color:var(--sub)}
+.searchrow .link-btn{flex:0 0 auto;min-height:36px;font-size:13px}
+.empty-note{padding-top:48px;padding-bottom:64px;font-weight:700;font-size:15px;text-align:center;color:var(--sub)}
 .filter-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 0 0 12px;background:var(--bg);border:0;font-weight:700;font-size:13px;cursor:pointer}
 .filter-btn__badge{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 4px;background:var(--power);color:#141414;border:1.5px solid var(--ink);font-family:var(--f-en);font-size:12px;line-height:1}
 .filterbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-top:8px;padding-bottom:10px;border-top:1px solid var(--rule);font-size:13px}

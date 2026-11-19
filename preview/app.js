@@ -215,6 +215,13 @@
     (!f.roles.size || (m.axis || []).some(a => f.roles.has(a))) &&
     (!f.makers.size || f.makers.has(m.brand));
   const activeCount = f => f.roles.size + f.makers.size;
+  // キーワード検索（機種名・メーカー・構成・ジャンル・バンド・キャッチを部分一致。全角半角・大小文字は区別しない）
+  let query = '';
+  const norm = v => String(v || '').normalize('NFKC').toLowerCase();
+  const hay = m => norm([m.name, m.brand, m.drivers, m.genre, m.bands, m.catch].join(' '));
+  const qmatch = m => !query || query.split(/\s+/).filter(Boolean).every(w => hay(m).includes(w));
+  const visible = m => matches(m, filter) && qmatch(m);
+  const narrowing = () => activeCount(filter) > 0 || !!query;
 
   function renderSheet() {
     $('#roleOpts').innerHTML = ROLE_ORDER.map(r => `<button type="button" class="ropt" data-role="${r}" aria-pressed="${draft.roles.has(r)}" style="--c:var(--${r})"><span class="sw" aria-hidden="true"></span>${ROLES[r].label}<span class="n">${roleCount(r)}</span></button>`).join('');
@@ -241,12 +248,12 @@
     $('#filterBtn').focus();
   }
   function applyFilter() {
-    const on = activeCount(filter) > 0;
+    const on = narrowing();
     $$('.tier').forEach(sec => {
       const items = $$('.item', sec);
       let vis = 0;
       items.forEach(el => {
-        const ok = matches(byId[el.dataset.id], filter);
+        const ok = visible(byId[el.dataset.id]);
         el.hidden = !ok;
         if (ok) vis++;
       });
@@ -255,17 +262,50 @@
       const tab = $(`.ranktab[data-rank="${sec.dataset.rank}"]`);
       if (tab) { tab.disabled = vis === 0; $('[data-n]', tab).textContent = on && vis ? vis : ''; }
     });
+    const fOn = activeCount(filter) > 0;
     const badge = $('#filterBadge');
-    badge.hidden = !on; badge.textContent = activeCount(filter);
+    badge.hidden = !fOn; badge.textContent = activeCount(filter);
     const bar = $('#filterBar');
-    bar.hidden = !on;
-    if (on) {
+    bar.hidden = !fOn;
+    const hits = MODELS.filter(visible).length;
+    $('#searchCount').textContent = query ? `${hits}件` : '';
+    let empty = $('#emptyNote');
+    if (!empty) { empty = document.createElement('p'); empty.id = 'emptyNote'; empty.className = 'empty-note wrap'; $('#tiers').after(empty); }
+    empty.hidden = hits > 0;
+    empty.textContent = '該当する機種が見つかりませんでした。言葉を変えるか、絞り込みを解除してください。';
+    if (fOn) {
       const total = MODELS.filter(m => matches(m, filter)).length;
       bar.innerHTML = [...filter.roles].map(r => `<span class="chip chip--role" style="background:var(--${r})">${ROLES[r].label}<button type="button" data-rm-role="${r}" aria-label="${ROLES[r].label}の絞り込みを解除"><svg aria-hidden="true" width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 2l10 10M12 2L2 12"/></svg></button></span>`).join('') +
         [...filter.makers].map(b => `<span class="chip">${esc(b)}<button type="button" data-rm-maker="${esc(b)}" aria-label="${esc(b)}の絞り込みを解除"><svg aria-hidden="true" width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 2l10 10M12 2L2 12"/></svg></button></span>`).join('') +
         `<span class="filterbar__count">で絞り込み中 ・ <b>${total}機種</b></span><button type="button" class="link-btn" data-clear>すべて表示</button>`;
     }
     updateActiveTab();
+  }
+  function openSearch() {
+    $('.ranktabs__inner').classList.add('is-search');
+    $('#searchRow').hidden = false;
+    $('#searchBtn').setAttribute('aria-expanded', 'true');
+    $('#searchInput').focus();
+  }
+  function closeSearch() {
+    $('.ranktabs__inner').classList.remove('is-search');
+    $('#searchRow').hidden = true;
+    $('#searchBtn').setAttribute('aria-expanded', 'false');
+    $('#searchInput').value = '';
+    if (query) { query = ''; applyFilter(); }
+    $('#searchBtn').focus();
+  }
+  function bindSearch() {
+    $('#searchBtn').addEventListener('click', openSearch);
+    $('#searchClose').addEventListener('click', closeSearch);
+    $('#searchInput').addEventListener('input', e => {
+      query = norm(e.target.value).trim();
+      applyFilter();
+      // 結果が上にある場合に備えて、一覧の先頭へ寄せる
+      const top = $('#viewOwned').getBoundingClientRect().top + window.scrollY;
+      if (window.scrollY > top) window.scrollTo(0, top);
+    });
+    $('#searchInput').addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); closeSearch(); } if (e.key === 'Enter') e.target.blur(); });
   }
   function bindFilter() {
     $('#filterBtn').addEventListener('click', openSheet);
@@ -327,8 +367,8 @@
   }
   // 前後の機種。絞り込み中は、絞り込んだ機種の中だけで回る（今の機種が範囲外なら全機種）
   function navList(m) {
-    if (!activeCount(filter)) return openable;
-    const list = openable.filter(x => matches(x, filter));
+    if (!narrowing()) return openable;
+    const list = openable.filter(visible);
     return list.includes(m) ? list : openable;
   }
   function stepModel(m, dir) {
@@ -617,6 +657,7 @@
   renderWish();
   bindTabs();
   bindFilter();
+  bindSearch();
   bindModal();
   bindLightbox();
   bindLedger();

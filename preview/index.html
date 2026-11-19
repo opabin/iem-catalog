@@ -74,6 +74,14 @@
   <nav class="ranktabs" aria-label="ランク">
     <div class="ranktabs__inner wrap">
       <div class="ranktabs__list" id="rankTabs"></div>
+      <button type="button" class="icon-btn search-btn" id="searchBtn" aria-label="機種を検索" aria-expanded="false" aria-controls="searchRow"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="7.5" r="5.5"/><path d="M12 12l4.5 4.5"/></svg></button>
+      <div class="searchrow" id="searchRow" role="search" hidden>
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="7.5" r="5.5"/><path d="M12 12l4.5 4.5"/></svg>
+        <label for="searchInput" class="sr">機種名・メーカー・ジャンルで探す</label>
+        <input type="search" id="searchInput" placeholder="機種名・メーカー・ジャンルで探す" autocomplete="off" enterkeyhint="search">
+        <span class="searchrow__count" id="searchCount" aria-live="polite"></span>
+        <button type="button" class="link-btn" id="searchClose">閉じる</button>
+      </div>
       <button type="button" class="filter-btn" id="filterBtn" aria-haspopup="dialog">
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M4.5 8h7M7 12h2"/></svg>絞り込み<span class="filter-btn__badge" id="filterBadge" hidden></span>
       </button>
