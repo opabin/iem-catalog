@@ -160,6 +160,11 @@
       <div class="wgroup__head"><h3>${esc(b)}</h3><span>${groups[b].length}機種</span></div>
       <ul>${groups[b].map(w => `<li><b>${esc(w.name)}</b><span>${esc(w.drivers)}</span></li>`).join('')}</ul></section>`).join('');
     $('#wishMeta').textContent = `${brands.length}メーカー ／ ${WISHLIST.length}機種`;
+    // メーカー名の帯の高さを測って、見出しの止まる位置に使う（折り返しても隠れない）
+    const nav = $('.brandnav');
+    const syncNavH = () => { if (nav.offsetHeight) document.documentElement.style.setProperty('--brandnav-h', nav.offsetHeight + 'px'); };
+    window.addEventListener('resize', syncNavH);
+    document.addEventListener('wishshown', syncNavH);
     $('#brandNav').addEventListener('click', e => {
       const b = e.target.closest('button[data-target]');
       if (b) document.getElementById(b.dataset.target).scrollIntoView({ block: 'start' });
@@ -447,6 +452,18 @@
       if (e.target.closest('[data-zoom]')) { const cur = byId[location.hash.slice(1)]; if (cur) openLightbox(cur); }
     });
     document.addEventListener('keydown', e => {
+      // ← / → で前後の機種へ（詳細だけが開いているとき）
+      if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !$('#modal').hidden &&
+          $('#lightbox').hidden && $('#sheet').hidden && $('#copyBox').hidden &&
+          !e.altKey && !e.metaKey && !e.ctrlKey && !/^(INPUT|TEXTAREA|SELECT)$/.test((e.target.tagName || ''))) {
+        const cur = byId[location.hash.slice(1)];
+        if (cur) {
+          e.preventDefault();
+          const i = openable.indexOf(cur);
+          gotoModel(openable[(i + (e.key === 'ArrowRight' ? 1 : -1) + openable.length) % openable.length].id);
+        }
+        return;
+      }
       if (e.key !== 'Escape') return;
       if (!$('#copyBox').hidden) return hideCopyBox();
       if (!$('#lightbox').hidden) return closeLightbox();
@@ -543,6 +560,7 @@
     $('#viewWish').hidden = !wish;
     $('#tabOwned').setAttribute('aria-selected', String(!wish));
     $('#tabWish').setAttribute('aria-selected', String(wish));
+    if (wish) document.dispatchEvent(new Event('wishshown'));
   }
   function route() {
     const h = decodeURIComponent(location.hash.slice(1));
