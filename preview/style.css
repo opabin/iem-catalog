@@ -312,7 +312,7 @@ button.vs__item:hover b{text-decoration:underline}
 .zoom-btn{position:absolute;right:calc(var(--gap, 14px) * 2 + 10px);bottom:calc(var(--gap, 14px) * 2 + 10px);z-index:3;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;background:var(--bg);color:var(--ink);border:var(--line);box-shadow:3px 3px 0 var(--ink);font-weight:700;font-size:12px;cursor:pointer}
 .dlg__photo .mat{--gap:14px}
 .lightbox{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:64px 16px 24px;background:rgba(10,10,10,.92);outline:none;cursor:zoom-out}
-.lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;cursor:default}
+.lightbox img{display:block;width:auto;height:auto;max-width:min(100%,1400px);max-height:calc(100vh - 88px);max-height:calc(100dvh - 88px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));object-fit:contain;cursor:default}
 .lightbox__close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;background:#fbfaf7;color:#141414;border:2px solid #141414;font-weight:700;font-size:13px;cursor:pointer}
 
 /* ---------- filter sheet ---------- */
