@@ -158,7 +158,7 @@
     $('#brandNav').innerHTML = brands.map(b => `<button type="button" data-target="${slug(b)}">${esc(b)}<span class="n">${groups[b].length}</span></button>`).join('');
     $('#wishList').innerHTML = brands.map(b => `<section class="wgroup" id="${slug(b)}">
       <div class="wgroup__head"><h3>${esc(b)}</h3><span>${groups[b].length}機種</span></div>
-      <ul>${groups[b].map(w => `<li><b>${esc(w.name)}</b><span>${esc(w.drivers)}</span></li>`).join('')}</ul></section>`).join('');
+      <ul>${groups[b].map(w => `<li><b>${esc(w.name)}</b><span>${esc(w.drivers)}</span>${w.note ? `<p class="wnote">${esc(w.note)}</p>` : ''}</li>`).join('')}</ul></section>`).join('');
     $('#wishMeta').textContent = `${brands.length}メーカー ／ ${WISHLIST.length}機種`;
     // メーカー名の帯の高さを測って、見出しの止まる位置に使う（折り返しても隠れない）
     const nav = $('.brandnav');
@@ -325,26 +325,35 @@
         <div class="tempo__legend" aria-hidden="true">${t.best ? '<span><i class="lg-best"></i>いちばん合う</span>' : ''}<span><i class="lg-on"></i>合う</span></div>
       </div>${t.note ? `<p class="tempo__note">${esc(t.note)}</p>` : ''}</section>`;
   }
+  // 前後の機種。絞り込み中は、絞り込んだ機種の中だけで回る（今の機種が範囲外なら全機種）
+  function navList(m) {
+    if (!activeCount(filter)) return openable;
+    const list = openable.filter(x => matches(x, filter));
+    return list.includes(m) ? list : openable;
+  }
+  function stepModel(m, dir) {
+    const list = navList(m), i = list.indexOf(m);
+    return list[(i + dir + list.length) % list.length];
+  }
   function detailHtml(m) {
     const r = rankOf(m.rank), n = numbering[m.id];
     const [main] = roleOf(m);
-    const idx = openable.indexOf(m);
-    const prev = openable[(idx - 1 + openable.length) % openable.length];
-    const next = openable[(idx + 1) % openable.length];
+    const prev = stepModel(m, -1), next = stepModel(m, 1);
     const songs = (m.songs || []).map((s, i) => {
       const [t, u, pick] = Array.isArray(s) ? s : [s];
       const [artist, ...rest] = String(t).split(' - ');
       const title = rest.length ? rest.join(' - ') : t;
       const by = rest.length ? artist : '';
       const body = `<span class="sq" aria-hidden="true" style="background:var(--${SONG_COLORS[i % 4]})"></span><span><b>${esc(title)}</b> <span class="by">${by ? '— ' + esc(by) : ''}</span></span>${pick ? '<span class="pick">いちばん推し</span>' : '<span></span>'}`;
-      return `<li>${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${body}</a>` : `<a>${body}</a>`}</li>`;
+      const ext = '<span class="ext" aria-hidden="true">↗</span><span class="sr">（外部サイトで開く）</span>';
+      return `<li>${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${body.replace('</b>', '</b>' + ext)}</a>` : `<a>${body}</a>`}</li>`;
     }).join('');
     return `
       <div class="dlg__bar">
         <span>${n.no} ／ ${n.total}機種中</span>
         <div class="dlg__actions">
           <button type="button" class="dlg__share" data-share><svg aria-hidden="true" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v10M5 6l4-4 4 4M3 10v6h12v-6"/></svg><span class="lbl">リンクをコピー</span></button>
-          <button type="button" class="dlg__close" data-close-modal><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 2l10 10M12 2L2 12"/></svg><span class="lbl">閉じる</span></button>
+          <button type="button" class="dlg__close" data-close-modal><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 2l10 10M12 2L2 12"/></svg><span class="lbl">閉じる</span><span class="lbl-sp">一覧へ</span></button>
         </div>
       </div>
 
@@ -459,8 +468,7 @@
         const cur = byId[location.hash.slice(1)];
         if (cur) {
           e.preventDefault();
-          const i = openable.indexOf(cur);
-          gotoModel(openable[(i + (e.key === 'ArrowRight' ? 1 : -1) + openable.length) % openable.length].id);
+          gotoModel(stepModel(cur, e.key === 'ArrowRight' ? 1 : -1).id);
         }
         return;
       }
@@ -478,8 +486,7 @@
       const t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
       if (Date.now() - st > 600 || Math.abs(dx) < 70 || Math.abs(dy) > Math.abs(dx) * 0.6) return;
       const m = byId[location.hash.slice(1)]; if (!m) return;
-      const i = openable.indexOf(m);
-      gotoModel(openable[(i + (dx < 0 ? 1 : -1) + openable.length) % openable.length].id);
+      gotoModel(stepModel(m, dx < 0 ? 1 : -1).id);
     }, { passive: true });
   }
 

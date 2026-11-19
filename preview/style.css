@@ -71,6 +71,7 @@ fieldset{border:0;min-width:0}
 .hero__sub{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;margin-top:20px}
 .hero__catch{font-weight:900;font-size:22px;letter-spacing:.06em}
 .hero__tag{font-family:var(--f-en);font-weight:600;font-size:12px;letter-spacing:.4em}
+.hero__short{display:none}
 .hero__lead{margin-top:18px;max-width:460px;font-size:14px;color:var(--sub)}
 
 .panel{margin:0}
@@ -217,7 +218,8 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .wgroup__head h3{font-family:var(--f-en);font-weight:600;font-size:24px;letter-spacing:.06em}
 .wgroup__head span{font-family:var(--f-mono);font-size:12px;color:var(--sub)}
 .wgroup ul{list-style:none;border-bottom:1px solid var(--ink)}
-.wgroup li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--ink)}
+.wgroup li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 12px;padding:10px 0;border-top:1px solid var(--ink)}
+.wgroup .wnote{flex-basis:100%;margin-top:2px;font-size:13px;color:var(--sub)}
 .wgroup li b{font-family:var(--f-en);font-weight:600;font-size:17px;letter-spacing:.04em}
 .wgroup li span{font-family:var(--f-mono);font-size:12px;color:var(--sub);white-space:nowrap}
 
@@ -298,6 +300,10 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .playlist .sq{width:18px;height:18px;border:var(--line)}
 .playlist b{font-family:var(--f-en);font-weight:600;font-size:17px;letter-spacing:.03em}
 .playlist .by{color:var(--sub);font-size:14px}
+.playlist .ext{margin-left:6px;font-weight:700;font-size:14px;color:var(--sub)}
+.playlist a[href]:hover b{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.dlg__close .lbl-sp{display:none}
 .playlist .pick{font-size:12px;font-weight:900;padding:0 8px;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);box-shadow:2px 2px 0 var(--emph,var(--power))}
 .vs{border-top:var(--line)}
 .vs__item{display:block;width:100%;text-align:left;padding:12px 0;background:none;border:0;border-bottom:1px solid var(--rule);font-size:14px}
@@ -394,6 +400,7 @@ button.vs__item{cursor:pointer}
   .hero__catch{font-size:18px}
   .hero__tag{font-size:11px;letter-spacing:.35em;padding-left:.35em}
   .hero__lead{display:none}
+  .hero__short{display:block;margin-top:10px;font-size:12px;color:var(--sub)}
   .hero__panels{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:4px}
   .panel figcaption{font-size:10px}
   .panel figcaption b{font-size:12px}
@@ -481,7 +488,8 @@ button.vs__item{cursor:pointer}
   .dlg__actions{gap:0}
   .dlg__share{width:44px;height:44px;min-height:0;padding:0;justify-content:center;border:0;background:none}
   .dlg__share .lbl,.dlg__close .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .dlg__close{width:44px;height:44px;min-height:0;padding:0;justify-content:center;border:0;box-shadow:none;background:none}
+  .dlg__close{width:auto;height:44px;min-height:0;padding:0 6px;gap:4px;justify-content:center;border:0;box-shadow:none;background:none;font-size:12px}
+  .dlg__close .lbl-sp{display:inline}
   .dlg__hero{gap:0;padding:18px 0 28px}
   .dlg__photo{flex-basis:100%;max-width:none}
   .dlg__photo .mat{--gap:10px}
