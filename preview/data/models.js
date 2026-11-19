@@ -243,7 +243,7 @@ const MODELS = [
   {"id": "aurora-ultra", "pending": true, "brand": "RoseSelsa", "name": "Aurora Ultra", "rank": "X", "axis": [], "drivers": "1DD+1Pla", "catch": "装着感が合わず評価外", "genre": "", "bands": ""},
 
   {
-    id:'cano-cristales', brand:'HiSenior', name:'Cano Cristales', rank:'S', axis:['power'], ev:'listened', photoPos:'35% 55%', photoZoom:1.0,
+    id:'cano-cristales', tempo:{ range:[2,4], best:3 }, brand:'HiSenior', name:'Cano Cristales', rank:'S', axis:['power'], ev:'listened', photoPos:'35% 55%', photoZoom:1.0,
     drivers:'2DD+8BA', spec:'2DD+8BA / 15Ω / 113dB',
     catch:'極彩色の鉄砲水',
     lead:'実在する鮮やかな川がモチーフの本機。見た目は幻想的だけど、実は極彩色な水が鉄砲水の如く押し寄せるウルトラバイオレンスな子。',
@@ -278,7 +278,7 @@ const MODELS = [
     ],
   },
   {
-    id:'lucifer', brand:'ARTPICAL', name:'Lucifer', rank:'S', axis:['power','edge'], ev:'listened',
+    id:'lucifer', tempo:{ range:[3,5], best:4 }, brand:'ARTPICAL', name:'Lucifer', rank:'S', axis:['power','edge'], ev:'listened',
     photoPos:'55% 55%',
     drivers:'1DD', spec:'1DD / 10mm チタン振動板 / 64Ω',
     catch:'激情増幅装置',
@@ -312,7 +312,7 @@ const MODELS = [
     ],
   },
   {
-    id:'martilo', brand:'Punch Audio', name:'Martilo', rank:'S', axis:['power','atmosphere'], ev:'listened',
+    id:'martilo', tempo:{ range:[1,3], best:2 }, brand:'Punch Audio', name:'Martilo', rank:'S', axis:['power','atmosphere'], ev:'listened',
     photoPos:'56% 55%', photoZoom:1.6,
     drivers:'2DD+2BA+1Pla', spec:'2DD+2BA+1Planar / 9Ω / 100dB',
     catch:'熟練の職人が繰り出す重い一撃',
