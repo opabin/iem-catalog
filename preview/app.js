@@ -376,6 +376,8 @@
     if (wasHidden) lastFocus = document.activeElement;
     panel.innerHTML = detailHtml(m);
     panel.setAttribute('aria-label', `${m.name} の詳細`);
+    // 強調（色の影）はその機種の主の役割の色。役割なしは未分類の色
+    panel.style.setProperty('--emph', `var(--${roleOf(m)[0] || 'none'})`);
     modal.hidden = false;
     modal.scrollTop = 0;
     lock(true);
