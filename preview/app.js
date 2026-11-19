@@ -395,9 +395,19 @@
     const back = (id && $(`[data-open="${CSS.escape(id)}"]`)) || lastFocus;
     if (back && back.focus) back.focus({ preventScroll: false });
   }
+  // 先に画面を閉じてから履歴を整える（埋め込み表示などで back が外側に吸われても1回で閉じる）
+  const clearHash = () => history.replaceState(null, '', location.pathname + location.search);
   function closeModal() {
-    if (openedInPage) { openedInPage = false; history.back(); }
-    else { history.replaceState(null, '', location.pathname + location.search); route(); }
+    const id = location.hash.slice(1);
+    hideModal();
+    if (openedInPage) {
+      openedInPage = false;
+      history.back();
+      // back が効かなかった（ハッシュが残った）ときは直接消す
+      setTimeout(() => { if (location.hash.slice(1) === id) clearHash(); }, 350);
+    } else {
+      clearHash();
+    }
   }
   function gotoModel(id) {
     history.replaceState(null, '', '#' + id);
@@ -460,8 +470,8 @@
   }
   // ×・背景・Esc で閉じるときは、積んだ履歴を戻して取り消す
   function closeLightbox() {
+    hideLightbox();
     if (isLbState()) history.back();
-    else hideLightbox();
   }
   function bindLightbox() {
     window.addEventListener('popstate', () => { if (!isLbState()) hideLightbox(); });
