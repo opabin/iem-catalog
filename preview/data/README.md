@@ -42,6 +42,7 @@ Google ドライブの `iem-collection.html` は古い試聴メモです。ラ�
 | `related` | 配列 | 詳細「VS ／ 比べるなら」 | `[ ['相手のid', '比較の一文'], … ]`。相手の詳細が公開済みならリンクになる |
 | `setup` | 文字列 | 詳細「SETUP ／ 試聴環境」 | 例 `TRKAPLST Ink / M5 Ultra（vol70で十分）` |
 | `log` | 配列（任意） | 詳細「検証ログ」（折りたたみ） | `[ ['見出し', '本文'], … ]`。不要なら `[]` |
+| `tempo` | オブジェクト（任意） | 詳細「TEMPO ／ 合う曲の速さ」 | 1＝遅い〜5＝速い の5段階。`{ range:[3,5], best:4 }`（合う範囲と、いちばん合う段階）。`note:'…'` で一言添えられる。書かなければ表示しない |
 
 #### おすすめ曲（`songs`）
 ```js
@@ -131,6 +132,7 @@ songs: [
   good:['まず耳を引くのはギター。エッジが立って分厚い', '…'],
   bad:['何でも派手で刺激的に鳴らすから、ドゥームは苦手疑惑', '…'],
   verdict:'リフ主体の爆走曲は**こいつで決まり**！',
+  tempo:{ range:[3,5], best:4 },
   tone:{ low:'…', mid:'…', stage:'…' },
   songs:[
     ['Thousand Eyes - One Thousand Eyes','https://youtu.be/A7rWTwgdW2s', true],

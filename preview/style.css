@@ -262,6 +262,13 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .tone > div{border:var(--line)}
 .tone h3{padding:4px 16px;border-bottom:var(--line);font-weight:900;font-size:16px;color:#141414}
 .tone p{padding:12px 16px 16px;font-size:14px}
+.tempo{max-width:560px}
+.tempo__bar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.tempo__cell{position:relative;height:28px;border:var(--line);background:var(--bg)}
+.tempo__cell.is-on{background:var(--emph,var(--power))}
+.tempo__cell.is-best::after{content:'';position:absolute;left:50%;top:calc(100% + 6px);transform:translateX(-50%);border:7px solid transparent;border-top:0;border-bottom:9px solid var(--ink)}
+.tempo__ends{display:flex;justify-content:space-between;margin-top:18px;font-weight:700;font-size:13px}
+.tempo__note{margin-top:12px;max-width:560px;font-size:14px;color:var(--sub)}
 .likes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px}
 .nlist{list-style:none;counter-reset:n;display:flex;flex-direction:column;gap:12px}
 .nlist li{counter-increment:n;display:grid;grid-template-columns:48px minmax(0,1fr)}

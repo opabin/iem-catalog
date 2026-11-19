@@ -302,6 +302,23 @@
     // **語** を強調（色の影）として扱う
     return esc(v).replace(/\*\*(.+?)\*\*/g, '<em>$1</em>');
   }
+  // 合う曲の速さ（1=遅い〜5=速い）。range=[合う範囲の端, 端]、best=いちばん合う段階
+  function tempoHtml(m) {
+    const t = m.tempo;
+    if (!t || !Array.isArray(t.range)) return '';
+    const lo = Math.max(1, Math.min(t.range[0], t.range[1])), hi = Math.min(5, Math.max(t.range[0], t.range[1]));
+    const cells = [1, 2, 3, 4, 5].map(i => {
+      const on = i >= lo && i <= hi, best = i === t.best;
+      return `<span class="tempo__cell${on ? ' is-on' : ''}${best ? ' is-best' : ''}"></span>`;
+    }).join('');
+    const label = ['', '遅い', 'やや遅い', '中くらい', 'やや速い', '速い'];
+    const desc = `合う速さ：${label[lo]}〜${label[hi]}${t.best ? `（いちばん合うのは${label[t.best]}曲）` : ''}`;
+    return `<section class="dsec"><h3 class="label">TEMPO<small>合う曲の速さ</small></h3>
+      <div class="tempo" role="img" aria-label="${desc}">
+        <div class="tempo__bar">${cells}</div>
+        <div class="tempo__ends" aria-hidden="true"><span>遅い</span><span>速い</span></div>
+      </div>${t.note ? `<p class="tempo__note">${esc(t.note)}</p>` : ''}</section>`;
+  }
   function detailHtml(m) {
     const r = rankOf(m.rank), n = numbering[m.id];
     const [main] = roleOf(m);
@@ -342,6 +359,8 @@
       </section>
 
       ${m.tone ? `<section class="dsec"><h3 class="label">TONE<small>音の印象</small></h3><div class="tone">${TONE.map(([k, h, c]) => `<div><h3 style="background:var(--${c})">${h}</h3><p>${esc(m.tone[k])}</p></div>`).join('')}</div></section>` : ''}
+
+      ${tempoHtml(m)}
 
       <section class="dsec likes">
         <div><h3 class="label">LIKE<small>好きなところ</small></h3><ol class="nlist nlist--good">${(m.good || []).map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol></div>
