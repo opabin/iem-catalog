@@ -265,9 +265,14 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .tempo{max-width:560px}
 .tempo__bar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .tempo__cell{position:relative;height:28px;border:var(--line);background:var(--bg)}
-.tempo__cell.is-on{background:var(--emph,var(--power))}
-.tempo__cell.is-best::after{content:'';position:absolute;left:50%;top:calc(100% + 6px);transform:translateX(-50%);border:7px solid transparent;border-top:0;border-bottom:9px solid var(--ink)}
-.tempo__ends{display:flex;justify-content:space-between;margin-top:18px;font-weight:700;font-size:13px}
+.tempo__cell.is-on{background-image:radial-gradient(var(--emph,var(--power)) 1.7px,transparent 2px);background-size:6px 6px}
+.tempo__cell.is-best{background:var(--emph,var(--power))}
+.tempo__ends{display:flex;justify-content:space-between;margin-top:8px;font-weight:700;font-size:13px}
+.tempo__legend{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:10px;font-size:12px;color:var(--sub)}
+.tempo__legend span{display:inline-flex;align-items:center;gap:6px}
+.tempo__legend i{width:14px;height:14px;border:1.5px solid var(--ink)}
+.tempo__legend .lg-best{background:var(--emph,var(--power))}
+.tempo__legend .lg-on{background-image:radial-gradient(var(--emph,var(--power)) 1.2px,transparent 1.5px);background-size:4px 4px}
 .tempo__note{margin-top:12px;max-width:560px;font-size:14px;color:var(--sub)}
 .likes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px}
 .nlist{list-style:none;counter-reset:n;display:flex;flex-direction:column;gap:12px}

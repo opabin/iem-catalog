@@ -317,6 +317,7 @@
       <div class="tempo" role="img" aria-label="${desc}">
         <div class="tempo__bar">${cells}</div>
         <div class="tempo__ends" aria-hidden="true"><span>遅い</span><span>速い</span></div>
+        <div class="tempo__legend" aria-hidden="true">${t.best ? '<span><i class="lg-best"></i>いちばん合う</span>' : ''}<span><i class="lg-on"></i>合う</span></div>
       </div>${t.note ? `<p class="tempo__note">${esc(t.note)}</p>` : ''}</section>`;
   }
   function detailHtml(m) {
