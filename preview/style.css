@@ -298,7 +298,7 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .playlist .sq{width:18px;height:18px;border:var(--line)}
 .playlist b{font-family:var(--f-en);font-weight:600;font-size:17px;letter-spacing:.03em}
 .playlist .by{color:var(--sub);font-size:14px}
-.playlist .pick{font-size:12px;font-weight:900;padding:0 8px;border:1.5px solid var(--ink);background:var(--emph,var(--power));color:#141414}
+.playlist .pick{font-size:12px;font-weight:900;padding:0 8px;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);box-shadow:2px 2px 0 var(--emph,var(--power))}
 .vs{border-top:var(--line)}
 .vs__item{display:block;width:100%;text-align:left;padding:12px 0;background:none;border:0;border-bottom:1px solid var(--rule);font-size:14px}
 button.vs__item{cursor:pointer}
