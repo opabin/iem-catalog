@@ -302,7 +302,10 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .vs{border-top:var(--line)}
 .vs__item{display:block;width:100%;text-align:left;padding:12px 0;background:none;border:0;border-bottom:1px solid var(--rule);font-size:14px}
 button.vs__item{cursor:pointer}
-button.vs__item:hover b{text-decoration:underline}
+.vs__item--link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;color:var(--ink)}
+.vs__item--link b{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.vs__go{flex:0 0 auto;padding:4px;box-sizing:content-box;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--emph,var(--power))}
+.vs__item--link:hover .vs__go{background:var(--emph,var(--power));color:#141414}
 .vs__item b{font-family:var(--f-en);font-weight:600;font-size:16px;margin-right:.6em}
 .setup{font-family:var(--f-mono);font-size:13px;line-height:1.9}
 .log{margin-top:24px;border:1.5px solid var(--ink)}

@@ -295,7 +295,7 @@
 
   function relatedHtml([id, text]) {
     const r = byId[id];
-    if (r && isOpenable(r)) return `<button type="button" class="vs__item" data-goto="${r.id}"><b>${esc(r.name)}</b>${esc(text)}</button>`;
+    if (r && isOpenable(r)) return `<button type="button" class="vs__item vs__item--link" data-goto="${r.id}" aria-label="${esc(r.name)}の詳細を見る：${esc(text)}"><span><b>${esc(r.name)}</b>${esc(text)}</span><svg class="vs__go" aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h11M10 4.5L14.5 9 10 13.5"/></svg></button>`;
     return `<p class="vs__item"><b>${esc(r ? r.name : id)}</b>${esc(text)}</p>`;
   }
   function verdictHtml(v) {
