@@ -102,6 +102,7 @@ songs: [
 |---|---|
 | `ZiiGaat` | `Ziigaat` |
 | `ARTPICAL` | `Artpical` |
+| `NICEHCK` | `NiceHCK` |
 
 新しいメーカーが出てきたら、この表に追記する。
 
