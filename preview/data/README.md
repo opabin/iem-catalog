@@ -85,8 +85,10 @@ songs: [
 ## 3. 欲しいものリスト（`WISHLIST`）
 
 ```js
-{ brand: 'DUNU', name: 'DN142', drivers: '1DD+4BA+2Planar', note: '平面の鳴り方が気になる' },
+{ brand: 'Yanyin', name: 'Baker', drivers: '6BA+2Planar', note: '平面の鳴り方が気になる' },
+{ brand: '7Hz', name: 'Diablo（× Crinacle）', drivers: '1Planar' },
 ```
+- コラボ機は **`機種名（× 相手）`** と、機種名の後ろにカッコで書く。
 - 項目は **機種名・メーカー・ドライバ構成**。価格や優先度は載せない。
 - 任意で `note:'…'`（気になっている理由などの一言）を足せる。書いた機種だけ、名前の下に小さく表示される。
 - 表示はメーカーごとにまとめ、メーカー名のアルファベット順に並べる。書く順番は自由。
