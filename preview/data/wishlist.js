@@ -21,5 +21,5 @@ const WISHLIST = [
   { brand: 'FATfreq', name: 'Deuce（× HBB）', drivers: '2DD' },
   { brand: 'Sound Rhyme', name: 'SR6', drivers: '1DD+2BA+2Planar+1BC' },
   { brand: 'Thieaudio', name: 'Hype 4（初代）', drivers: '2DD+4BA' },
-  { brand: 'Thieaudio', name: 'Origin', drivers: '1DD+1BC+BA' }
+  { brand: 'Thieaudio', name: 'Origin', drivers: '1DD+1BC+4BA' }
 ];
