@@ -12,9 +12,9 @@ const WISHLIST = [
   { brand: 'RoseSelsa', name: 'CJ20（× AAV）', drivers: '1Planar' },
   { brand: 'Night Oblivion', name: 'Longinus', drivers: '12BA' },
   { brand: 'ARTPICAL', name: 'Lunar Ring', drivers: '1DD+1BA+2MPD' },
+  { brand: 'ARTPICAL', name: 'Satan', drivers: '2DD+4BA+4MPD' },
   { brand: 'FlipEars', name: 'Aegis', drivers: '1DD+1BC' },
   { brand: 'MYER-AUDIO', name: 'SLIIVO SLT6', drivers: '6BA' },
-  { brand: 'Nici HiFi', name: '42 Quantum Wanderer', drivers: '1DD+1BC' },
   { brand: 'Letshuoer', name: 'Astralis', drivers: '1Planar' },
   { brand: 'Kinera Celest', name: 'PhoenixCall 2.0', drivers: '2DD+2BA+2Planar' },
   { brand: 'Punch Audio', name: 'Portazo', drivers: '1DD+2Planar' },
@@ -22,6 +22,7 @@ const WISHLIST = [
   { brand: '7Hz', name: 'Legato', drivers: '2DD' },
   { brand: '7Hz', name: 'Diablo（× Crinacle）', drivers: '1Planar' },
   { brand: 'FATfreq', name: 'Deuce（× HBB）', drivers: '2DD' },
+  { brand: 'FATfreq', name: 'Scarlet Mini', drivers: '1DD+2BA' },
   { brand: 'Thieaudio', name: 'Hype 4（初代）', drivers: '2DD+4BA' },
   { brand: 'Thieaudio', name: 'Origin', drivers: '1DD+1BC+4BA' }
 ];
