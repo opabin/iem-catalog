@@ -5,6 +5,8 @@ const WISHLIST = [
   { brand: 'ZiiGaat', name: 'Horizon', drivers: '1DD+2BA+2Planar' },
   { brand: 'ZiiGaat', name: 'Crescent', drivers: '2DD+2BA' },
   { brand: 'ZiiGaat', name: 'Arete II', drivers: '1DD+4BA' },
+  { brand: 'ZiiGaat', name: 'Samsam（× 0DiBi）', drivers: '3DD+3BA' },
+  { brand: 'ZiiGaat', name: 'Seraphim（× Jay Audio）', drivers: '2DD+3BA' },
   { brand: 'Yanyin', name: 'Carmen', drivers: '10BA' },
   { brand: 'Yanyin', name: 'Baker', drivers: '6BA+2Planar' },
   { brand: 'RoseSelsa', name: 'CJ20（× AAV）', drivers: '1Planar' },
@@ -16,10 +18,10 @@ const WISHLIST = [
   { brand: 'Letshuoer', name: 'Astralis', drivers: '1Planar' },
   { brand: 'Kinera Celest', name: 'PhoenixCall 2.0', drivers: '2DD+2BA+2Planar' },
   { brand: 'Punch Audio', name: 'Portazo', drivers: '1DD+2Planar' },
+  { brand: 'Punch Audio', name: 'Patada', drivers: '1DD+1MEMS' },
   { brand: '7Hz', name: 'Legato', drivers: '2DD' },
   { brand: '7Hz', name: 'Diablo（× Crinacle）', drivers: '1Planar' },
   { brand: 'FATfreq', name: 'Deuce（× HBB）', drivers: '2DD' },
-  { brand: 'Sound Rhyme', name: 'SR6', drivers: '1DD+2BA+2Planar+1BC' },
   { brand: 'Thieaudio', name: 'Hype 4（初代）', drivers: '2DD+4BA' },
   { brand: 'Thieaudio', name: 'Origin', drivers: '1DD+1BC+4BA' }
 ];
