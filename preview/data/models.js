@@ -296,6 +296,7 @@ const MODELS = [
     setup:'TRKAPLST Ink / M5 Ultra（vol70で十分）',
     related:[
       ['cano-cristales','ギターの厚みならLucifer、ローの重さならCano'],
+      ['himalaya','情熱のLucifer、汎用のHimalaya'],
     ],
     log:[
       ['Annihilation Order（Cano Cristales比較）','ギター優位でエッジも立ち、ハーモニクスは肉厚。808ドロップの減衰が早い。キック・ベースの量感とガテラルの深さはCanoに譲る。'],
