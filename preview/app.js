@@ -93,7 +93,7 @@
     const n = numbering[m.id];
     const inner = `${matHtml(m, 'card', { dots: true, sizes: '(max-width:720px) 132px, 400px' })}
       <div>
-        <div class="meta"><span>${n.no} ／ ${esc(m.brand)}</span><span>${esc(m.drivers)}</span></div>
+        <div class="meta"><span><span class="meta__no">${n.no} ／ </span>${esc(m.brand)}</span><span>${esc(m.drivers)}</span></div>
         <h3 class="name">${nameHtml(m)}</h3>
         <p class="catch">${esc(m.catch)}</p>
         ${m.lead ? `<p class="srow__lead">${esc(m.lead)}</p>` : ''}
@@ -104,7 +104,7 @@
   function cardHtml(m) {
     const n = numbering[m.id];
     const inner = `${matHtml(m, 'card', { dots: m.rank === 'A' })}
-      <div class="meta"><span>${n.no} ／ ${esc(m.brand)}</span><span>${esc(m.drivers)}</span></div>
+      <div class="meta"><span><span class="meta__no">${n.no} ／ </span>${esc(m.brand)}</span><span>${esc(m.drivers)}</span></div>
       <h3 class="name">${nameHtml(m)}</h3>
       <p class="catch">${esc(m.catch || '（ひとこと未記入）')}</p>
       <p class="chips">${roleChips(m)}<span class="genre">${esc(m.genre || '')}</span></p>`;
@@ -361,7 +361,7 @@
     const label = ['', '遅い', 'やや遅い', '中くらい', 'やや速い', '速い'];
     const bestWord = bests.length > 1 ? '特に合う' : 'いちばん合う';
     const desc = `合う速さ：${label[lo]}〜${label[hi]}${bests.length ? `（${bestWord}のは${bests.map(n => label[n]).join('と')}曲）` : ''}`;
-    return `<section class="dsec"><h3 class="label">TEMPO<small>合う曲の速さ</small></h3>
+    return `<section class="dsec"><h3 class="label"><span class="label__en">TEMPO</span><small>合う曲の速さ</small></h3>
       <div class="tempo" role="img" aria-label="${desc}">
         <div class="tempo__bar">${cells}</div>
         <div class="tempo__ends" aria-hidden="true"><span>遅い</span><span>速い</span></div>
@@ -415,23 +415,23 @@
         </div>
       </section>
 
-      ${m.tone ? `<section class="dsec"><h3 class="label">TONE<small>音の印象</small></h3><div class="tone">${TONE.map(([k, h, c]) => `<div><h3 style="background:var(--${c})">${h}</h3><p>${esc(m.tone[k])}</p></div>`).join('')}</div></section>` : ''}
+      ${m.tone ? `<section class="dsec"><h3 class="label"><span class="label__en">TONE</span><small>音の印象</small></h3><div class="tone">${TONE.map(([k, h, c]) => `<div><h3 style="background:var(--${c})">${h}</h3><p>${esc(m.tone[k])}</p></div>`).join('')}</div></section>` : ''}
 
       ${tempoHtml(m)}
 
       <section class="dsec likes">
-        <div><h3 class="label">LIKE<small>好きなところ</small></h3><ol class="nlist nlist--good">${(m.good || []).map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol></div>
-        <div><h3 class="label">HMM<small>気になるところ</small></h3><ol class="nlist nlist--bad">${(m.bad || []).map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol>
+        <div><h3 class="label"><span class="label__en">LIKE</span><small>好きなところ</small></h3><ol class="nlist nlist--good">${(m.good || []).map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol></div>
+        <div><h3 class="label"><span class="label__en">HMM</span><small>気になるところ</small></h3><ol class="nlist nlist--bad">${(m.bad || []).map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol>
         ${m.fit ? `<p class="fit"><b>装着感</b>${esc(m.fit)}</p>` : ''}</div>
       </section>
 
-      ${m.verdict ? `<section class="verdict"><h3 class="label">VERDICT<small>ひとことで言うと</small></h3><p><span>${verdictHtml(m.verdict)}</span></p></section>` : ''}
+      ${m.verdict ? `<section class="verdict"><h3 class="label"><span class="label__en">VERDICT</span><small>ひとことで言うと</small></h3><p><span>${verdictHtml(m.verdict)}</span></p></section>` : ''}
 
       <div class="dlg__lists">
-        ${songs ? `<div><h3 class="label">PLAYLIST<small>これで聴いてほしい</small></h3><ol class="playlist" style="margin-top:12px">${songs}</ol></div>` : ''}
+        ${songs ? `<div><h3 class="label"><span class="label__en">PLAYLIST</span><small>これで聴いてほしい</small></h3><ol class="playlist" style="margin-top:12px">${songs}</ol></div>` : ''}
         <div>
-          ${(m.related || []).length ? `<h3 class="label">VS<small>比べるなら</small></h3><div class="vs" style="margin-top:12px">${m.related.map(relatedHtml).join('')}</div>` : ''}
-          ${m.setup ? `<h3 class="label" style="margin-top:28px">SETUP<small>試聴環境</small></h3><p class="setup" style="margin-top:8px">${esc(m.setup)}</p>` : ''}
+          ${(m.related || []).length ? `<h3 class="label"><span class="label__en">VS</span><small>比べるなら</small></h3><div class="vs" style="margin-top:12px">${m.related.map(relatedHtml).join('')}</div>` : ''}
+          ${m.setup ? `<h3 class="label" style="margin-top:28px"><span class="label__en">SETUP</span><small>試聴環境</small></h3><p class="setup" style="margin-top:8px">${esc(m.setup)}</p>` : ''}
           ${(m.log || []).length ? `<details class="log"><summary>検証ログ（リファレンス曲での比較）</summary><div class="log__body">${m.log.map(([h, t]) => `<h4>${esc(h)}</h4><p>${esc(t)}</p>`).join('')}</div></details>` : ''}
         </div>
       </div>
