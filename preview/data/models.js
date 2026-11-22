@@ -255,9 +255,9 @@ const MODELS = [
     },
     songs:[
       ['Anaal Nathrakh - In the Constellation of the Black Widow','https://youtu.be/eqx_IPPM_YE',true],
-      'The Berzerker - Dissimulate',
-      'Brand of Sacrifice - Dynasty',
-      'Dehumanizing Itatrain Worship - Song of the Neet',
+      ['The Berzerker - Dissimulate','https://youtu.be/CvpkMUkOcho'],
+      ['Brand of Sacrifice - Dynasty','https://youtu.be/YeAJQtmrJ-s'],
+      ['Dehumanizing Itatrain Worship - Song of the Neet','https://youtu.be/K3dPGCS16Dc'],
     ],
     setup:'SoundsGood Nyx / Eletech BAROQUE / M5 Ultra',
     related:[
