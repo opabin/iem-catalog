@@ -30,8 +30,9 @@ const MODELS = [
     ],
     setup:'SoundsGood Livyatan / Velvet Widevore / M5 Ultra',
     related:[
-      ['martilo','沈み込みと重さならMartilo、音場とメリハリならDoscinco'],
+      ['martilo','厚く包み込むDoscinco、重さと汎用のMartilo'],
       ['cano-cristales','暴力的なキックならCano、音場と聴きやすさならDoscinco'],
+      ['arcadia','狭く重苦しいArcadia、厚く包み込むDoscinco'],
     ],
     log:[],
   },
@@ -333,7 +334,8 @@ const MODELS = [
     setup:'SoundsGood Tyrfing / M5 Ultra（vol80〜85）',
     related:[
       ['cano-cristales','重さのMartilo、アタックのCano'],
-      ['doscinco','沈み込みと重さならMartilo、音場とメリハリならDoscinco'],
+      ['doscinco','厚く包み込むDoscinco、重さと汎用のMartilo'],
+      ['arcadia','狭く重苦しいArcadia、重さと汎用のMartilo'],
     ],
     log:[
       ['Annihilation Order','曲全体の重さ・圧は3機種中随一。808ドロップでは「キックが空間をこじ開けてくる」感覚。ただ、殴られてる感はCanoの方が強い。'],
@@ -367,8 +369,8 @@ const MODELS = [
     ],
     setup:'SoundsGood Samael / Velvet Widevore',
     related:[
-      ['martilo','ツーバスやブラストが潰れそうな曲ならMartiloへ'],
-      ['doscinco','潰す重圧のArcadia、包み込む厚みのDoscinco'],
+      ['martilo','狭く重苦しいArcadia、重さと汎用のMartilo'],
+      ['doscinco','狭く重苦しいArcadia、厚く包み込むDoscinco'],
     ],
     log:[],
   },
