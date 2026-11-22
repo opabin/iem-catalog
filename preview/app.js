@@ -348,22 +348,24 @@
     // **語** を強調（色の影）として扱う
     return esc(v).replace(/\*\*(.+?)\*\*/g, '<em>$1</em>');
   }
-  // 合う曲の速さ（1=遅い〜5=速い）。range=[合う範囲の端, 端]、best=いちばん合う段階
+  // 合う曲の速さ（1=遅い〜5=速い）。range=[合う範囲の端, 端]、best=いちばん合う段階（2つの山があるときは [2,4] のように配列）
   function tempoHtml(m) {
     const t = m.tempo;
     if (!t || !Array.isArray(t.range)) return '';
     const lo = Math.max(1, Math.min(t.range[0], t.range[1])), hi = Math.min(5, Math.max(t.range[0], t.range[1]));
+    const bests = (Array.isArray(t.best) ? t.best : t.best ? [t.best] : []).filter(n => n >= 1 && n <= 5);
     const cells = [1, 2, 3, 4, 5].map(i => {
-      const on = i >= lo && i <= hi, best = i === t.best;
+      const on = i >= lo && i <= hi, best = bests.includes(i);
       return `<span class="tempo__cell${on ? ' is-on' : ''}${best ? ' is-best' : ''}"></span>`;
     }).join('');
     const label = ['', '遅い', 'やや遅い', '中くらい', 'やや速い', '速い'];
-    const desc = `合う速さ：${label[lo]}〜${label[hi]}${t.best ? `（いちばん合うのは${label[t.best]}曲）` : ''}`;
+    const bestWord = bests.length > 1 ? '特に合う' : 'いちばん合う';
+    const desc = `合う速さ：${label[lo]}〜${label[hi]}${bests.length ? `（${bestWord}のは${bests.map(n => label[n]).join('と')}曲）` : ''}`;
     return `<section class="dsec"><h3 class="label">TEMPO<small>合う曲の速さ</small></h3>
       <div class="tempo" role="img" aria-label="${desc}">
         <div class="tempo__bar">${cells}</div>
         <div class="tempo__ends" aria-hidden="true"><span>遅い</span><span>速い</span></div>
-        <div class="tempo__legend" aria-hidden="true">${t.best ? '<span><i class="lg-best"></i>いちばん合う</span>' : ''}<span><i class="lg-on"></i>合う</span></div>
+        <div class="tempo__legend" aria-hidden="true">${bests.length ? `<span><i class="lg-best"></i>${bestWord}</span>` : ''}<span><i class="lg-on"></i>合う</span></div>
       </div>${t.note ? `<p class="tempo__note">${esc(t.note)}</p>` : ''}</section>`;
   }
   // 前後の機種。絞り込み中は、絞り込んだ機種の中だけで回る（今の機種が範囲外なら全機種）

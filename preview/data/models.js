@@ -236,7 +236,7 @@ const MODELS = [
   {"id": "aurora-ultra", "pending": true, "brand": "RoseSelsa", "name": "Aurora Ultra", "rank": "X", "axis": [], "drivers": "1DD+1Pla", "catch": "装着感が合わず評価外", "genre": ""},
 
   {
-    id:'cano-cristales', tempo:{ range:[2,4], best:3 }, brand:'HiSenior', name:'Cano Cristales', rank:'S', axis:['power'], ev:'listened', photoPos:'35% 55%', photoZoom:1.0,
+    id:'cano-cristales', tempo:{ range:[2,5], best:[2,4] }, brand:'HiSenior', name:'Cano Cristales', rank:'S', axis:['power'], ev:'listened', photoPos:'35% 55%', photoZoom:1.0,
     drivers:'2DD+8BA', spec:'2DD+8BA / 15Ω / 113dB',
     catch:'極彩色の鉄砲水',
     lead:'実在する鮮やかな川がモチーフの本機。見た目は幻想的だけど、実は極彩色な水が鉄砲水の如く押し寄せるウルトラバイオレンスな子。',
