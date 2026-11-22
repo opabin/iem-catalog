@@ -16,7 +16,7 @@ const WISHLIST = [
   { brand: 'FlipEars', name: 'Aegis', drivers: '1DD+1BC' },
   { brand: 'MYER-AUDIO', name: 'SLIIVO SLT6', drivers: '6BA' },
   { brand: 'Letshuoer', name: 'Astralis', drivers: '1Planar' },
-  { brand: 'Kinera', name: 'Verdandi', drivers: '1DD+2BA+2EST+1BC' },
+  { brand: 'Kinera Imperial', name: 'Verdandi', drivers: '1DD+2BA+2EST+1BC' },
   { brand: 'Kinera Celest', name: 'PhoenixCall 2.0', drivers: '2DD+2BA+2Planar' },
   { brand: 'Punch Audio', name: 'Portazo', drivers: '1DD+2Planar' },
   { brand: 'Punch Audio', name: 'Patada', drivers: '1DD+1MEMS' },
