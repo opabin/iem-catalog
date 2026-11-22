@@ -341,7 +341,7 @@ const MODELS = [
     ],
   },
   {
-    id:'arcadia', brand:'ZiiGaat', name:'Arcadia', rank:'A', axis:['power'], ev:'listened', photoPos:'55% 60%', photoZoom:1.3,
+    id:'arcadia', tempo:{ range:[1,3], best:1 }, brand:'ZiiGaat', name:'Arcadia', rank:'A', axis:['power'], ev:'listened', photoPos:'55% 60%', photoZoom:1.3,
     photoDim:0.96, // 明るさのギャップを活かすため補正は最低限
     drivers:'1DD+2BA', spec:'1DD+2BA / 12Ω / 106dB',
     catch:'圧倒的低音の量感による重圧感',
