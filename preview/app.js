@@ -218,7 +218,8 @@
   // キーワード検索（機種名・メーカー・構成・ジャンル・バンド・キャッチを部分一致。全角半角・大小文字は区別しない）
   let query = '';
   const norm = v => String(v || '').normalize('NFKC').toLowerCase();
-  const hay = m => norm([m.name, m.brand, m.drivers, m.genre, m.bands, m.catch].join(' '));
+  const songText = m => (m.songs || []).map(s => Array.isArray(s) ? s[0] : s).join(' ');
+  const hay = m => norm([m.name, m.brand, m.drivers, m.genre, m.catch, songText(m)].join(' '));
   const qmatch = m => !query || query.split(/\s+/).filter(Boolean).every(w => hay(m).includes(w));
   const visible = m => matches(m, filter) && qmatch(m);
   const narrowing = () => activeCount(filter) > 0 || !!query;
@@ -409,7 +410,6 @@
           <p class="dlg__catch">${esc(m.catch)}</p>
           ${m.lead ? `<p class="dlg__lead">${esc(m.lead)}</p>` : ''}
           <div class="chips">${roleChips(m)}<span>${esc(m.genre || '')}</span></div>
-          ${m.bands ? `<p class="dlg__bands">${esc(m.bands)}</p>` : ''}
         </div>
       </section>
 

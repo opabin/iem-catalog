@@ -266,7 +266,6 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .dlg__catch{margin-top:18px;font-weight:900;font-size:28px;line-height:1.5}
 .dlg__lead{margin-top:14px;font-size:15px}
 .dlg__info .chips{margin-top:auto;padding-top:24px}
-.dlg__bands{margin-top:6px;font-size:13px;color:var(--sub)}
 
 .dsec{padding:36px 0 40px;border-top:var(--line)}
 .dsec > .label{display:block;margin-bottom:16px}

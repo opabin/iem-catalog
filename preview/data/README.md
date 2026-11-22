@@ -32,7 +32,6 @@ Google ドライブの `iem-collection.html` は古い試聴メモです。ラ�
 | `lead` | 文字列 | 詳細の導入文。**S ランクは一覧にも表示** | 1〜2文 |
 | `spec` | 文字列 | 詳細のスペック行 | 例 `1DD / 10mm チタン振動板 / 64Ω` |
 | `genre` | 文字列 | 一覧・詳細 | 担当ジャンルを「・」区切り |
-| `bands` | 文字列 | 詳細 | 代表バンドを「, 」区切り |
 | `tone` | オブジェクト | 詳細「TONE ／ 音の印象」 | `{ low: '…', mid: '…', stage: '…' }`（低域／中高域／音場） |
 | `good` | 配列 | 詳細「LIKE ／ 好きなところ」 | 1項目1文。3〜4項目 |
 | `bad` | 配列 | 詳細「HMM ／ 気になるところ」 | 1項目1文。2〜3項目 |
@@ -131,7 +130,6 @@ songs: [
   catch:'激情増幅装置',
   lead:'エッジーでマッシブでエモーショナルな情熱の悪魔。',
   genre:'デスラッシュ・メタルコア',
-  bands:'Thousand Eyes, As I Lay Dying, At The Gates, Slayer',
   good:['まず耳を引くのはギター。エッジが立って分厚い', '…'],
   bad:['何でも派手で刺激的に鳴らすから、ドゥームは苦手疑惑', '…'],
   verdict:'リフ主体の爆走曲は**こいつで決まり**！',
@@ -148,5 +146,5 @@ songs: [
 
 レビュー中の機種（詳細なし）は、最低限これだけでよい。
 ```js
-{ id:'estrella', pending:true, brand:'ZiiGaat', name:'Estrella', rank:'BP', axis:[], drivers:'2DD+4BA', catch:'派手なV字', genre:'', bands:'' },
+{ id:'estrella', pending:true, brand:'ZiiGaat', name:'Estrella', rank:'BP', axis:[], drivers:'2DD+4BA', catch:'派手なV字', genre:'' },
 ```
