@@ -4,7 +4,7 @@ const PHOTOS = {"arcadia": {"w": 2212, "h": 1657, "card": [800], "full": [1600],
 
 const MODELS = [
   {
-    id:'doscinco', brand:'ZiiGaat', name:'Doscinco', rank:'A', axis:['power'], ev:'listened', photoPos:'62% 45%', photoZoom:1.6,
+    id:'doscinco', tempo:{ range:[1,3], best:2 }, brand:'ZiiGaat', name:'Doscinco', rank:'A', axis:['power'], ev:'listened', photoPos:'62% 45%', photoZoom:1.6,
     drivers:'2DD+3BA', spec:'2DD+3BA',
     catch:'有機的に包み込む分厚い音の壁',
     lead:'ZiiGaatが放つチューニング違いな双子の片割れ、力のDoscinco。',
