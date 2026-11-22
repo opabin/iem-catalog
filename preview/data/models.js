@@ -382,7 +382,7 @@ const MODELS = [
   {
     id:'gabriel', brand:'ARTPICAL', name:'Gabriel', rank:'A', axis:['edge'], ev:'listened', photoPos:'50% 30%', photoZoom:1.45,
     drivers:'3MPD+2BA', spec:'3 Micro Planar + 2BA',
-    catch:'天から舞い降りる清き天使。でも意外とやんちゃ系。',
+    catch:'意外とやんちゃな大天使',
     lead:'MPDとBAを組み合わせる機種は数あれど、MPD2機を低域にあててる個性的な機種。',
     genre:'シンセ入りDjent・インダストリアル・プログレ・メロスピ',
     good:['まず耳を引くのは、スピード感がありつつもパンチのあるキック。2バス連打とか素敵',
