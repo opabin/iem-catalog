@@ -194,7 +194,7 @@ const MODELS = [
     songs:[],
     setup:'ステンレスノズル / SoundsGood Ehecatl / M5 Ultra', // イヤピ未記載。要確認
     related:[
-      ['lucifer','熱量と厚みで押すならLucifer、見通しと広さならHimalaya'],
+      ['lucifer','情熱のLucifer、汎用のHimalaya'],
     ],
     log:[],
   },
