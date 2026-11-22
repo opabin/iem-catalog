@@ -72,7 +72,7 @@ const MODELS = [
   {
     id:'luna', brand:'ZiiGaat', name:'Luna', rank:'A', axis:['atmosphere'], ev:'listened', photoPos:'47% 10%', photoZoom:1.25,
     drivers:'6BA', spec:'6BA / 26Ω / 103dB',
-    catch:'木々の合間から覗く木漏れ日の眩しさ',
+    catch:'森林浴で見つけた陽だまり',
     lead:'ZiiGaat唯一のフルBA機。食わず嫌いは勿体なかった。',
     genre:'ポストブラック・プログレ',
     good:['まず耳を引くのは、フルBAの割に量感のあるミッドベース',
