@@ -289,9 +289,9 @@ const MODELS = [
     },
     songs:[
       ['Thousand Eyes - One Thousand Eyes','https://youtu.be/A7rWTwgdW2s',true],
-      ['Nightwish - Ghost Love Score (Live)','https://youtu.be/JYjIlHWBAVo'],
-      ['Deicide - The Stench Of Redemption','https://youtu.be/-OykZHt8UMg'],
-      ['Disfear - Get It Off','https://youtu.be/-Lnze04xTzk'],
+      ['At The Gates - Blinded By Fear','https://youtu.be/nCtjAmtIGf0'],
+      ['Arch Enemy - Silverwing','https://youtu.be/rxrQbC9C6ls'],
+      ['As I Lay Dying - Parallels','https://youtu.be/nLd6h5td8G4'],
     ],
     setup:'TRKAPLST Ink / M5 Ultra（vol70で十分）',
     related:[
