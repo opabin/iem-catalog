@@ -38,7 +38,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'cincotres', brand:'ZiiGaat', name:'Cincotres', rank:'A', axis:['edge'], ev:'listened', photoPos:'48% 14%', photoZoom:1.25,
+    id:'cincotres', tempo:{ range:[3,5], best:4 }, brand:'ZiiGaat', name:'Cincotres', rank:'A', axis:['edge'], ev:'listened', photoPos:'48% 14%', photoZoom:1.25,
     drivers:'2DD+3BA', spec:'2DD+3BA',
     catch:'冷徹で精密な機械兵器',
     lead:'ZiiGaatが放つチューニング違いな双子の片割れ、技のCincotres。',
@@ -105,7 +105,7 @@ const MODELS = [
     drivers:'2DD+4BA', spec:'2DD+4BA / 7Ω / 108dB',
     catch:'派手なV字',
     lead:'ZiiGaatを集めるきっかけになった一台。技のCincotres、力のDoscincoに続くV3。',
-    genre:'ジェント・メタルコア・シンセ系デスコア',
+    genre:'Djent・メタルコア・シンセ系デスコア',
     good:['電子音優位で展開が多く、音数も多い曲と噛み合う（Earthistsとは好相性）',
           'シンセ主体で聴くと、派手なV字がシンセそのものを前に出して華やかに鳴らしてくれる',
           'ソロやリードメロディが主役なら強い。Polyphia・Animals As Leadersのようなテクニカル系も十分こなす',
