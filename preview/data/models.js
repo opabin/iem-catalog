@@ -323,7 +323,7 @@ const MODELS = [
       stage:'残響や微細なダイナミクスの描写が得意',
     },
     songs:[
-      ['Spiritbox - Circle With Me','https://youtube.com/watch?v=I0WzT0OJ-E0'],
+      ['Spiritbox - Circle With Me','https://youtube.com/watch?v=I0WzT0OJ-E0',true],
       ['Bloodywood - Gaddaar','https://youtube.com/watch?v=7iKjSCTxke8'],
       ['Opeth - Deliverance','https://youtube.com/watch?v=rggQNCS8UjM'],
       ['Pain Of Salvation - On A Tuesday','https://youtube.com/watch?v=9bfRta8eQG4'],
@@ -331,6 +331,7 @@ const MODELS = [
     setup:'SoundsGood Tyrfing / M5 Ultra（vol80〜85）',
     related:[
       ['cano-cristales','重さのMartilo、アタックのCano'],
+      ['doscinco','沈み込みと重さならMartilo、音場とメリハリならDoscinco'],
     ],
     log:[
       ['Annihilation Order','曲全体の重さ・圧は3機種中随一。808ドロップでは「キックが空間をこじ開けてくる」感覚。ただ、殴られてる感はCanoの方が強い。'],
