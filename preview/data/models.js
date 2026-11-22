@@ -325,7 +325,7 @@ const MODELS = [
     songs:[
       ['Spiritbox - Circle With Me','https://youtube.com/watch?v=I0WzT0OJ-E0',true],
       ['Bloodywood - Gaddaar','https://youtube.com/watch?v=7iKjSCTxke8'],
-      ['Opeth - Blackwater Park','https://youtu.be/XJMc9_R57Rw'],
+      ['Opeth - The Grand Conjuration','https://youtu.be/AY5LRReFYus'],
       ['Korn - Freak On A Leash','https://youtu.be/jRGrNDV2mKc'],
     ],
     setup:'SoundsGood Tyrfing / M5 Ultra（vol80〜85）',
