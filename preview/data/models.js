@@ -308,7 +308,7 @@ const MODELS = [
     drivers:'2DD+2BA+1Pla', spec:'2DD+2BA+1Planar / 9Ω / 100dB',
     catch:'熟練の職人が繰り出す重い一撃',
     lead:'スペイン語でハンマーを意味するらしい本機。その名に恥じぬ重いローエンドと、職人気質で精密な中高域が魅力。',
-    genre:'ジャンル横断',
+    genre:'オルタナメタル・ゴシック・ニューメタル・グルーヴメタル',
     good:['まずはサブベース。他を凌駕する深さと重さで、キックの胴鳴りが本当に良き',
           '過度に膨らむ感じもなく、ツーバスがもたつかないのも好印象',
           'ミッドより上は素直で分離感も良好。曲の温度や明るさをそのままにしてくれるから雰囲気を壊さない',
@@ -325,8 +325,8 @@ const MODELS = [
     songs:[
       ['Spiritbox - Circle With Me','https://youtube.com/watch?v=I0WzT0OJ-E0',true],
       ['Bloodywood - Gaddaar','https://youtube.com/watch?v=7iKjSCTxke8'],
-      ['Opeth - Deliverance','https://youtube.com/watch?v=rggQNCS8UjM'],
-      ['Pain Of Salvation - On A Tuesday','https://youtube.com/watch?v=9bfRta8eQG4'],
+      ['Opeth - Blackwater Park','https://youtu.be/XJMc9_R57Rw'],
+      ['Korn - Freak On A Leash','https://youtu.be/jRGrNDV2mKc'],
     ],
     setup:'SoundsGood Tyrfing / M5 Ultra（vol80〜85）',
     related:[
