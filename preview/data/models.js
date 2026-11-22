@@ -288,7 +288,7 @@ const MODELS = [
       stage:'横は広め、縦はやや潰れ気味',
     },
     songs:[
-      ['Thousand Eyes - One Thousand Eyes','https://youtu.be/A7rWTwgdW2s'],
+      ['Thousand Eyes - One Thousand Eyes','https://youtu.be/A7rWTwgdW2s',true],
       ['Nightwish - Ghost Love Score (Live)','https://youtu.be/JYjIlHWBAVo'],
       ['Deicide - The Stench Of Redemption','https://youtu.be/-OykZHt8UMg'],
       ['Disfear - Get It Off','https://youtu.be/-Lnze04xTzk'],
