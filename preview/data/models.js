@@ -31,8 +31,9 @@ const MODELS = [
     setup:'SoundsGood Livyatan / Velvet Widevore / M5 Ultra',
     related:[
       ['martilo','厚く包み込むDoscinco、重さと汎用のMartilo'],
-      ['cano-cristales','暴力的なキックならCano、音場と聴きやすさならDoscinco'],
+      ['cano-cristales','厚く包み込むDoscinco、暴力的なアタックのCano'],
       ['arcadia','狭く重苦しいArcadia、厚く包み込むDoscinco'],
+      ['cincotres','包み込む力のDoscinco、切り分ける技のCincotres'],
     ],
     log:[],
   },
@@ -64,6 +65,7 @@ const MODELS = [
     setup:'SoundsGood Livyatan / Velvet Widevore / M5 Ultra',
     related:[
       ['doscinco','包み込む力のDoscinco、切り分ける技のCincotres'],
+      ['estrella','華やかさと見通しのEstrella、冷たく精密なCincotres'],
     ],
     log:[],
   },
@@ -94,7 +96,7 @@ const MODELS = [
     ],
     setup:'NiceHCK 5ASakura / Velvet Widevore / M5 Ultra',
     related:[
-      ['gabriel','温かみや残響を求めるならLuna、刺激や元気さならGabriel'],
+      ['gabriel','温かみと残響のLuna、元気で立体的なGabriel'],
     ],
     log:[],
   },
@@ -122,8 +124,8 @@ const MODELS = [
     ],
     setup:'SoundsGood Blhwt / Velvet Widevore / M5 Ultra',
     related:[
-      ['cincotres','シンセを華やかに前へ出したいならEstrella、電子音を乾いた減衰で分離して立たせたいならCincotres'],
-      ['lucifer','リフで押すならLucifer、ソロやシンセを前に出すならEstrella'],
+      ['cincotres','華やかさと見通しのEstrella、冷たく精密なCincotres'],
+      ['lucifer','華やかさと見通しのEstrella、熱さと厚さのLucifer'],
     ],
     log:[],
   },
@@ -149,7 +151,7 @@ const MODELS = [
     songs:[],
     setup:'Yongse Sakurple / Velvet Widevore / M5 Ultra',
     related:[
-      ['arcadia','ローの量で押すならArcadia、分離と音場で見せるならOdyssey'],
+      ['arcadia','分離と音場のOdyssey、狭く重苦しいArcadia'],
     ],
     log:[],
   },
@@ -195,7 +197,7 @@ const MODELS = [
     songs:[],
     setup:'ステンレスノズル / SoundsGood Ehecatl / M5 Ultra', // イヤピ未記載。要確認
     related:[
-      ['lucifer','情熱のLucifer、汎用のHimalaya'],
+      ['lucifer','熱さと厚さのLucifer、広さとキレのHimalaya'],
     ],
     log:[],
   },
@@ -263,8 +265,9 @@ const MODELS = [
     ],
     setup:'SoundsGood Nyx / Eletech BAROQUE / M5 Ultra',
     related:[
-      ['lucifer','ブレイクダウンの重さならCano、ギターの厚みとエッジならLucifer'],
+      ['lucifer','暴力的なアタックのCano、熱さと厚さのLucifer'],
       ['martilo','アタックで殴るCano、重さで沈めるMartilo'],
+      ['doscinco','厚く包み込むDoscinco、暴力的なアタックのCano'],
     ],
     log:[
       ['Meshuggah「Bleed」（Doscinco比較）','アタック・エッジ・ハイの出方はCanoが上、胴鳴りの量感はDoscincoが上。同じ量感型でも、サブベース型とミッドベース型で中身がまるで違う。'],
@@ -297,8 +300,9 @@ const MODELS = [
     ],
     setup:'TRKAPLST Ink / M5 Ultra（vol70で十分）',
     related:[
-      ['cano-cristales','ギターの厚みならLucifer、ローの重さならCano'],
-      ['himalaya','情熱のLucifer、汎用のHimalaya'],
+      ['cano-cristales','暴力的なアタックのCano、熱さと厚さのLucifer'],
+      ['himalaya','熱さと厚さのLucifer、広さとキレのHimalaya'],
+      ['estrella','華やかさと見通しのEstrella、熱さと厚さのLucifer'],
     ],
     log:[
       ['Annihilation Order（Cano Cristales比較）','ギター優位でエッジも立ち、ハーモニクスは肉厚。808ドロップの減衰が早い。キック・ベースの量感とガテラルの深さはCanoに譲る。'],
@@ -371,6 +375,7 @@ const MODELS = [
     related:[
       ['martilo','狭く重苦しいArcadia、重さと汎用のMartilo'],
       ['doscinco','狭く重苦しいArcadia、厚く包み込むDoscinco'],
+      ['odyssey','分離と音場のOdyssey、狭く重苦しいArcadia'],
     ],
     log:[],
   },
@@ -401,7 +406,7 @@ const MODELS = [
     ],
     setup:'SoundsGood Bit / Eletech BAROQUE Stage / M5 Ultra',
     related:[
-      ['luna','温かみや残響を求めるならLuna、刺激や元気さならGabriel'],
+      ['luna','温かみと残響のLuna、元気で立体的なGabriel'],
     ],
     log:[],
   },
