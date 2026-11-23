@@ -411,7 +411,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'gabriel', brand:'ARTPICAL', name:'Gabriel', rank:'A', axis:['edge'], ev:'listened', photoPos:'50% 30%', photoZoom:1.45,
+    id:'gabriel', tempo:{ range:[3,5], best:4 }, brand:'ARTPICAL', name:'Gabriel', rank:'A', axis:['edge'], ev:'listened', photoPos:'50% 30%', photoZoom:1.45,
     drivers:'3MPD+2BA', spec:'3 Micro Planar + 2BA',
     catch:'意外とやんちゃな大天使',
     lead:'MPDとBAを組み合わせる機種は数あれど、MPD2機を低域にあててる個性的な子。',
@@ -421,7 +421,7 @@ const MODELS = [
           '広い空間を活かしたシンセが映えて良き',
           '電子音は全体的に得意。ボカロ楽曲とかも行けるはず'],
     bad:['ミッドテンポだったり音数が少ない曲は、別の選択肢がある疑惑',
-         '暗い表現やノスタルジックな表現は他に行こう',
+         '暗い表現やノスタルジックな表現は他に行きましょう',
          'ダウンチューニングのギターはちょっと厚みが足りないかも'],
     verdict:'速いキックに、空間いっぱいに弾けるシンセ。**天界のやんちゃ坊主**、ガブリエルとはこれいかに？',
     tone:{
