@@ -173,8 +173,10 @@
 
   // ---------- ランクタブ（現在地の追従） ----------
   let tabTicking = false;
+  let jumpUntil = 0; // タブでジャンプ中は現在地の追従を止める（iOS で途中の横スクロールがジャンプを打ち消すため）
   function updateActiveTab() {
     tabTicking = false;
+    if (Date.now() < jumpUntil) return;
     const nav = $('.ranktabs');
     const line = nav.getBoundingClientRect().bottom + 8;
     let current = null;
@@ -196,8 +198,22 @@
       const t = e.target.closest('.ranktab');
       if (!t || t.disabled) return;
       const sec = document.getElementById('rank-' + t.dataset.rank);
-      sec.style.scrollMarginTop = $('.ranktabs').offsetHeight + 'px';
-      sec.scrollIntoView({ block: 'start' });
+      if (!sec) return;
+      // scrollIntoView は iOS Safari で効かないことがあるため、位置を計算して scrollTo で動かす
+      const target = Math.max(0, Math.round(sec.getBoundingClientRect().top + window.scrollY - $('.ranktabs').offsetHeight));
+      $$('.ranktab').forEach(x => { if (x === t) x.setAttribute('aria-current', 'true'); else x.removeAttribute('aria-current'); });
+      jumpUntil = Date.now() + 900;
+      const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: target, behavior: smooth ? 'smooth' : 'auto' });
+      // なめらかスクロールが途中で止まった・始まらなかった場合は、その位置へ直接移動する
+      setTimeout(() => {
+        const maxY = document.documentElement.scrollHeight - window.innerHeight;
+        const reach = Math.min(target, maxY);
+        if (Math.abs(window.scrollY - reach) > 4) window.scrollTo({ top: reach, behavior: 'instant' });
+        jumpUntil = 0;
+        // ページ末尾で目的のランクが上端まで来られない時は、押したタブを現在地のままにする
+        if (target <= maxY + 4) updateActiveTab();
+      }, 900);
     });
   }
 
