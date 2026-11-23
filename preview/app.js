@@ -173,7 +173,7 @@
 
   // ---------- ランクタブ（現在地の追従） ----------
   let tabTicking = false;
-  let jumpUntil = 0; // タブでジャンプ中は現在地の追従を止める（iOS で途中の横スクロールがジャンプを打ち消すため）
+  let jumpUntil = 0; // タブでジャンプ中は現在地の追従を止める（途中で下線が行き来しないように）
   function updateActiveTab() {
     tabTicking = false;
     if (Date.now() < jumpUntil) return;
@@ -199,7 +199,7 @@
       if (!t || t.disabled) return;
       const sec = document.getElementById('rank-' + t.dataset.rank);
       if (!sec) return;
-      // scrollIntoView は iOS Safari で効かないことがあるため、位置を計算して scrollTo で動かす
+      // scrollIntoView はアプリ内表示（iframe）などで効かないことがあるため、位置を計算して scrollTo で動かす
       const target = Math.max(0, Math.round(sec.getBoundingClientRect().top + window.scrollY - $('.ranktabs').offsetHeight));
       $$('.ranktab').forEach(x => { if (x === t) x.setAttribute('aria-current', 'true'); else x.removeAttribute('aria-current'); });
       jumpUntil = Date.now() + 900;
