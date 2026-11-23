@@ -205,7 +205,7 @@ const MODELS = [
   {"id": "halcyon", "pending": true, "brand": "Kiwi Ears", "name": "Halcyon", "rank": "B", "axis": [], "drivers": "1DD+3BA+1MEMS", "catch": "爽やか細マッチョ", "genre": ""},
   {"id": "wuzetian-legend", "pending": true, "brand": "Tangzu", "name": "武則天 Legend", "rank": "B", "axis": [], "drivers": "2Planar", "catch": "高解像な平面", "genre": ""},
   {
-    id:'canon', brand:'Yanyin', name:'Canon', rank:'BP', axis:['edge'], ev:'listened',
+    id:'canon', tempo:{ range:[3,5], best:5 }, brand:'Yanyin', name:'Canon', rank:'BP', axis:['edge'], ev:'listened',
     drivers:'1DD+4BA', spec:'1DD+4BA / 10Ω / 108dB',
     catch:'スピード感あふれるわんぱく坊主',
     lead:'Yanyinの初代Canon。スイッチは101固定。じっとしていられない駆け回る子。',
