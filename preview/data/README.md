@@ -137,6 +137,7 @@ songs: [
 | Estrella | 華やかさと見通しの | 華やかさと見通しのEstrella |
 | Odyssey | 分離と音場の | 分離と音場のOdyssey |
 | Himalaya | 広さとキレの | 広さとキレのHimalaya |
+| Canon | 勢いと荒削りの | 勢いと荒削りのCanon |
 
 ペア専用の言い方：
 - Doscinco ⇔ Cincotres（兄弟機）：`包み込む力のDoscinco、切り分ける技のCincotres`

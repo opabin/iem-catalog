@@ -198,6 +198,7 @@ const MODELS = [
     setup:'ステンレスノズル / SoundsGood Ehecatl / M5 Ultra', // イヤピ未記載。要確認
     related:[
       ['lucifer','熱さと厚さのLucifer、広さとキレのHimalaya'],
+      ['canon','広さとキレのHimalaya、勢いと荒削りのCanon'],
     ],
     log:[],
   },
@@ -217,7 +218,7 @@ const MODELS = [
     bad:['重苦しい重圧は出せない',
          '荒削りなので、繊細な表現はちょっと違う',
          '現代的な分厚い音源は、他の機種のほうが向いている'],
-    verdict:'ジャリジャリと荒削りな旧世代の音源を、勢いで駆け抜けたい時の相棒。重苦しさや繊細さは、他の子に頼みましょう。',
+    verdict:'ジャリジャリと荒削りな旧世代の音源を、勢いで駆け抜ける**疾走の相棒**。重苦しさや繊細さは、他の子に頼みましょう。',
     tone:{
       low:'タイトで弾力のあるロー。量感は手持ち機の中で並（スイッチを入れても）。Cano・Doscincoと比べると軽く浅い',
       mid:'たまに刺さるけど元気なハイ。解像感・分離感は良好',
@@ -231,7 +232,7 @@ const MODELS = [
     ],
     setup:'SoundsGood Anthracite / Radius Deep Mount Zone / M5 Ultra（スイッチ：101）',
     related:[
-      ['himalaya','厚みが欲しいならHimalaya、軽快に駆け抜けたいならCanon'],
+      ['himalaya','広さとキレのHimalaya、勢いと荒削りのCanon'],
     ],
     log:[],
   },
