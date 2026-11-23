@@ -224,11 +224,11 @@ const MODELS = [
       stage:'音場は普通からやや狭めで、音は近め',
     },
     songs:[
-      ['Forbidden - Through Eyes of Glass','https://youtu.be/UpXFf5I52Uw',true],
+      ['Forbidden - Through Eyes of Glass','https://youtu.be/CPufxljtQng',true],
       ['Motörhead - Ace of Spades','https://youtu.be/3mbvWn1EY6g'],
       ['Judas Priest - Freewheel Burning','https://youtu.be/M_s-49rNCdw'],
       ['Entombed - Living Dead','https://youtu.be/zaUusanRC-M'],
-      ['Mayhem - Funeral Fog','https://youtu.be/guVMLEZIg4U'],
+      ['Mayhem - Funeral Fog','https://youtu.be/q5TiZO6Na_M'],
     ],
     setup:'SoundsGood Anthracite / Radius Deep Mount Zone / M5 Ultra（スイッチ：101）',
     related:[
