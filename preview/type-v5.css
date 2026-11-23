@@ -31,3 +31,9 @@
 /* ランクの文字と最初の機種の間 */
 .type-v5 .tier__head{margin-bottom:36px}
 @media (max-width:720px){.type-v5 .tier__head{margin-bottom:26px}}
+
+/* 機種名の字間：ランクごと・画面幅ごとの指定より優先 */
+.type-v5 .name{letter-spacing:.01em !important}
+
+/* 詳細（PC）：役割とジャンルを写真の下端に揃えず、導入文の直後に置く（間延びを防ぐ） */
+.type-v5 .dlg__info .chips{margin-top:20px;padding-top:0}
