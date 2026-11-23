@@ -226,7 +226,7 @@ const MODELS = [
     songs:[
       ['Forbidden - Through Eyes of Glass','https://youtu.be/CPufxljtQng',true],
       ['Motörhead - Ace of Spades','https://youtu.be/3mbvWn1EY6g'],
-      ['Judas Priest - Freewheel Burning','https://youtu.be/M_s-49rNCdw'],
+      ['Pig Destroyer - Trojan Whore','https://youtu.be/I1NBcNaQpyA'],
       ['Entombed - Living Dead','https://youtu.be/zaUusanRC-M'],
       ['Mayhem - Funeral Fog','https://youtu.be/q5TiZO6Na_M'],
     ],
