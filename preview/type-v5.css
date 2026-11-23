@@ -13,6 +13,8 @@
 .type-v5 .label{font-family:var(--f-jp);letter-spacing:0}
 .type-v5 .label small{display:inline-block;margin:0;padding-left:8px;border-left:6px solid var(--ink);font-family:var(--f-jp);font-weight:900;font-size:16px;line-height:1.2;letter-spacing:0;color:var(--ink)}
 .type-v5 .verdict .label small{display:inline-block}
+/* 見出しと中身の間をそろえる（好きなところ・気になるところが詰まっていた） */
+.type-v5 h3.label{display:block;margin-bottom:14px}
 
 /* 字間・大文字化をやめる */
 .type-v5 .name,
@@ -26,4 +28,6 @@
 .type-v5 .hero__title{font-family:'Dela Gothic One',var(--f-jp);font-weight:400;letter-spacing:0}
 .type-v5 .tier__rank,
 .type-v5 .dlg__rank{font-family:'Dela Gothic One',var(--f-en);font-weight:400}
-.type-v5 .tier__head{margin-bottom:8px}
+/* ランクの文字と最初の機種の間 */
+.type-v5 .tier__head{margin-bottom:36px}
+@media (max-width:720px){.type-v5 .tier__head{margin-bottom:26px}}
