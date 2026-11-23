@@ -208,8 +208,8 @@ const MODELS = [
   {
     id:'canon', tempo:{ range:[3,5], best:5 }, brand:'Yanyin', name:'Canon', rank:'BP', axis:['edge'], ev:'listened',
     drivers:'1DD+4BA', spec:'1DD+4BA / 10Ω / 108dB',
-    catch:'スピード感あふれるわんぱく坊主',
-    lead:'Yanyinの初代Canon。スイッチは101固定。じっとしていられない駆け回る子。',
+    catch:'荒っぽく駆け回るわんぱく坊主',
+    lead:'Yanyinの初代Canon。スイッチは101固定。走ってる姿が似合う子。',
     genre:'スラッシュ・グラインド・スウェディッシュデス・初期ブラック',
     good:['現代的な分厚い音源より、一昔前の荒削りな音源と好相性',
           'クランチーなスラッシュや、スウェディッシュデスのジャリジャリしたギターが気持ち良い',
