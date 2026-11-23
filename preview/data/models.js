@@ -204,7 +204,7 @@ const MODELS = [
   {"id": "bravery-rb-ed", "pending": true, "brand": "SeeAudio", "name": "Bravery RB Ed.", "rank": "B", "axis": [], "drivers": "4BA", "catch": "The FullBA", "genre": ""},
   {"id": "halcyon", "pending": true, "brand": "Kiwi Ears", "name": "Halcyon", "rank": "B", "axis": [], "drivers": "1DD+3BA+1MEMS", "catch": "爽やか細マッチョ", "genre": ""},
   {"id": "wuzetian-legend", "pending": true, "brand": "Tangzu", "name": "武則天 Legend", "rank": "B", "axis": [], "drivers": "2Planar", "catch": "高解像な平面", "genre": ""},
-  {"id": "canon", "pending": true, "brand": "Yanyin", "name": "Canon", "rank": "B", "axis": [], "drivers": "1DD+4BA", "catch": "元気なスピード型", "genre": ""},
+  {"id": "canon", "pending": true, "brand": "Yanyin", "name": "Canon", "rank": "BP", "axis": [], "drivers": "1DD+4BA", "catch": "元気なスピード型", "genre": ""},
   {"id": "canon-pro", "pending": true, "brand": "Yanyin", "name": "Canon Pro", "rank": "B", "axis": [], "drivers": "1DD+6BA", "catch": "そつなくこなす優等生", "genre": ""},
   {"id": "shell", "pending": true, "brand": "TRN", "name": "Shell", "rank": "B", "axis": [], "drivers": "3DD+1Pla", "catch": "物理的に重い強ドンシャリ", "genre": ""},
   {"id": "castor-bass", "pending": true, "brand": "KZ", "name": "Castor Bass", "rank": "B", "axis": [], "drivers": "2DD", "catch": "量感型ドンシャリ", "genre": ""},
@@ -412,4 +412,4 @@ const MODELS = [
   },
 ];
 
-const ORDER = ["cano-cristales", "lucifer", "martilo", "doscinco", "arcadia", "cincotres", "gabriel", "luna", "estrella", "odyssey", "hydro", "himalaya", "bravery-rb-ed", "halcyon", "wuzetian-legend", "canon", "canon-pro", "shell", "castor-bass", "vibe-x", "wan-er-s-g-2-red-lion", "arete", "nuo", "rumba", "rinko", "conch-v12", "athena", "yaksha", "night-elf", "neko", "castor-pro-bass", "vader-balance", "vader-pro-balance", "decet", "zstx", "prx", "am16-bass", "kunten", "duonic", "orca", "vivian", "plutus-beast", "xue-tao-ae-101", "wan-er-s-g-2", "edx-pro", "yuxuanji", "s08", "aurora-ultra"];
+const ORDER = ["cano-cristales", "lucifer", "martilo", "doscinco", "arcadia", "cincotres", "gabriel", "luna", "estrella", "odyssey", "hydro", "himalaya", "canon", "bravery-rb-ed", "halcyon", "wuzetian-legend", "canon-pro", "shell", "castor-bass", "vibe-x", "wan-er-s-g-2-red-lion", "arete", "nuo", "rumba", "rinko", "conch-v12", "athena", "yaksha", "night-elf", "neko", "castor-pro-bass", "vader-balance", "vader-pro-balance", "decet", "zstx", "prx", "am16-bass", "kunten", "duonic", "orca", "vivian", "plutus-beast", "xue-tao-ae-101", "wan-er-s-g-2", "edx-pro", "yuxuanji", "s08", "aurora-ultra"];
