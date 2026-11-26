@@ -276,7 +276,8 @@ a.lrow__link::after{content:'→';position:absolute;right:8px;top:50%;transform:
 .tone > div{border:var(--line)}
 .tone h3{padding:8px 16px;border-bottom:var(--line);background-color:var(--bg);background-image:radial-gradient(var(--c) 1px,transparent 1.4px);background-size:5px 5px}
 /* 見出しは役割の色の網点（テンポの帯と同じ表現）。文字は網点の上にそのまま乗せる */
-.tone__tag{display:block;color:var(--ink);font-weight:900;font-size:16px;line-height:1.35;text-shadow:2px 0px 0 var(--bg),-2px 0px 0 var(--bg),0px 2px 0 var(--bg),0px -2px 0 var(--bg),1.5px 1.5px 0 var(--bg),-1.5px 1.5px 0 var(--bg),1.5px -1.5px 0 var(--bg),-1.5px -1.5px 0 var(--bg)}
+.tone__tag{display:block;color:var(--ink);font-weight:900;font-size:16px;line-height:1.35;text-shadow:2px 2px 0 var(--c),2px 0px 0 var(--bg),-2px 0px 0 var(--bg),0px 2px 0 var(--bg),0px -2px 0 var(--bg),1.5px 1.5px 0 var(--bg),-1.5px 1.5px 0 var(--bg),1.5px -1.5px 0 var(--bg),-1.5px -1.5px 0 var(--bg)}
+.tone__sub{text-shadow:2px 0px 0 var(--bg),-2px 0px 0 var(--bg),0px 2px 0 var(--bg),0px -2px 0 var(--bg),1.5px 1.5px 0 var(--bg),-1.5px 1.5px 0 var(--bg),1.5px -1.5px 0 var(--bg),-1.5px -1.5px 0 var(--bg)}
 .tone__sub{display:block;font-weight:700;font-size:12px}
 .tone p{padding:12px 16px 16px;font-size:14px}
 .tone__kw{list-style:none;margin:0;padding:12px 16px 16px;display:flex;flex-wrap:wrap;gap:4px 0;font-weight:700;font-size:15px;line-height:1.6}
