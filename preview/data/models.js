@@ -394,7 +394,7 @@ const MODELS = [
     tone:{
       low:['量感トップのキック', '重圧感のあるベース'],
       mid:['丸く鈍重なギター', '迷子になりがちなヴォーカル', '団子になりがちな楽器隊'],
-      stage:['音は近い', '押しつぶす音場', '分離は甘め'],
+      stage:['近く押しつぶすような音場', '分離は甘め'],
     },
     songs:[
       ['Shining - Ytterligare Ett Steg Närmare Total Jävla Utfrysning','https://youtu.be/SPOTvY95vLE',true],
