@@ -20,7 +20,7 @@
     edge:       { label: '切', desc: '速さ・輪郭' },
     atmosphere: { label: '響', desc: '残響・空間' }
   };
-  const ROLE_ORDER = ['power', 'atmosphere', 'edge'];
+  const ROLE_ORDER = ['power', 'edge', 'atmosphere']; // 圧 → 切 → 響（一覧の並び・トップの色見本と同じ）
   const HERO = [['doscinco', 'power'], ['cincotres', 'edge'], ['luna', 'atmosphere'], ['estrella', 'none']];
   const TONE = [['low', 'リズム隊', 'power', 'ドラム・ベース'], ['mid', '上モノ', 'none', 'ギター・ヴォーカル・シンセ'], ['stage', '空間', 'edge', '定位・広さ・残響']];
   const SONG_COLORS = ['power', 'edge', 'none', 'atmosphere'];
@@ -28,8 +28,7 @@
 
   // ---------- データ整形 ----------
   // 同じランクの中に順位は付けない。公開済み → 準備中、主の役割（圧 → 切 → 響 → 未設定）、機種名の順で自動で並べる
-  const SORT_ROLE = ['power', 'edge', 'atmosphere'];
-  const roleRank = m => { const i = SORT_ROLE.indexOf((m.axis || [])[0]); return i < 0 ? SORT_ROLE.length : i; };
+  const roleRank = m => { const i = ROLE_ORDER.indexOf((m.axis || [])[0]); return i < 0 ? ROLE_ORDER.length : i; };
   MODELS.sort((a, b) => (a.pending ? 1 : 0) - (b.pending ? 1 : 0) || roleRank(a) - roleRank(b)
     || a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
   const byId = Object.fromEntries(MODELS.map(m => [m.id, m]));
