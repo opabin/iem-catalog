@@ -152,10 +152,10 @@
   <button type="button" class="link-btn" id="copyBoxClose">閉じる</button>
 </div>
 
-<!-- 暗い写真の影を持ち上げるガンマ補正（写真の lum で自動適用） -->
+<!-- 暗い写真の中間調を持ち上げる補正（写真の lum で自動適用）。黒は黒のまま残し、モヤがかからないようにしている -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <filter id="lift-strong" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="gamma" exponent="0.68"/><feFuncG type="gamma" exponent="0.68"/><feFuncB type="gamma" exponent="0.68"/></feComponentTransfer></filter>
-  <filter id="lift-soft" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="gamma" exponent="0.8"/><feFuncG type="gamma" exponent="0.8"/><feFuncB type="gamma" exponent="0.8"/></feComponentTransfer></filter>
+  <filter id="lift-strong" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="table" tableValues="0 0.09 0.28 0.42 0.54 0.64 0.73 0.81 0.88 0.94 1"/><feFuncG type="table" tableValues="0 0.09 0.28 0.42 0.54 0.64 0.73 0.81 0.88 0.94 1"/><feFuncB type="table" tableValues="0 0.09 0.28 0.42 0.54 0.64 0.73 0.81 0.88 0.94 1"/></feComponentTransfer></filter>
+  <filter id="lift-soft" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="table" tableValues="0 0.095 0.23 0.36 0.47 0.57 0.67 0.76 0.85 0.93 1"/><feFuncG type="table" tableValues="0 0.095 0.23 0.36 0.47 0.57 0.67 0.76 0.85 0.93 1"/><feFuncB type="table" tableValues="0 0.095 0.23 0.36 0.47 0.57 0.67 0.76 0.85 0.93 1"/></feComponentTransfer></filter>
 </svg>
 
 <script src="data/models.js"></script>
