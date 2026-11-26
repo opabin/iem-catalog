@@ -286,7 +286,7 @@ const MODELS = [
     tone:{
       low:['超弩級のキック', '分厚く支配的なベース', 'それらに負けない金物'],
       mid:['ミッドローがやや薄めなギター', '埋もれないヴォーカル', '一部凶悪になるシンセ'],
-      stage:['空間表現はやや荒め', '価格を考慮すると分離はやや甘め'],
+      stage:['空間表現はやや荒め', '分離は特化機に一歩譲る'],
     },
     songs:[
       ['Anaal Nathrakh - In the Constellation of the Black Widow','https://youtu.be/eqx_IPPM_YE',true],
