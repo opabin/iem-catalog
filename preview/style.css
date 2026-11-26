@@ -12,6 +12,8 @@
   --power-t:#d6337f; --edge-t:#138f95; --atmosphere-t:#7255c4; --none-t:#9a7414;
   /* ダブルトーンの影色 */
   --power-d:#6b1d45; --edge-d:#11575a; --atmosphere-d:#36286e; --none-d:#5a4310;
+  /* 黒文字を乗せる小さな札・ボタン用（圧・響は明るくしてコントラスト比 6.9） */
+  --power-l:#eb79b1; --edge-l:#2fbfc4; --atmosphere-l:#a893e0; --none-l:#c9a03f;
 
   --f-jp:'Zen Kaku Gothic New',sans-serif;
   --f-en:'Jost',sans-serif;
@@ -120,7 +122,7 @@ h3.label{margin-bottom:14px}
 .searchrow .link-btn{flex:0 0 auto;min-height:36px;font-size:13px}
 .empty-note{padding-top:48px;padding-bottom:64px;font-weight:700;font-size:15px;text-align:center;color:var(--sub)}
 .filter-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 0 0 12px;background:var(--bg);border:0;font-weight:700;font-size:13px;cursor:pointer}
-.filter-btn__badge{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 4px;background:var(--power);color:#141414;border:1.5px solid var(--ink);font-family:var(--f-en);font-size:12px;line-height:1}
+.filter-btn__badge{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 4px;background:var(--power-l);color:#141414;border:1.5px solid var(--ink);font-family:var(--f-en);font-size:12px;line-height:1}
 .filterbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-top:8px;padding-bottom:10px;border-top:1px solid var(--rule);font-size:13px}
 .chip{display:inline-flex;align-items:center;gap:4px;padding:1px 2px 1px 8px;border:1.5px solid var(--ink);font-weight:700;background:var(--bg)}
 .chip--role{color:#141414}
@@ -272,8 +274,10 @@ a.lrow__link::after{content:'→';position:absolute;right:8px;top:50%;transform:
 .dsec{padding:36px 0 40px;border-top:var(--line)}
 .tone{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .tone > div{border:var(--line)}
-.tone h3{padding:6px 16px;border-bottom:var(--line);font-weight:900;font-size:16px;line-height:1.35;color:#141414}
-.tone__sub{display:block;font-weight:500;font-size:12px;opacity:.85}
+.tone h3{padding:8px 10px;border-bottom:var(--line)}
+/* 色の帯の上に地色の札を敷き、文字はその上に乗せる（どの色でも読みやすく） */
+.tone__tag{display:inline-block;padding:2px 8px;background:var(--bg);border:1.5px solid var(--ink);color:var(--ink);font-weight:900;font-size:16px;line-height:1.35}
+.tone__sub{display:block;font-weight:700;font-size:12px}
 .tone p{padding:12px 16px 16px;font-size:14px}
 .tone__kw{list-style:none;margin:0;padding:12px 16px 16px;display:flex;flex-wrap:wrap;gap:4px 0;font-weight:700;font-size:15px;line-height:1.6}
 .tone__kw li{white-space:nowrap}
@@ -364,7 +368,7 @@ button.vs__item{cursor:pointer}
 .ropt{display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;background:var(--bg);border:var(--line);font-weight:900;font-size:15px;cursor:pointer}
 .ropt .sw{width:12px;height:12px;border:1.5px solid var(--ink);background:var(--c)}
 .ropt .n,.mopt .n{font-family:var(--f-mono);font-weight:400;font-size:11px;opacity:.8}
-.ropt[aria-pressed="true"]{background:var(--c);color:#141414;box-shadow:3px 3px 0 var(--ink)}
+.ropt[aria-pressed="true"]{background:var(--cl,var(--c));color:#141414;box-shadow:3px 3px 0 var(--ink)}
 .ropt[aria-pressed="true"] .sw{display:none}
 .mopt{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;background:var(--bg);border:var(--line);font-family:var(--f-en);font-weight:600;font-size:14px;cursor:pointer}
 .mopt[aria-pressed="true"]{background:var(--ink);color:var(--bg)}

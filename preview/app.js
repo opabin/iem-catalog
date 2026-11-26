@@ -56,7 +56,7 @@
     return `<span class="ini" style="--ini:${ini}">${esc(m.name.charAt(0))}</span>${esc(m.name.slice(1))}`;
   }
   function roleChips(m) {
-    return roleOf(m).map(a => `<b class="rchip" style="background:var(--${a})">${ROLES[a].label}</b>`).join('');
+    return roleOf(m).map(a => `<b class="rchip" style="background:var(--${a}-l)">${ROLES[a].label}</b>`).join('');
   }
   function photoHtml(m, kind, opts = {}) {
     const p = PHOTOS[m.id];
@@ -247,7 +247,7 @@
   const narrowing = () => activeCount(filter) > 0 || !!query;
 
   function renderSheet() {
-    $('#roleOpts').innerHTML = ROLE_ORDER.map(r => `<button type="button" class="ropt" data-role="${r}" aria-pressed="${draft.roles.has(r)}" style="--c:var(--${r})"><span class="sw" aria-hidden="true"></span>${ROLES[r].label}<span class="n">${roleCount(r)}</span></button>`).join('');
+    $('#roleOpts').innerHTML = ROLE_ORDER.map(r => `<button type="button" class="ropt" data-role="${r}" aria-pressed="${draft.roles.has(r)}" style="--c:var(--${r});--cl:var(--${r}-l)"><span class="sw" aria-hidden="true"></span>${ROLES[r].label}<span class="n">${roleCount(r)}</span></button>`).join('');
     const list = makersExpanded ? makerCounts : makerCounts.slice(0, MAKER_TOP);
     const rest = makerCounts.length - MAKER_TOP;
     $('#makerOpts').innerHTML = list.map(([b, n]) => `<button type="button" class="mopt" data-maker="${esc(b)}" aria-pressed="${draft.makers.has(b)}">${esc(b)}<span class="n">${n}</span></button>`).join('') +
@@ -298,7 +298,7 @@
     empty.textContent = '該当する機種が見つかりませんでした。言葉を変えるか、絞り込みを解除してください。';
     if (fOn) {
       const total = MODELS.filter(m => matches(m, filter)).length;
-      bar.innerHTML = [...filter.roles].map(r => `<span class="chip chip--role" style="background:var(--${r})">${ROLES[r].label}<button type="button" data-rm-role="${r}" aria-label="${ROLES[r].label}の絞り込みを解除"><svg aria-hidden="true" width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 2l10 10M12 2L2 12"/></svg></button></span>`).join('') +
+      bar.innerHTML = [...filter.roles].map(r => `<span class="chip chip--role" style="background:var(--${r}-l)">${ROLES[r].label}<button type="button" data-rm-role="${r}" aria-label="${ROLES[r].label}の絞り込みを解除"><svg aria-hidden="true" width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 2l10 10M12 2L2 12"/></svg></button></span>`).join('') +
         [...filter.makers].map(b => `<span class="chip">${esc(b)}<button type="button" data-rm-maker="${esc(b)}" aria-label="${esc(b)}の絞り込みを解除"><svg aria-hidden="true" width="10" height="10" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 2l10 10M12 2L2 12"/></svg></button></span>`).join('') +
         `<span class="filterbar__count">で絞り込み中 ・ <b>${total}機種</b></span><button type="button" class="link-btn" data-clear>すべて表示</button>`;
     }
@@ -441,7 +441,7 @@
         </div>
       </section>
 
-      ${m.tone ? `<section class="dsec"><h3 class="label">音の印象</h3><div class="tone">${TONE.map(([k, h, c, sub]) => `<div><h3 style="background:var(--${c})">${h}<span class="tone__sub">${sub}</span></h3>${toneBody(m.tone[k])}</div>`).join('')}</div></section>` : ''}
+      ${m.tone ? `<section class="dsec"><h3 class="label">音の印象</h3><div class="tone">${TONE.map(([k, h, c, sub]) => `<div><h3 style="background:var(--${c})"><span class="tone__tag">${h}<span class="tone__sub">${sub}</span></span></h3>${toneBody(m.tone[k])}</div>`).join('')}</div></section>` : ''}
 
       ${tempoHtml(m)}
 
