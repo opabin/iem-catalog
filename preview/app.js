@@ -406,11 +406,11 @@
     const [main] = roleOf(m);
     const prev = stepModel(m, -1), next = stepModel(m, 1);
     const songs = (m.songs || []).map((s, i) => {
-      const [t, u, pick] = Array.isArray(s) ? s : [s];
+      const [t, u, pick, note] = Array.isArray(s) ? s : [s];
       const [artist, ...rest] = String(t).split(' - ');
       const title = rest.length ? rest.join(' - ') : t;
       const by = rest.length ? artist : '';
-      const body = `<span class="sq" aria-hidden="true" style="background:var(--${SONG_COLORS[i % 4]})"></span><span><b>${esc(title)}</b> <span class="by">${by ? '— ' + esc(by) : ''}</span></span>${pick ? '<span class="pick">いちばん推し</span>' : '<span></span>'}`;
+      const body = `<span class="sq" aria-hidden="true" style="background:var(--${SONG_COLORS[i % 4]})"></span><span><b>${esc(title)}</b> <span class="by">${by ? '— ' + esc(by) : ''}</span>${note ? `<span class="song-note">${esc(note)}</span>` : ''}</span>${pick ? '<span class="pick">いちばん推し</span>' : '<span></span>'}`;
       const ext = '<span class="ext" aria-hidden="true">↗</span><span class="sr">（外部サイトで開く）</span>';
       return `<li>${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${body.replace('</b>', '</b>' + ext)}</a>` : `<a>${body}</a>`}</li>`;
     }).join('');

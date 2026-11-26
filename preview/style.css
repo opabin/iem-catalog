@@ -532,3 +532,7 @@ button.vs__item{cursor:pointer}
 @media (prefers-reduced-motion:no-preference){
   html{scroll-behavior:smooth}
 }
+
+/* おすすめ曲の一言メモ（どこで良さが分かるか） */
+.playlist .song-note{display:block;margin-top:4px;font-size:12px;font-weight:500;line-height:1.6;color:var(--sub)}
+.playlist .song-note::before{content:'▶ ';color:var(--emph,var(--ink))}
