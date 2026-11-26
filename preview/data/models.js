@@ -122,6 +122,7 @@ const MODELS = [
     songs:[
       ['Earthists - HYPERHELL','https://youtu.be/KWwGSCjXQy4',true],
       ['Darko US - Insects','https://youtu.be/J3xJ9cbOF_Y'],
+      ['Electric Callboy - We Got The Moves','https://youtu.be/D1NdGBldg3w'],
     ],
     setup:'SoundsGood Blhwt / Velvet Wide Bore / M5 Ultra',
     related:[
