@@ -201,6 +201,8 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .ledger-head{background:var(--ink);color:var(--bg);font-family:var(--f-en);font-weight:600;font-size:12px;letter-spacing:.01em;padding-top:9px;padding-bottom:9px}
 .lrow + .lrow,.ledger-head + .lrow{border-top:1px solid var(--rule)}
 .lrow__link{text-decoration:none}
+a.lrow__link{position:relative;padding-right:32px}
+a.lrow__link::after{content:'→';position:absolute;right:8px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--ink)}
 .lrow__no,.lrow__drv{font-family:var(--f-mono);font-size:12px;color:var(--sub)}
 .lrow__name{font-family:var(--f-en);font-weight:600;font-size:16px;letter-spacing:.01em}
 .lrow__brand{color:var(--sub);font-size:14px}

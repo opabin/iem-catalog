@@ -31,7 +31,9 @@
   const byId = Object.fromEntries(MODELS.map(m => [m.id, m]));
   const rankOf = k => RANKS.find(r => r.key === k);
   const roleOf = m => (m.axis || []).slice(0, 2); // 役割は最大2つ（主→副）
-  const isOpenable = m => !m.pending;
+  // C・D・評価外は詳細を作らない（一覧の一言で完結）。B は簡易版の詳細、B+ 以上はフルの詳細
+  const NO_DETAIL = ['C', 'D', 'X'];
+  const isOpenable = m => !m.pending && !NO_DETAIL.includes(m.rank);
   const openable = MODELS.filter(isOpenable);
 
   // 品番：ランク内の通し番号
@@ -440,22 +442,22 @@
 
       ${tempoHtml(m)}
 
-      <section class="dsec likes">
-        <div><h3 class="label">好きなところ</h3><ol class="nlist nlist--good">${(m.good || []).map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol></div>
-        <div><h3 class="label">気になるところ</h3><ol class="nlist nlist--bad">${(m.bad || []).map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol>
-        ${m.fit ? `<p class="fit"><b>装着感</b>${esc(m.fit)}</p>` : ''}</div>
-      </section>
+      ${(m.good || []).length || (m.bad || []).length || m.fit ? `<section class="dsec likes">
+        ${(m.good || []).length ? `<div><h3 class="label">好きなところ</h3><ol class="nlist nlist--good">${m.good.map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol></div>` : ''}
+        ${(m.bad || []).length || m.fit ? `<div>${(m.bad || []).length ? `<h3 class="label">気になるところ</h3><ol class="nlist nlist--bad">${m.bad.map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ol>` : ''}
+        ${m.fit ? `<p class="fit"><b>装着感</b>${esc(m.fit)}</p>` : ''}</div>` : ''}
+      </section>` : ''}
 
       ${m.verdict ? `<section class="verdict"><h3 class="label">ひとことで言うと</h3><p><span>${verdictHtml(m.verdict)}</span></p></section>` : ''}
 
-      <div class="dlg__lists">
+      ${songs || (m.related || []).length || m.setup || (m.log || []).length ? `<div class="dlg__lists">
         ${songs ? `<div><h3 class="label">これで聴いてほしい</h3><ol class="playlist" style="margin-top:12px">${songs}</ol></div>` : ''}
         <div>
           ${(m.related || []).length ? `<h3 class="label">比べるなら</h3><div class="vs" style="margin-top:12px">${m.related.map(relatedHtml).join('')}</div>` : ''}
           ${m.setup ? `<h3 class="label" style="margin-top:28px">試聴環境</h3><p class="setup" style="margin-top:8px">${esc(m.setup)}</p>` : ''}
           ${(m.log || []).length ? `<details class="log"><summary>検証ログ（リファレンス曲での比較）</summary><div class="log__body">${m.log.map(([h, t]) => `<h4>${esc(h)}</h4><p>${esc(t)}</p>`).join('')}</div></details>` : ''}
         </div>
-      </div>
+      </div>` : ''}
 
       <div class="dlg__foot">
         <button type="button" class="outline-btn" style="width:100%" data-share><svg aria-hidden="true" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v10M5 6l4-4 4 4M3 10v6h12v-6"/></svg>この機種をシェア</button>
