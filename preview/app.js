@@ -441,7 +441,7 @@
         </div>
       </section>
 
-      ${m.tone ? `<section class="dsec"><h3 class="label">音の印象</h3><div class="tone">${TONE.map(([k, h, c, sub]) => `<div><h3 style="--c:var(--${c})"><span class="tone__tag">${h}<span class="tone__sub">${sub}</span></span></h3>${toneBody(m.tone[k])}</div>`).join('')}</div></section>` : ''}
+      ${m.tone ? `<section class="dsec"><h3 class="label">音の印象</h3><div class="tone">${TONE.map(([k, h, c, sub]) => `<div style="--c:var(--${c})"><h3><span class="tone__tag">${h}<span class="tone__sub">${sub}</span></span></h3>${toneBody(m.tone[k])}</div>`).join('')}</div></section>` : ''}
 
       ${tempoHtml(m)}
 
