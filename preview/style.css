@@ -270,7 +270,8 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .dsec{padding:36px 0 40px;border-top:var(--line)}
 .tone{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .tone > div{border:var(--line)}
-.tone h3{padding:4px 16px;border-bottom:var(--line);font-weight:900;font-size:16px;color:#141414}
+.tone h3{padding:6px 16px;border-bottom:var(--line);font-weight:900;font-size:16px;line-height:1.35;color:#141414}
+.tone__sub{display:block;font-weight:500;font-size:12px;opacity:.85}
 .tone p{padding:12px 16px 16px;font-size:14px}
 .tone__kw{list-style:none;margin:0;padding:12px 16px 16px;display:flex;flex-wrap:wrap;gap:4px 0;font-weight:700;font-size:15px;line-height:1.6}
 .tone__kw li{white-space:nowrap}

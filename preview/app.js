@@ -22,7 +22,7 @@
   };
   const ROLE_ORDER = ['power', 'atmosphere', 'edge'];
   const HERO = [['doscinco', 'power'], ['cincotres', 'edge'], ['luna', 'atmosphere'], ['estrella', 'none']];
-  const TONE = [['low', 'リズム隊', 'power'], ['mid', 'ギター・ヴォーカル・シンセ', 'none'], ['stage', '空間', 'edge']];
+  const TONE = [['low', 'リズム隊', 'power', 'ドラム・ベース'], ['mid', '上モノ', 'none', 'ギター・ヴォーカル・シンセ'], ['stage', '空間', 'edge', '定位・広さ・残響']];
   const SONG_COLORS = ['power', 'edge', 'none', 'atmosphere'];
   const MAKER_TOP = 8;
 
@@ -435,7 +435,7 @@
         </div>
       </section>
 
-      ${m.tone ? `<section class="dsec"><h3 class="label">音の印象</h3><div class="tone">${TONE.map(([k, h, c]) => `<div><h3 style="background:var(--${c})">${h}</h3>${toneBody(m.tone[k])}</div>`).join('')}</div></section>` : ''}
+      ${m.tone ? `<section class="dsec"><h3 class="label">音の印象</h3><div class="tone">${TONE.map(([k, h, c, sub]) => `<div><h3 style="background:var(--${c})">${h}<span class="tone__sub">${sub}</span></h3>${toneBody(m.tone[k])}</div>`).join('')}</div></section>` : ''}
 
       ${tempoHtml(m)}
 
