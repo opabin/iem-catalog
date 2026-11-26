@@ -272,6 +272,9 @@ a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name
 .tone > div{border:var(--line)}
 .tone h3{padding:4px 16px;border-bottom:var(--line);font-weight:900;font-size:16px;color:#141414}
 .tone p{padding:12px 16px 16px;font-size:14px}
+.tone__kw{list-style:none;margin:0;padding:12px 16px 16px;display:flex;flex-wrap:wrap;gap:4px 0;font-weight:700;font-size:15px;line-height:1.6}
+.tone__kw li{white-space:nowrap}
+.tone__kw li:not(:last-child)::after{content:'／';margin:0 .35em;color:var(--sub);font-weight:400}
 .tempo{max-width:560px}
 .tempo__bar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .tempo__cell{position:relative;height:28px;border:var(--line);background:var(--bg)}

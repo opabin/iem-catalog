@@ -22,7 +22,7 @@
   };
   const ROLE_ORDER = ['power', 'atmosphere', 'edge'];
   const HERO = [['doscinco', 'power'], ['cincotres', 'edge'], ['luna', 'atmosphere'], ['estrella', 'none']];
-  const TONE = [['low', '低域', 'power'], ['mid', '中高域', 'none'], ['stage', '音場', 'edge']];
+  const TONE = [['low', 'リズム隊', 'power'], ['mid', 'ギター・ボーカル', 'none'], ['stage', '空間', 'edge']];
   const SONG_COLORS = ['power', 'edge', 'none', 'atmosphere'];
   const MAKER_TOP = 8;
 
@@ -364,6 +364,10 @@
     // **語** を強調（色の影）として扱う
     return esc(v).replace(/\*\*(.+?)\*\*/g, '<em>$1</em>');
   }
+  // 音の印象：キーワードの配列なら並べて、文字列なら文章で出す
+  const toneBody = v => Array.isArray(v)
+    ? `<ul class="tone__kw">${v.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`
+    : `<p>${esc(v || '')}</p>`;
   // 合う曲の速さ（1=遅い〜5=速い）。range=[合う範囲の端, 端]、best=いちばん合う段階（2つの山があるときは [2,4] のように配列）
   function tempoHtml(m) {
     const t = m.tempo;
@@ -431,7 +435,7 @@
         </div>
       </section>
 
-      ${m.tone ? `<section class="dsec"><h3 class="label">音の印象</h3><div class="tone">${TONE.map(([k, h, c]) => `<div><h3 style="background:var(--${c})">${h}</h3><p>${esc(m.tone[k])}</p></div>`).join('')}</div></section>` : ''}
+      ${m.tone ? `<section class="dsec"><h3 class="label">音の印象</h3><div class="tone">${TONE.map(([k, h, c]) => `<div><h3 style="background:var(--${c})">${h}</h3>${toneBody(m.tone[k])}</div>`).join('')}</div></section>` : ''}
 
       ${tempoHtml(m)}
 
