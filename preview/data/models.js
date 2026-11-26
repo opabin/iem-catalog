@@ -446,4 +446,3 @@ const MODELS = [
   },
 ];
 
-const ORDER = ["cano-cristales", "lucifer", "martilo", "doscinco", "arcadia", "cincotres", "gabriel", "luna", "estrella", "hydro", "himalaya", "canon", "odyssey", "bravery-rb-ed", "halcyon", "wuzetian-legend", "canon-pro", "shell", "castor-bass", "vibe-x", "wan-er-s-g-2-red-lion", "arete", "nuo", "rumba", "rinko", "conch-v12", "athena", "yaksha", "night-elf", "neko", "castor-pro-bass", "vader-balance", "vader-pro-balance", "decet", "zstx", "prx", "am16-bass", "kunten", "duonic", "orca", "vivian", "plutus-beast", "xue-tao-ae-101", "wan-er-s-g-2", "edx-pro", "yuxuanji", "s08", "aurora-ultra"];

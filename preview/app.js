@@ -27,7 +27,11 @@
   const MAKER_TOP = 8;
 
   // ---------- データ整形 ----------
-  MODELS.sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
+  // 同じランクの中に順位は付けない。公開済み → 準備中、主の役割（圧 → 切 → 響 → 未設定）、機種名の順で自動で並べる
+  const SORT_ROLE = ['power', 'edge', 'atmosphere'];
+  const roleRank = m => { const i = SORT_ROLE.indexOf((m.axis || [])[0]); return i < 0 ? SORT_ROLE.length : i; };
+  MODELS.sort((a, b) => (a.pending ? 1 : 0) - (b.pending ? 1 : 0) || roleRank(a) - roleRank(b)
+    || a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
   const byId = Object.fromEntries(MODELS.map(m => [m.id, m]));
   const rankOf = k => RANKS.find(r => r.key === k);
   const roleOf = m => (m.axis || []).slice(0, 2); // 役割は最大2つ（主→副）
