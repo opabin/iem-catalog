@@ -28,7 +28,7 @@ const MODELS = [
       ['Mastodon - Oblivion','https://youtu.be/amagrxXDBdk'],
       ['Within Temptation - Stand My Ground','https://youtu.be/98xh5Hb9QAM'],
     ],
-    setup:'SoundsGood Livyatan / Velvet Widevore / M5 Ultra',
+    setup:'SoundsGood Livyatan / Velvet Wide Bore / M5 Ultra',
     related:[
       ['martilo','厚く包み込むDoscinco、重さと汎用のMartilo'],
       ['cano-cristales','厚く包み込むDoscinco、暴力的なアタックのCano'],
@@ -62,7 +62,7 @@ const MODELS = [
       ['Prong - Controller','https://youtu.be/7Fc3GC30b64'],
       ['Origin - The Aftermath','https://youtu.be/-sQw3J7Pu2Y'],
     ],
-    setup:'SoundsGood Livyatan / Velvet Widevore / M5 Ultra',
+    setup:'SoundsGood Livyatan / Velvet Wide Bore / M5 Ultra',
     related:[
       ['doscinco','包み込む力のDoscinco、切り分ける技のCincotres'],
       ['estrella','華やかさと見通しのEstrella、冷たく精密なCincotres'],
@@ -70,7 +70,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'luna', brand:'ZiiGaat', name:'Luna', rank:'A', axis:['atmosphere'], ev:'listened', photoPos:'47% 10%', photoZoom:1.25,
+    id:'luna', tempo:{ range:[2,4], best:3 }, brand:'ZiiGaat', name:'Luna', rank:'A', axis:['atmosphere'], ev:'listened', photoPos:'47% 10%', photoZoom:1.25,
     drivers:'6BA', spec:'6BA / 26Ω / 103dB',
     catch:'森の散策で見つけた陽だまり',
     lead:'ZiiGaat唯一のフルBA機。食わず嫌いは勿体なかった。',
@@ -94,7 +94,7 @@ const MODELS = [
       ['Pain Of Salvation - Dryad of the Woods','https://youtu.be/7GWjDt2r_8E'],
       ['Yes - Siberian Khatru','https://youtu.be/fM6Vi3fP-vs'],
     ],
-    setup:'NiceHCK 5ASakura / Velvet Widevore / M5 Ultra',
+    setup:'NiceHCK 5ASakura / Velvet Wide Bore / M5 Ultra',
     related:[
       ['gabriel','温かみと残響のLuna、元気で立体的なGabriel'],
     ],
@@ -122,7 +122,7 @@ const MODELS = [
     songs:[
       ['Earthists - HYPERHELL','',true], // URL未確認
     ],
-    setup:'SoundsGood Blhwt / Velvet Widevore / M5 Ultra',
+    setup:'SoundsGood Blhwt / Velvet Wide Bore / M5 Ultra',
     related:[
       ['cincotres','華やかさと見通しのEstrella、冷たく精密なCincotres'],
       ['lucifer','華やかさと見通しのEstrella、熱さと厚さのLucifer'],
@@ -149,7 +149,7 @@ const MODELS = [
       stage:['静から動に広がる音場', 'Arcadiaを圧倒する分離'],
     },
     songs:[],
-    setup:'Yongse Sakurple / Velvet Widevore / M5 Ultra',
+    setup:'Yongse Sakurple / Velvet Wide Bore / M5 Ultra',
     related:[
       ['arcadia','分離と音場のOdyssey、狭く重苦しいArcadia'],
     ],
@@ -402,7 +402,7 @@ const MODELS = [
       ['Eyehategod - Blank','https://youtu.be/SqSKTUJvFIE'],
       ['Sunn O))) - Aghartha','https://youtu.be/T5P7bo5hKgQ'],
     ],
-    setup:'SoundsGood Samael / Velvet Widevore',
+    setup:'SoundsGood Samael / Velvet Wide Bore',
     related:[
       ['martilo','狭く重苦しいArcadia、重さと汎用のMartilo'],
       ['doscinco','狭く重苦しいArcadia、厚く包み込むDoscinco'],
