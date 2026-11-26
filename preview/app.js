@@ -67,7 +67,8 @@
       style = ` style="object-position:${o};${zoom}"`;
     }
     const load = opts.eager ? ' fetchpriority="high"' : ' loading="lazy"';
-    const lift = p.lum < 0.15 ? ' class="lift-strong"' : p.lum < 0.3 ? ' class="lift-soft"' : '';
+    // 暗い写真の補正は一覧（card）だけ。詳細（full）は拡大表示と明るさを揃えるため元のまま
+    const lift = kind !== 'card' ? '' : p.lum < 0.15 ? ' class="lift-strong"' : p.lum < 0.3 ? ' class="lift-soft"' : '';
     return `<div class="ph"${arStyle}><img src="${src}" srcset="${srcset}" sizes="${opts.sizes || '(max-width:720px) 50vw, 360px'}" alt="${esc(m.brand + ' ' + m.name)}"${lift}${load} decoding="async"${style}></div>`;
   }
   function matHtml(m, kind, opts = {}) {
