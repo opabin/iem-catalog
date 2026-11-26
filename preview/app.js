@@ -22,7 +22,7 @@
   };
   const ROLE_ORDER = ['power', 'atmosphere', 'edge'];
   const HERO = [['doscinco', 'power'], ['cincotres', 'edge'], ['luna', 'atmosphere'], ['estrella', 'none']];
-  const TONE = [['low', 'リズム隊', 'power'], ['mid', 'ギター・ボーカル', 'none'], ['stage', '空間', 'edge']];
+  const TONE = [['low', 'リズム隊', 'power'], ['mid', 'ギター・ヴォーカル・シンセ', 'none'], ['stage', '空間', 'edge']];
   const SONG_COLORS = ['power', 'edge', 'none', 'atmosphere'];
   const MAKER_TOP = 8;
 
