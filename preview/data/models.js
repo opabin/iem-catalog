@@ -290,7 +290,7 @@ const MODELS = [
     },
     songs:[
       ['Anaal Nathrakh - In the Constellation of the Black Widow','https://youtu.be/eqx_IPPM_YE',true],
-      ['The Berzerker - Dissimulate','https://youtu.be/CvpkMUkOcho'],
+      ['Crown Magnetar - The Level Beneath','https://youtu.be/dPg5MvQcXbA'],
       ['Brand of Sacrifice - Dynasty','https://youtu.be/YeAJQtmrJ-s'],
       ['Sanguisugabogg - Abhorrent Contraception','https://youtu.be/moaTy4vQ2BY'],
     ],
