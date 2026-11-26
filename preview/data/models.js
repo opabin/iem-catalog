@@ -120,7 +120,8 @@ const MODELS = [
       stage:['崩れない分離', '解像感はCincotres以上'],
     },
     songs:[
-      ['Earthists - HYPERHELL','',true], // URL未確認
+      ['Earthists - HYPERHELL','https://youtu.be/KWwGSCjXQy4',true],
+      ['Darko US - Insects','https://youtu.be/J3xJ9cbOF_Y'],
     ],
     setup:'SoundsGood Blhwt / Velvet Wide Bore / M5 Ultra',
     related:[
