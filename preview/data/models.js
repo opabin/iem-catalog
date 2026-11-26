@@ -133,7 +133,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'odyssey', brand:'ZiiGaat', name:'Odyssey', rank:'BP', axis:['atmosphere','edge'], ev:'listened', photoPos:'42% 12%', photoZoom:1.25,
+    id:'odyssey', brand:'ZiiGaat', name:'Odyssey', rank:'B', axis:['atmosphere','edge'], ev:'listened', photoPos:'42% 12%', photoZoom:1.25,
     drivers:'1DD+3BA', spec:'1DD+3BA / 18Ω / 104dB',
     catch:'分離と音場で魅せる万能選手', // 仮
     lead:'Arcadiaの姉妹機。ローで押すArcadiaに対して、こちらは分離と音場で聴かせる万能型。',
@@ -446,4 +446,4 @@ const MODELS = [
   },
 ];
 
-const ORDER = ["cano-cristales", "lucifer", "martilo", "doscinco", "arcadia", "cincotres", "gabriel", "luna", "estrella", "odyssey", "hydro", "himalaya", "canon", "bravery-rb-ed", "halcyon", "wuzetian-legend", "canon-pro", "shell", "castor-bass", "vibe-x", "wan-er-s-g-2-red-lion", "arete", "nuo", "rumba", "rinko", "conch-v12", "athena", "yaksha", "night-elf", "neko", "castor-pro-bass", "vader-balance", "vader-pro-balance", "decet", "zstx", "prx", "am16-bass", "kunten", "duonic", "orca", "vivian", "plutus-beast", "xue-tao-ae-101", "wan-er-s-g-2", "edx-pro", "yuxuanji", "s08", "aurora-ultra"];
+const ORDER = ["cano-cristales", "lucifer", "martilo", "doscinco", "arcadia", "cincotres", "gabriel", "luna", "estrella", "hydro", "himalaya", "canon", "odyssey", "bravery-rb-ed", "halcyon", "wuzetian-legend", "canon-pro", "shell", "castor-bass", "vibe-x", "wan-er-s-g-2-red-lion", "arete", "nuo", "rumba", "rinko", "conch-v12", "athena", "yaksha", "night-elf", "neko", "castor-pro-bass", "vader-balance", "vader-pro-balance", "decet", "zstx", "prx", "am16-bass", "kunten", "duonic", "orca", "vivian", "plutus-beast", "xue-tao-ae-101", "wan-er-s-g-2", "edx-pro", "yuxuanji", "s08", "aurora-ultra"];
