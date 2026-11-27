@@ -405,6 +405,13 @@
     const list = navList(m), i = list.indexOf(m);
     return list[(i + dir + list.length) % list.length];
   }
+  // 前後の機種へのリンク。番号やランクは出さず、行き先の役割を色（影と札）で伝える
+  function pagerLink(t, dir) {
+    const [main] = roleOf(t);
+    const label = dir === 'prev' ? '← 前' : '次 →';
+    const chips = roleOf(t).length ? `<span class="p-roles">${roleChips(t)}</span>` : '';
+    return `<a href="#${t.id}" data-goto="${t.id}" class="${dir}" style="--rc:var(--${main || 'ink'})"><span class="p-label">${label}${chips}</span><b>${nameHtml(t)}</b></a>`;
+  }
   function detailHtml(m) {
     const r = rankOf(m.rank), n = numbering[m.id];
     const [main] = roleOf(m);
@@ -420,7 +427,6 @@
     }).join('');
     return `
       <div class="dlg__bar">
-        <span>${n.no} ／ ${n.total}機種中</span>
         <div class="dlg__actions">
           <button type="button" class="dlg__share" data-share><svg aria-hidden="true" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v10M5 6l4-4 4 4M3 10v6h12v-6"/></svg><span class="lbl">リンクをコピー</span></button>
           <button type="button" class="dlg__close" data-close-modal><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 2l10 10M12 2L2 12"/></svg><span class="lbl">閉じる</span><span class="lbl-sp">一覧へ</span></button>
@@ -466,8 +472,8 @@
       <div class="dlg__foot">
         <button type="button" class="outline-btn" style="width:100%" data-share><svg aria-hidden="true" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v10M5 6l4-4 4 4M3 10v6h12v-6"/></svg>この機種をシェア</button>
         <nav class="pager" aria-label="前後の機種">
-          <a href="#${prev.id}" data-goto="${prev.id}"><span class="p-label">← 前　${numbering[prev.id].no}</span><b>${nameHtml(prev)}</b></a>
-          <a href="#${next.id}" data-goto="${next.id}" class="next"><span class="p-label">次　${numbering[next.id].no} →</span><b>${nameHtml(next)}</b></a>
+          ${pagerLink(prev, 'prev')}
+          ${pagerLink(next, 'next')}
         </nav>
         <p class="swipe-hint">左右にスワイプしても移動できます</p>
       </div>`;
