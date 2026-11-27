@@ -384,7 +384,7 @@ const MODELS = [
     id:'arcadia', tempo:{ range:[1,3], best:1 }, brand:'ZiiGaat', name:'Arcadia', rank:'A', axis:['power'], ev:'listened', photoPos:'55% 60%', photoZoom:1.3,
     photoDim:0.96, // 明るさのギャップを活かすため補正は最低限
     drivers:'1DD+2BA', spec:'1DD+2BA / 12Ω / 106dB',
-    catch:'圧倒的低音の量感による重圧感',
+    catch:'重く押し潰す底無し沼',
     lead:'派手なルックスで一見パリピ系かと思いきや、ローの量感で重く陰鬱にどっぷり沈めてくる子。',
     genre:'ドゥーム・スラッジ・デプレブラック・ドローン',
     good:['引きずるような鈍重リフ、塗りつぶす圧殺リフはお手の物',
