@@ -275,7 +275,7 @@ const MODELS = [
   {
     id:'cano-cristales', tempo:{ range:[2,5], best:[2,4] }, brand:'HiSenior', name:'Cano Cristales', rank:'S', axis:['power'], ev:'listened', photoPos:'35% 55%', photoZoom:1.0,
     drivers:'2DD+8BA', spec:'2DD+8BA / 15Ω / 113dB',
-    catch:'極彩色の鉄砲水',
+    catch:'荒ぶる極彩色の鉄砲水',
     lead:'実在する鮮やかな川がモチーフの本機。見た目は幻想的だけど、実は極彩色な水が鉄砲水の如く押し寄せるウルトラバイオレンスな子。',
     genre:'スラム・デスコア・インダストリアル',
     good:['スラム感も量感も弩級なのに、もたつかないキックの衝撃力。このアタック感は他じゃちょっと味わえないかも',
