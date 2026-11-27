@@ -103,7 +103,7 @@ const MODELS = [
   {
     id:'estrella', brand:'ZiiGaat', name:'Estrella', rank:'BP', axis:['edge'], ev:'listened', photoPos:'50% 8%', photoZoom:1.25,
     drivers:'2DD+4BA', spec:'2DD+4BA / 7Ω / 108dB',
-    catch:'派手なV字',
+    catch:'夜空に輝くミラーボール',
     lead:'ZiiGaatを集めるきっかけになった一台。技のCincotres、力のDoscincoに続くV3。',
     genre:'Djent・メタルコア・シンセ系デスコア',
     good:['電子音優位で展開が多く、音数も多い曲と噛み合う（Earthistsとは好相性）',
