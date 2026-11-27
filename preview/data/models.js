@@ -312,7 +312,7 @@ const MODELS = [
     id:'lucifer', tempo:{ range:[3,5], best:4 }, brand:'ARTPICAL', name:'Lucifer', rank:'S', axis:['power','edge'], ev:'listened',
     photoPos:'55% 55%',
     drivers:'1DD', spec:'1DD / 10mm チタン振動板 / 64Ω',
-    catch:'激情増幅装置',
+    catch:'悪魔の激情増幅装置',
     lead:'エッジーでマッシブでエモーショナルな情熱の悪魔。君、実はベリアルって名前だったりしない？',
     genre:'メロデス・メタルコア・デスラッシュ',
     good:['まず耳を引くのはギター。エッジが立って分厚く、なのに細部まで潰れてないエネルギッシュな音',
