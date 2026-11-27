@@ -6,7 +6,7 @@ const MODELS = [
   {
     id:'doscinco', tempo:{ range:[1,3], best:2 }, brand:'ZiiGaat', name:'Doscinco', rank:'A', axis:['power'], ev:'listened', photoPos:'62% 45%', photoZoom:1.6,
     drivers:'2DD+3BA', spec:'2DD+3BA',
-    catch:'有機的に包み込む分厚い音の壁',
+    catch:'分厚く包み込む音の壁',
     lead:'ZiiGaatが放つチューニング違いな双子の片割れ、力のDoscinco。',
     genre:'ポストメタル・グルーヴメタル・シンフォゴシック',
     good:['キックからベースまで分厚く積み上がる量感。重厚なリフがよく映える',
