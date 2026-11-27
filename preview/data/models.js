@@ -347,7 +347,7 @@ const MODELS = [
     id:'martilo', tempo:{ range:[1,3], best:2 }, brand:'Punch Audio', name:'Martilo', rank:'S', axis:['power','atmosphere'], ev:'listened',
     photoPos:'56% 55%', photoZoom:1.6,
     drivers:'2DD+2BA+1Pla', spec:'2DD+2BA+1Planar / 9Ω / 100dB',
-    catch:'職人による重い一撃',
+    catch:'熟練職人による重撃',
     lead:'スペイン語でハンマーを意味するらしい本機。その名に恥じぬ重いローエンドと、職人気質で精密な中高域が魅力。',
     genre:'オルタナメタル・ゴシック・ニューメタル・グルーヴメタル',
     good:['まずはサブベース。他を凌駕する深さと重さで、キックの胴鳴りが本当に良き',
