@@ -181,7 +181,7 @@ const MODELS = [
       ['Megadeth - Peace Sells','https://youtu.be/rdEupVsL07E'],
       ['Voivod - Killing Technology','https://youtu.be/bAQj4r0fKPM'],
     ],
-    setup:'TODO / TODO / M5 Ultra',
+    setup:'SoundsGood Doors / Velvet / M5 Ultra（スイッチ：1011）',
     related:[],
     log:[],
   },
