@@ -21,7 +21,7 @@
     atmosphere: { label: '響', desc: '残響・空間' }
   };
   const ROLE_ORDER = ['power', 'edge', 'atmosphere']; // 圧 → 切 → 響（一覧の並び・トップの色見本と同じ）
-  const HERO = [['doscinco', 'power'], ['cincotres', 'edge'], ['luna', 'atmosphere'], ['estrella', 'none']];
+  const HERO = ['power', 'edge', 'atmosphere', 'none'];
   const TONE = [['low', 'リズム隊', 'power', 'ドラム・ベース'], ['mid', '上モノ', 'none', 'ギター・ヴォーカル・シンセ'], ['stage', '空間', 'edge', '定位・広さ・残響']];
   const SONG_COLORS = ['power', 'edge', 'none', 'atmosphere'];
   const MAKER_TOP = 8;
@@ -39,16 +39,6 @@
   const NO_DETAIL = ['C', 'D', 'X'];
   // プレビュー（アーティファクト）でだけ、B+ 以上の下書き（pending）も詳細を開ける。公開用の index.html では開かない
   const SHOW_DRAFTS = !!window.SHOW_DRAFTS;
-  // プレビューだけ：トップの板を「写真／文字」で切り替えて見比べるボタン
-  function previewHeroToggle() {
-    if (!SHOW_DRAFTS) return;
-    heroStyle = 'type';
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'preview-toggle';
-    const label = () => { b.textContent = heroStyle === 'type' ? 'トップの板：文字（写真に切替）' : 'トップの板：写真（文字に切替）'; };
-    b.addEventListener('click', () => { heroStyle = heroStyle === 'type' ? 'photo' : 'type'; renderHeroPanels(); label(); });
-    label(); document.body.appendChild(b);
-  }
   const isDraftOpen = m => SHOW_DRAFTS && m.pending && ['S', 'A', 'BP'].includes(m.rank);
   const isOpenable = m => (!m.pending || isDraftOpen(m)) && !NO_DETAIL.includes(m.rank);
   const openable = MODELS.filter(isOpenable);
@@ -164,18 +154,12 @@
   function renderHero() {
     renderHeroPanels();
   }
-  // トップの4枚の板（役割の凡例）。heroStyle が 'type' なら写真を使わず、色の板に大きな文字を刷る
-  let heroStyle = 'photo';
+  // トップの4枚の板（役割の凡例）。写真は使わず、役割の色の板に大きな文字を刷る
   function renderHeroPanels() {
-    $('#heroPanels').innerHTML = HERO.map(([id, role]) => {
-      const m = byId[id];
-      const cap = role === 'none' ? '<b>—</b>未分類' : `<b>${ROLES[role].label}</b>${ROLES[role].desc}`;
-      if (heroStyle === 'type') {
-        const glyph = role === 'none' ? '—' : ROLES[role].label;
-        return `<figure class="panel"><div class="panel__type" style="--c:var(--${role})"><span class="panel__glyph" aria-hidden="true">${glyph}</span></div><figcaption>${cap}</figcaption></figure>`;
-      }
-      if (!m || !PHOTOS[id]) return '';
-      return `<figure class="panel"><div class="panel__mat" style="--c:var(--${role});--d:var(--${role}-d)"><img src="img/${id}-card-${PHOTOS[id].card[0]}.webp" alt="" loading="eager" decoding="async" style="object-position:${m.photoPos || '50% 50%'}"></div><figcaption>${cap}</figcaption></figure>`;
+    $('#heroPanels').innerHTML = HERO.map(role => {
+      const glyph = role === 'none' ? '—' : ROLES[role].label;
+      const cap = role === 'none' ? '未分類' : ROLES[role].desc;
+      return `<figure class="panel"><div class="panel__type" style="--c:var(--${role})"><span class="panel__glyph" aria-hidden="true">${glyph}</span></div><figcaption>${cap}</figcaption></figure>`;
     }).join('');
   }
 
@@ -711,7 +695,6 @@
   // ---------- 起動 ----------
   $('#countOwned').textContent = MODELS.length;
   $('#countWish').textContent = WISHLIST.length;
-  previewHeroToggle();
   renderHero();
   renderTiers();
   renderWish();
