@@ -181,7 +181,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'himalaya', tempo:{ range:[2,4], best:3 }, pending:true, brand:'NICEHCK', name:'Himalaya', rank:'BP', axis:['edge'], ev:'listened', photoPos:'50% 12%', photoZoom:1.25,
+    id:'himalaya', tempo:{ range:[2,4], best:3 }, brand:'NICEHCK', name:'Himalaya', rank:'BP', axis:['edge'], ev:'listened', photoPos:'50% 12%', photoZoom:1.25,
     drivers:'1DD', spec:'1DD / 22Ω / 110dB',
     catch:'白銀に輝く雄々しき山脈',
     lead:'NICEHCK山脈シリーズ第一弾。山の如くどっしりとしたベースに、見通しの良い音場が魅力。ノズルは別売りのステンレスを使用。',
