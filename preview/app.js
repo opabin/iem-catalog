@@ -17,17 +17,17 @@
   ];
   const ROLES = {
     power:      { label: '圧', desc: '圧力・量感' },
-    edge:       { label: '切', desc: '速さ・輪郭' },
+    edge:       { label: '鋭', desc: '速さ・輪郭' },
     atmosphere: { label: '響', desc: '残響・空間' }
   };
-  const ROLE_ORDER = ['power', 'edge', 'atmosphere']; // 圧 → 切 → 響（一覧の並び・トップの色見本と同じ）
+  const ROLE_ORDER = ['power', 'edge', 'atmosphere']; // 圧 → 鋭 → 響（一覧の並び・トップの色見本と同じ）
   const HERO = ['power', 'edge', 'atmosphere', 'none'];
   const TONE = [['low', 'リズム隊', 'power', 'ドラム・ベース'], ['mid', '上モノ', 'none', 'ギター・ヴォーカル・シンセ'], ['stage', '空間', 'edge', '定位・広さ・残響']];
   const SONG_COLORS = ['power', 'edge', 'none', 'atmosphere'];
   const MAKER_TOP = 8;
 
   // ---------- データ整形 ----------
-  // ランク順に並べたうえで、同じランクの中に順位は付けない。公開済み → 準備中、主の役割（圧 → 切 → 響 → 未設定）、機種名の順で自動で並べる
+  // ランク順に並べたうえで、同じランクの中に順位は付けない。公開済み → 準備中、主の役割（圧 → 鋭 → 響 → 未設定）、機種名の順で自動で並べる
   const roleRank = m => { const i = ROLE_ORDER.indexOf((m.axis || [])[0]); return i < 0 ? ROLE_ORDER.length : i; };
   const rankIdx = m => RANKS.findIndex(r => r.key === m.rank);
   MODELS.sort((a, b) => rankIdx(a) - rankIdx(b) || (a.pending ? 1 : 0) - (b.pending ? 1 : 0) || roleRank(a) - roleRank(b)
