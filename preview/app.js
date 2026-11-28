@@ -16,7 +16,7 @@
     { key: 'X',  label: '評価外', desc: '装着感が合わず、音を評価できない', view: 'mini' }
   ];
   const ROLES = {
-    power:      { label: '圧', desc: '圧・量感' },
+    power:      { label: '圧', desc: '圧力・量感' },
     edge:       { label: '切', desc: '速さ・輪郭' },
     atmosphere: { label: '響', desc: '残響・空間' }
   };
@@ -157,7 +157,7 @@
   // トップの4枚の板（役割の凡例）。写真は使わず、役割の色の板に大きな文字を刷る
   function renderHeroPanels() {
     $('#heroPanels').innerHTML = HERO.map(role => {
-      const glyph = role === 'none' ? '—' : ROLES[role].label;
+      const glyph = role === 'none' ? '未' : ROLES[role].label;
       const cap = role === 'none' ? '未分類' : ROLES[role].desc;
       return `<figure class="panel"><div class="panel__type" style="--c:var(--${role})"><span class="panel__glyph" aria-hidden="true">${glyph}</span></div><figcaption>${cap}</figcaption></figure>`;
     }).join('');
