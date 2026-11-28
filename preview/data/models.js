@@ -101,7 +101,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'estrella', tempo:{ range:[3,5], best:4 }, brand:'ZiiGaat', name:'Estrella', rank:'BP', axis:['edge'], ev:'listened', photoPos:'50% 8%', photoZoom:1.25,
+    id:'estrella', tempo:{ range:[3,5], best:4 }, brand:'ZiiGaat', name:'Estrella', rank:'BP', axis:['edge','power'], ev:'listened', photoPos:'50% 8%', photoZoom:1.25,
     drivers:'2DD+4BA', spec:'2DD+4BA / 7Ω / 108dB',
     catch:'夜空に輝くミラーボール',
     lead:'ZiiGaatを集めるきっかけになった一台。技のCincotres、力のDoscincoに続くV3。',
