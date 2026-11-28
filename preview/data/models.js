@@ -204,7 +204,7 @@ const MODELS = [
       ['Sodom - Agent Orange','https://youtu.be/CjP2HZ4-5ps'],
       ['Manowar - Warriors of the World United','https://youtu.be/16M6ZDbZRUg'],
     ],
-    setup:'ステンレスノズル / SoundsGood Ehecatl / M5 Ultra', // イヤピ未記載。要確認
+    setup:'SoundsGood Ehecatl / Velvet Wide Bore / M5 Ultra',
     related:[
       ['lucifer','熱さと刺激のLucifer、広さと力強さのHimalaya'],
       ['canon','広さと力強さのHimalaya、勢いと荒削りのCanon'],
