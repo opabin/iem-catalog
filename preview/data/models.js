@@ -198,7 +198,9 @@ const MODELS = [
       mid:['厚みと切れを両立したギター', '明瞭なヴォーカル', '広大なシンセ'],
       stage:['箱というよりホールのような音場', '1DDなのに良好な分離感'],
     },
-    songs:[],
+    songs:[
+      ['Nightwish - Ghost Love Score (Live)','https://youtu.be/JYjIlHWBAVo'],
+    ],
     setup:'ステンレスノズル / SoundsGood Ehecatl / M5 Ultra', // イヤピ未記載。要確認
     related:[
       ['lucifer','熱さと厚さのLucifer、広さとキレのHimalaya'],
