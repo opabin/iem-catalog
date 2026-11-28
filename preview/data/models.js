@@ -178,6 +178,7 @@ const MODELS = [
     songs:[
       ['Marduk - With Satan and Victorious Weapons','https://youtu.be/xoMwNR9U2i4'],
       ['Death - 1,000 Eyes','https://youtu.be/ViLWGP7cqbI'],
+      ['Megadeth - Peace Sells','https://youtu.be/rdEupVsL07E'],
     ],
     setup:'TODO / TODO / M5 Ultra',
     related:[],
