@@ -159,7 +159,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'hydro', pending:true, brand:'CCA', name:'Hydro', rank:'BP', axis:['power','edge'], ev:'listened', photoPos:'50% 12%', photoZoom:1.25,
+    id:'hydro', pending:true, tempo:{ range:[3,5], best:4 }, brand:'CCA', name:'Hydro', rank:'BP', axis:['power','edge'], ev:'listened', photoPos:'50% 12%', photoZoom:1.25,
     drivers:'2DD+8BA', spec:'2DD+8BA',
     catch:'ウェットなローと攻撃的なハイ',
     lead:'CCAの最高峰。2DD+8BAの10ドライバー機。',
