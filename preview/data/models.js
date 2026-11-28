@@ -200,6 +200,7 @@ const MODELS = [
     },
     songs:[
       ['Nightwish - Ghost Love Score (Live)','https://youtu.be/JYjIlHWBAVo'],
+      ['Dark Tranquillity - Atoma','https://youtu.be/C_voh9WFbsM'],
     ],
     setup:'ステンレスノズル / SoundsGood Ehecatl / M5 Ultra', // イヤピ未記載。要確認
     related:[
