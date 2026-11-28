@@ -179,6 +179,7 @@ const MODELS = [
       ['Marduk - With Satan and Victorious Weapons','https://youtu.be/xoMwNR9U2i4'],
       ['Death - 1,000 Eyes','https://youtu.be/ViLWGP7cqbI'],
       ['Megadeth - Peace Sells','https://youtu.be/rdEupVsL07E'],
+      ['Voivod - Killing Technology','https://youtu.be/bAQj4r0fKPM'],
     ],
     setup:'TODO / TODO / M5 Ultra',
     related:[],
