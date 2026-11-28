@@ -159,7 +159,7 @@ songs: [
 | Gabriel | 元気で立体的な | 元気で立体的なGabriel |
 | Estrella | 華やかさと見通しの | 華やかさと見通しのEstrella |
 | Odyssey | 分離と音場の | 分離と音場のOdyssey |
-| Himalaya | 広さとキレの | 広さとキレのHimalaya |
+| Himalaya | 広さと力強さの | 広さと力強さのHimalaya |
 | Canon | 勢いと荒削りの | 勢いと荒削りのCanon |
 
 ペア専用の言い方：

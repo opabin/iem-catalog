@@ -206,8 +206,8 @@ const MODELS = [
     ],
     setup:'ステンレスノズル / SoundsGood Ehecatl / M5 Ultra', // イヤピ未記載。要確認
     related:[
-      ['lucifer','熱さと厚さのLucifer、広さとキレのHimalaya'],
-      ['canon','広さとキレのHimalaya、勢いと荒削りのCanon'],
+      ['lucifer','熱さと厚さのLucifer、広さと力強さのHimalaya'],
+      ['canon','広さと力強さのHimalaya、勢いと荒削りのCanon'],
     ],
     log:[],
   },
@@ -241,7 +241,7 @@ const MODELS = [
     ],
     setup:'SoundsGood Anthracite / Radius Deep Mount Zone / M5 Ultra（スイッチ：101）',
     related:[
-      ['himalaya','広さとキレのHimalaya、勢いと荒削りのCanon'],
+      ['himalaya','広さと力強さのHimalaya、勢いと荒削りのCanon'],
     ],
     log:[],
   },
@@ -341,7 +341,7 @@ const MODELS = [
     setup:'TRKAPLST Ink / M5 Ultra（vol70で十分）',
     related:[
       ['cano-cristales','暴力的なアタックのCano、熱さと厚さのLucifer'],
-      ['himalaya','熱さと厚さのLucifer、広さとキレのHimalaya'],
+      ['himalaya','熱さと厚さのLucifer、広さと力強さのHimalaya'],
       ['estrella','華やかさと見通しのEstrella、熱さと厚さのLucifer'],
     ],
     log:[
