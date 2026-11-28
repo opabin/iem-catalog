@@ -199,7 +199,7 @@ const MODELS = [
       stage:['箱というよりホールのような音場', '1DDなのに良好な分離感'],
     },
     songs:[
-      ['Nightwish - Ghost Love Score (Live)','https://youtu.be/JYjIlHWBAVo'],
+      ['Nightwish - Ghost Love Score (Live)','https://youtu.be/JYjIlHWBAVo',true],
       ['Dark Tranquillity - Atoma','https://youtu.be/C_voh9WFbsM'],
       ['Sodom - Agent Orange','https://youtu.be/CjP2HZ4-5ps'],
     ],
