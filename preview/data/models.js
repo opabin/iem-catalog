@@ -159,7 +159,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'hydro', pending:true, brand:'CCA', name:'Hydro', rank:'BP', axis:['power'], ev:'listened', photoPos:'50% 12%', photoZoom:1.25,
+    id:'hydro', pending:true, brand:'CCA', name:'Hydro', rank:'BP', axis:['power','edge'], ev:'listened', photoPos:'50% 12%', photoZoom:1.25,
     drivers:'2DD+8BA', spec:'2DD+8BA',
     catch:'ウェットなローと攻撃的なハイ',
     lead:'CCAの最高峰。2DD+8BAの10ドライバー機。',
@@ -171,9 +171,9 @@ const MODELS = [
          'TODO'],
     verdict:'TODO',
     tone:{
-      low:'ウェットで厚みのあるロー。1011だと量感は減るけどタイトになる',
-      mid:'TODO（3・4はONで中高域の抜けを確保）',
-      stage:'TODO',
+      low:['厚みのあるミッドベース', 'ウェットなキック', '浮き立つ金物'],
+      mid:['分厚いギター', '一歩引いたヴォーカル'], // TODO 3つ目（シンセ or ギターの質感）
+      stage:['見通しの良い空間', '分離の良い定位', 'やや狭めでも立体的な音場'],
     },
     songs:[],
     setup:'TODO / TODO / M5 Ultra',
