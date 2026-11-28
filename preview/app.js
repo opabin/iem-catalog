@@ -39,6 +39,16 @@
   const NO_DETAIL = ['C', 'D', 'X'];
   // プレビュー（アーティファクト）でだけ、B+ 以上の下書き（pending）も詳細を開ける。公開用の index.html では開かない
   const SHOW_DRAFTS = !!window.SHOW_DRAFTS;
+  // プレビューだけ：トップの板を「写真／文字」で切り替えて見比べるボタン
+  function previewHeroToggle() {
+    if (!SHOW_DRAFTS) return;
+    heroStyle = 'type';
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'preview-toggle';
+    const label = () => { b.textContent = heroStyle === 'type' ? 'トップの板：文字（写真に切替）' : 'トップの板：写真（文字に切替）'; };
+    b.addEventListener('click', () => { heroStyle = heroStyle === 'type' ? 'photo' : 'type'; renderHeroPanels(); label(); });
+    label(); document.body.appendChild(b);
+  }
   const isDraftOpen = m => SHOW_DRAFTS && m.pending && ['S', 'A', 'BP'].includes(m.rank);
   const isOpenable = m => (!m.pending || isDraftOpen(m)) && !NO_DETAIL.includes(m.rank);
   const openable = MODELS.filter(isOpenable);
@@ -152,10 +162,19 @@
   }
 
   function renderHero() {
+    renderHeroPanels();
+  }
+  // トップの4枚の板（役割の凡例）。heroStyle が 'type' なら写真を使わず、色の板に大きな文字を刷る
+  let heroStyle = 'photo';
+  function renderHeroPanels() {
     $('#heroPanels').innerHTML = HERO.map(([id, role]) => {
       const m = byId[id];
-      if (!m || !PHOTOS[id]) return '';
       const cap = role === 'none' ? '<b>—</b>未分類' : `<b>${ROLES[role].label}</b>${ROLES[role].desc}`;
+      if (heroStyle === 'type') {
+        const glyph = role === 'none' ? '—' : ROLES[role].label;
+        return `<figure class="panel"><div class="panel__type" style="--c:var(--${role})"><span class="panel__glyph" aria-hidden="true">${glyph}</span></div><figcaption>${cap}</figcaption></figure>`;
+      }
+      if (!m || !PHOTOS[id]) return '';
       return `<figure class="panel"><div class="panel__mat" style="--c:var(--${role});--d:var(--${role}-d)"><img src="img/${id}-card-${PHOTOS[id].card[0]}.webp" alt="" loading="eager" decoding="async" style="object-position:${m.photoPos || '50% 50%'}"></div><figcaption>${cap}</figcaption></figure>`;
     }).join('');
   }
@@ -692,6 +711,7 @@
   // ---------- 起動 ----------
   $('#countOwned').textContent = MODELS.length;
   $('#countWish').textContent = WISHLIST.length;
+  previewHeroToggle();
   renderHero();
   renderTiers();
   renderWish();
