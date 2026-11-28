@@ -166,7 +166,7 @@ h3.label{margin-bottom:14px}
 .name .ini{color:var(--ini,var(--ink))}
 .catch{font-weight:900;line-height:1.55}
 .chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13px;color:var(--sub)}
-.namerow{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px}
+.namerow{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px 10px}
 .namerow .chips{gap:4px;font-size:12px}
 .genre{font-size:13px;line-height:1.7;color:var(--sub)}
 .rchip{display:inline-block;padding:0 7px;border:1.5px solid var(--ink);color:#141414;font-weight:700;line-height:1.7}
