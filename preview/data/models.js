@@ -176,7 +176,7 @@ const MODELS = [
       stage:['見通しの良い空間', '分離の良い定位', 'やや狭めでも立体的な音場'],
     },
     songs:[
-      ['Marduk - With Satan and Victorious Weapons','https://youtu.be/xoMwNR9U2i4'],
+      ['Marduk - With Satan and Victorious Weapons','https://youtu.be/xoMwNR9U2i4',true],
       ['Death - 1,000 Eyes','https://youtu.be/ViLWGP7cqbI'],
       ['Megadeth - Peace Sells','https://youtu.be/rdEupVsL07E'],
       ['Voivod - Killing Technology','https://youtu.be/bAQj4r0fKPM'],
