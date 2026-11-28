@@ -37,7 +37,10 @@
   const roleOf = m => (m.axis || []).slice(0, 2); // 役割は最大2つ（主→副）
   // C・D・評価外は詳細を作らない（一覧の一言で完結）。B は簡易版の詳細、B+ 以上はフルの詳細
   const NO_DETAIL = ['C', 'D', 'X'];
-  const isOpenable = m => !m.pending && !NO_DETAIL.includes(m.rank);
+  // プレビュー（アーティファクト）でだけ、B+ 以上の下書き（pending）も詳細を開ける。公開用の index.html では開かない
+  const SHOW_DRAFTS = !!window.SHOW_DRAFTS;
+  const isDraftOpen = m => SHOW_DRAFTS && m.pending && ['S', 'A', 'BP'].includes(m.rank);
+  const isOpenable = m => (!m.pending || isDraftOpen(m)) && !NO_DETAIL.includes(m.rank);
   const openable = MODELS.filter(isOpenable);
 
   // 品番：ランク内の通し番号
@@ -78,16 +81,17 @@
     return `<div class="ph"${arStyle}><img src="${src}" srcset="${srcset}" sizes="${opts.sizes || '(max-width:720px) 50vw, 360px'}" alt="${esc(m.brand + ' ' + m.name)}"${lift}${load} decoding="async"${style}></div>`;
   }
   function matHtml(m, kind, opts = {}) {
+    const pend = m.pending && kind !== 'full'; // 詳細（下書きプレビュー）では準備中の見た目にしない
     const [main, sub] = roleOf(m);
     const cls = ['mat'];
     if (opts.sm) cls.push('mat--sm');
-    if (opts.dots && !m.pending) cls.push('mat--dots');
-    if (sub && !m.pending) cls.push('has-sub');
+    if (opts.dots && !pend) cls.push('mat--dots');
+    if (sub && !pend) cls.push('has-sub');
     const vars = [];
-    if (main && !m.pending) vars.push(`--main-c:var(--${main})`);
-    else if (!m.pending) vars.push('--main-c:var(--none)');
+    if (main && !pend) vars.push(`--main-c:var(--${main})`);
+    else if (!pend) vars.push('--main-c:var(--none)');
     if (sub) vars.push(`--sub-c:var(--${sub})`);
-    const badge = m.pending ? '<span class="badge">準備中</span>' : '';
+    const badge = pend ? '<span class="badge">準備中</span>' : '';
     return `<div class="${cls.join(' ')}" style="${vars.join(';')}"><div class="mat__inner">${badge}${photoHtml(m, kind, opts)}</div></div>`;
   }
   const wrapLink = (m, cls, inner) => isOpenable(m)
@@ -427,6 +431,7 @@
     }).join('');
     return `
       <div class="dlg__bar">
+        ${m.pending ? '<span class="dlg__draft">下書き（プレビューのみ）</span>' : ''}
         <div class="dlg__actions">
           <button type="button" class="dlg__share" data-share><svg aria-hidden="true" width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v10M5 6l4-4 4 4M3 10v6h12v-6"/></svg><span class="lbl">リンクをコピー</span></button>
           <button type="button" class="dlg__close" data-close-modal><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 2l10 10M12 2L2 12"/></svg><span class="lbl">閉じる</span><span class="lbl-sp">一覧へ</span></button>
