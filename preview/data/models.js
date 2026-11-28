@@ -421,7 +421,7 @@ const MODELS = [
     log:[],
   },
   {
-    id:'gabriel', tempo:{ range:[3,5], best:4 }, brand:'ARTPICAL', name:'Gabriel', rank:'A', axis:['edge'], ev:'listened', photoPos:'50% 30%', photoZoom:1.45,
+    id:'gabriel', tempo:{ range:[3,5], best:4 }, brand:'ARTPICAL', name:'Gabriel', rank:'A', axis:['edge','atmosphere'], ev:'listened', photoPos:'50% 30%', photoZoom:1.45,
     drivers:'3MPD+2BA', spec:'3 Micro Planar + 2BA',
     catch:'意外とやんちゃな大天使',
     lead:'MPDとBAを組み合わせる機種は数あれど、MPD2機を低域にあててる個性的な子。',
