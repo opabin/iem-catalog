@@ -166,6 +166,9 @@ h3.label{margin-bottom:14px}
 .name .ini{color:var(--ini,var(--ink))}
 .catch{font-weight:900;line-height:1.55}
 .chips{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13px;color:var(--sub)}
+.namerow{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px}
+.namerow .chips{gap:4px;font-size:12px}
+.genre{font-size:13px;line-height:1.7;color:var(--sub)}
 .rchip{display:inline-block;padding:0 7px;border:1.5px solid var(--ink);color:#141414;font-weight:700;line-height:1.7}
 
 /* S：1列 横長写真＋文字 */
@@ -174,10 +177,11 @@ h3.label{margin-bottom:14px}
 .srow__link{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:40px;align-items:center;padding:24px 0;text-decoration:none}
 .srow .ph{--ar:16/9}
 .srow .meta{justify-content:flex-start;gap:16px}
-.srow .name{margin-top:4px;font-size:30px}
+.srow .namerow{margin-top:4px}
+.srow .name{font-size:30px}
 .srow .catch{margin-top:8px;font-size:22px}
 .srow__lead{margin-top:8px;max-width:560px;font-size:14px;line-height:1.75;color:var(--sub)}
-.srow .chips{margin-top:12px}
+.srow .genre{margin-top:12px}
 
 /* A / B+：カード */
 .cards{display:grid;gap:32px}
@@ -186,12 +190,15 @@ h3.label{margin-bottom:14px}
 .tier--A .ph{--ar:4/3}
 .card__link{display:block;text-decoration:none}
 .card .meta{margin-top:14px}
-.card .name{margin-top:4px;font-size:26px}
+.card .namerow{margin-top:4px}
+.card .name{font-size:26px}
 .card .catch{margin-top:10px;font-size:19px}
-.card .chips{margin-top:10px}
+.card .genre{margin-top:10px}
 .tier--BP .card .name{font-size:18px}
 .tier--BP .card .catch{font-size:14px;font-weight:700}
 .tier--BP .card .meta{font-size:11px}
+.tier--BP .namerow .chips{font-size:11px}
+.tier--BP .card .genre{font-size:12px}
 
 a.card__link:hover .name,a.srow__link:hover .name,a.lrow__link:hover .lrow__name{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
 
@@ -446,9 +453,10 @@ button.vs__item{cursor:pointer}
   .srow .meta span + span{display:none}
   .srow .name{margin-top:0;font-size:19px}
   .srow .catch{margin-top:4px;font-size:15px}
-  .srow .chips .genre{display:none}
   .srow__lead{margin-top:4px;font-size:12px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .srow .chips{margin-top:6px;font-size:11px}
+  .srow .genre{display:none}
+  .namerow .chips{font-size:11px}
+  .namerow .rchip{padding:0 5px;line-height:1.5}
 
   /* A：サムネイル＋文字の行 */
   .tier--A .cards{grid-template-columns:minmax(0,1fr);gap:0}
@@ -462,8 +470,7 @@ button.vs__item{cursor:pointer}
   .tier--A .card .meta span + span{display:none}
   .tier--A .card .name{font-size:19px}
   .tier--A .card .catch{margin-top:4px;font-size:15px}
-  .tier--A .card .chips{margin-top:6px;font-size:11px}
-  .tier--A .card .chips .genre{display:none}
+  .tier--A .card .genre{display:none}
 
   /* B+：小さめのサムネイル＋文字の行 */
   .tier--BP .cards{grid-template-columns:minmax(0,1fr);gap:0}
@@ -477,7 +484,7 @@ button.vs__item{cursor:pointer}
   .tier--BP .card .meta span + span{display:none}
   .tier--BP .card .name{font-size:16px}
   .tier--BP .card .catch{margin-top:2px;font-size:13px}
-  .tier--BP .card .chips{display:none}
+  .tier--BP .card .genre{display:none}
 
   .ledger-list{border:0;border-bottom:1px solid var(--rule)}
   .ledger-head{display:none}

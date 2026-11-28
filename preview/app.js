@@ -100,15 +100,18 @@
   const dataAttrs = m => `data-id="${m.id}" data-brand="${esc(m.brand)}" data-axis="${(m.axis || []).join(' ')}"`;
 
   // ---------- 一覧の描画 ----------
+  // 機種名の右に役割ラベル、ジャンルは独立した行にする（ラベルとジャンルの横並びで行がガタつかないように）
+  const nameRow = m => `<div class="namerow"><h3 class="name">${nameHtml(m)}</h3>${roleOf(m).length ? `<span class="chips">${roleChips(m)}</span>` : ''}</div>`;
+  const genreHtml = m => m.genre ? `<p class="genre">${esc(m.genre)}</p>` : '';
   function srowHtml(m) {
     const n = numbering[m.id];
     const inner = `${matHtml(m, 'card', { dots: true, sizes: '(max-width:720px) 132px, 400px' })}
       <div>
         <div class="meta"><span>${esc(m.brand)}</span><span>${esc(m.drivers)}</span></div>
-        <h3 class="name">${nameHtml(m)}</h3>
+        ${nameRow(m)}
         <p class="catch">${esc(m.catch)}</p>
         ${m.lead ? `<p class="srow__lead">${esc(m.lead)}</p>` : ''}
-        <p class="chips">${roleChips(m)}<span class="genre">${esc(m.genre || '')}</span></p>
+        ${genreHtml(m)}
       </div>`;
     return `<article class="srow item${m.pending ? ' is-pending' : ''}" ${dataAttrs(m)}>${wrapLink(m, 'srow__link', inner)}</article>`;
   }
@@ -116,9 +119,9 @@
     const n = numbering[m.id];
     const inner = `${matHtml(m, 'card', { dots: m.rank === 'A' })}
       <div class="meta"><span>${esc(m.brand)}</span><span>${esc(m.drivers)}</span></div>
-      <h3 class="name">${nameHtml(m)}</h3>
+      ${nameRow(m)}
       <p class="catch">${esc(m.catch || '（ひとこと未記入）')}</p>
-      <p class="chips">${roleChips(m)}<span class="genre">${esc(m.genre || '')}</span></p>`;
+      ${genreHtml(m)}`;
     return `<article class="card item${m.pending ? ' is-pending' : ''}" ${dataAttrs(m)}>${wrapLink(m, 'card__link', inner)}</article>`;
   }
   function lrowHtml(m) {
