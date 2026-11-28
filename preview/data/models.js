@@ -183,7 +183,7 @@ const MODELS = [
   {
     id:'himalaya', pending:true, brand:'NICEHCK', name:'Himalaya', rank:'BP', axis:['edge'], ev:'listened', photoPos:'50% 12%', photoZoom:1.25,
     drivers:'1DD', spec:'1DD / 22Ω / 110dB',
-    catch:'広さと足腰の強さ',
+    catch:'白銀に輝く雄々しき山脈',
     lead:'1DD枠は熱量型のLuciferがいるので、こちらは見通しと広さで勝負するタイプ。',
     genre:'スラッシュ・メロデス',
     good:['ステンレスノズル＋Ehecatlで、広い音場とパリッとした音',
