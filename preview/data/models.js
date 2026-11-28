@@ -202,6 +202,7 @@ const MODELS = [
       ['Nightwish - Ghost Love Score (Live)','https://youtu.be/JYjIlHWBAVo',true],
       ['Dark Tranquillity - Atoma','https://youtu.be/C_voh9WFbsM'],
       ['Sodom - Agent Orange','https://youtu.be/CjP2HZ4-5ps'],
+      ['Manowar - Warriors of the World United','https://youtu.be/16M6ZDbZRUg'],
     ],
     setup:'ステンレスノズル / SoundsGood Ehecatl / M5 Ultra', // イヤピ未記載。要確認
     related:[
