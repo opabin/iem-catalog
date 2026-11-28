@@ -175,7 +175,9 @@ const MODELS = [
       mid:['分厚いギター', '一歩引いたヴォーカル'], // TODO 3つ目（シンセ or ギターの質感）
       stage:['見通しの良い空間', '分離の良い定位', 'やや狭めでも立体的な音場'],
     },
-    songs:[],
+    songs:[
+      ['Marduk - With Satan and Victorious Weapons','https://youtu.be/xoMwNR9U2i4'],
+    ],
     setup:'TODO / TODO / M5 Ultra',
     related:[],
     log:[],
