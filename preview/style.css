@@ -271,10 +271,12 @@ a.lrow__link::after{content:'→';position:absolute;right:8px;top:50%;transform:
 .dlg__rank.is-S{text-shadow:3px 3px 0 var(--power),6px 6px 0 var(--edge),9px 9px 0 var(--atmosphere),12px 12px 0 var(--none)}
 .dlg__rank.is-sm{font-size:64px}
 .dlg__spec{font-family:var(--f-mono);font-size:12px;line-height:1.7;color:var(--sub)}
-.dlg__name{margin-top:32px;font-size:48px}
+.dlg__namerow{margin-top:32px}
+.dlg__name{font-size:48px}
+.dlg__namerow .chips{font-size:14px}
 .dlg__catch{margin-top:18px;font-weight:900;font-size:28px;line-height:1.5}
 .dlg__lead{margin-top:14px;font-size:15px}
-.dlg__info .chips{margin-top:20px}
+.dlg__genre{margin-top:20px;font-size:14px}
 
 .dsec{padding:36px 0 40px;border-top:var(--line)}
 .tone{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
@@ -521,7 +523,9 @@ button.vs__item{cursor:pointer}
   .dlg__info{flex-basis:100%;padding-top:24px}
   .dlg__rank{font-size:80px;text-shadow:4px 4px 0 var(--rk,var(--power))}
   .dlg__rank.is-S{text-shadow:2px 2px 0 var(--power),4px 4px 0 var(--edge),6px 6px 0 var(--atmosphere),8px 8px 0 var(--none)}
-  .dlg__name{margin-top:22px;font-size:34px}
+  .dlg__namerow{margin-top:22px}
+  .dlg__name{font-size:34px}
+  .dlg__namerow .chips{font-size:13px}
   .dlg__catch{margin-top:14px;font-size:22px}
   .dlg__lead{font-size:14px}
   .dsec{padding:26px 0 28px}

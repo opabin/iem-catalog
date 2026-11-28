@@ -452,10 +452,10 @@
             <div class="dlg__rank${m.rank === 'S' ? ' is-S' : ''}${r.label.length > 2 ? ' is-sm' : ''}" style="--rk:var(--${main || 'none'})">${r.label}</div>
             <div class="dlg__spec">${esc(m.brand)}<br>${esc(m.spec || m.drivers)}</div>
           </div>
-          <h2 class="name dlg__name" id="dlgTitle">${nameHtml(m)}</h2>
+          <div class="namerow dlg__namerow"><h2 class="name dlg__name" id="dlgTitle">${nameHtml(m)}</h2>${roleOf(m).length ? `<span class="chips">${roleChips(m)}</span>` : ''}</div>
           <p class="dlg__catch">${esc(m.catch)}</p>
           ${m.lead ? `<p class="dlg__lead">${esc(m.lead)}</p>` : ''}
-          <div class="chips">${roleChips(m)}<span>${esc(m.genre || '')}</span></div>
+          ${m.genre ? `<p class="genre dlg__genre">${esc(m.genre)}</p>` : ''}
         </div>
       </section>
 
